@@ -1,0 +1,8 @@
+asyncio
+aiohttp
+dotenv
+pandas
+pymongo
+sqlalchemy
+requests
+tqdm

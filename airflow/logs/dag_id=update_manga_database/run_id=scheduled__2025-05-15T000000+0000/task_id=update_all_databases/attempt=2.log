@@ -1,0 +1,187 @@
+[2025-05-16T04:43:24.639+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-05-16T04:43:24.662+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: update_manga_database.update_all_databases scheduled__2025-05-15T00:00:00+00:00 [queued]>
+[2025-05-16T04:43:24.673+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: update_manga_database.update_all_databases scheduled__2025-05-15T00:00:00+00:00 [queued]>
+[2025-05-16T04:43:24.674+0000] {taskinstance.py:2867} INFO - Starting attempt 2 of 2
+[2025-05-16T04:43:24.729+0000] {taskinstance.py:2890} INFO - Executing <Task(_PythonDecoratedOperator): update_all_databases> on 2025-05-15 00:00:00+00:00
+[2025-05-16T04:43:24.736+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=124) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-05-16T04:43:24.738+0000] {standard_task_runner.py:72} INFO - Started process 129 to run task
+[2025-05-16T04:43:24.738+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'update_manga_database', 'update_all_databases', 'scheduled__2025-05-15T00:00:00+00:00', '--job-id', '46', '--raw', '--subdir', 'DAGS_FOLDER/update_manga_database_dag.py', '--cfg-path', '/tmp/tmp4hubgw_k']
+[2025-05-16T04:43:24.740+0000] {standard_task_runner.py:105} INFO - Job 46: Subtask update_all_databases
+[2025-05-16T04:43:24.783+0000] {task_command.py:467} INFO - Running <TaskInstance: update_manga_database.update_all_databases scheduled__2025-05-15T00:00:00+00:00 [running]> on host 3729034b4972
+[2025-05-16T04:43:24.876+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='update_manga_database' AIRFLOW_CTX_TASK_ID='update_all_databases' AIRFLOW_CTX_EXECUTION_DATE='2025-05-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-05-15T00:00:00+00:00'
+[2025-05-16T04:43:24.878+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-05-16T04:43:24.878+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-05-16T04:43:24.879+0000] {logging_mixin.py:190} INFO - Current task name:update_all_databases state:running start_date:2025-05-16 04:43:24.663339+00:00
+[2025-05-16T04:43:24.879+0000] {logging_mixin.py:190} INFO - Dag name:update_manga_database and current dag run status:running
+[2025-05-16T04:43:24.880+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-05-16T04:43:24.882+0000] {log.py:232} WARNING - 2025-05-16 04:43:24,881 - INFO: Starting all database updates
+[2025-05-16T04:43:24.881+0000] {update_manga_database_dag.py:396} INFO - Starting all database updates
+[2025-05-16T04:43:24.892+0000] {log.py:232} WARNING - 2025-05-16 04:43:24,891 - INFO: Transaction started
+[2025-05-16T04:43:24.891+0000] {update_manga_database_dag.py:72} INFO - Transaction started
+[2025-05-16T04:43:24.898+0000] {log.py:232} WARNING - 2025-05-16 04:43:24,897 - INFO: Checking 2 manga for updates
+[2025-05-16T04:43:24.897+0000] {update_sequential.py:59} INFO - Checking 2 manga for updates
+[2025-05-16T04:43:29.528+0000] {log.py:232} WARNING - 2025-05-16 04:43:29,528 - INFO: Database update complete
+[2025-05-16T04:43:29.528+0000] {update_sequential.py:119} INFO - Database update complete
+[2025-05-16T04:43:29.530+0000] {log.py:232} WARNING - 2025-05-16 04:43:29,530 - INFO: SUMMARY: 0 manga updated, 0 manga added
+[2025-05-16T04:43:29.530+0000] {update_sequential.py:120} INFO - SUMMARY: 0 manga updated, 0 manga added
+[2025-05-16T04:43:29.531+0000] {log.py:232} WARNING - 2025-05-16 04:43:29,531 - INFO: Updated 0 manga
+[2025-05-16T04:43:29.531+0000] {update_manga_database_dag.py:412} INFO - Updated 0 manga
+[2025-05-16T04:43:29.533+0000] {log.py:232} WARNING - 2025-05-16 04:43:29,533 - INFO: Checking 1 chapters across 2 manga
+[2025-05-16T04:43:29.533+0000] {update_sequential.py:175} INFO - Checking 1 chapters across 2 manga
+[2025-05-16T04:43:30.334+0000] {log.py:232} WARNING - 2025-05-16 04:43:30,334 - INFO: Processing manga 4551679e-820b-42a5-85ff-d00ade797383, chapter 1 (ko)
+[2025-05-16T04:43:30.334+0000] {update_sequential.py:209} INFO - Processing manga 4551679e-820b-42a5-85ff-d00ade797383, chapter 1 (ko)
+[2025-05-16T04:43:30.335+0000] {log.py:232} WARNING - 2025-05-16 04:43:30,335 - INFO: Adding new chapter 1 (ko) for manga 4551679e-820b-42a5-85ff-d00ade797383
+[2025-05-16T04:43:30.335+0000] {update_sequential.py:244} INFO - Adding new chapter 1 (ko) for manga 4551679e-820b-42a5-85ff-d00ade797383
+[2025-05-16T04:43:30.874+0000] {log.py:232} WARNING - 2025-05-16 04:43:30,871 - INFO: Database update complete
+[2025-05-16T04:43:30.871+0000] {update_sequential.py:265} INFO - Database update complete
+[2025-05-16T04:43:30.878+0000] {log.py:232} WARNING - 2025-05-16 04:43:30,877 - INFO: Total chapters added/updated: 1
+[2025-05-16T04:43:30.877+0000] {update_sequential.py:269} INFO - Total chapters added/updated: 1
+[2025-05-16T04:43:30.883+0000] {log.py:232} WARNING - 2025-05-16 04:43:30,882 - INFO: Total chapters replaced with English translations: 0
+[2025-05-16T04:43:30.882+0000] {update_sequential.py:270} INFO - Total chapters replaced with English translations: 0
+[2025-05-16T04:43:30.886+0000] {log.py:232} WARNING - 2025-05-16 04:43:30,885 - ERROR: Failed to register chapter update for rollback: Boolean value of this clause is not defined
+[2025-05-16T04:43:30.885+0000] {update_manga_database_dag.py:159} ERROR - Failed to register chapter update for rollback: Boolean value of this clause is not defined
+[2025-05-16T04:43:30.889+0000] {log.py:232} WARNING - 2025-05-16 04:43:30,888 - ERROR: Update failed: Boolean value of this clause is not defined
+[2025-05-16T04:43:30.888+0000] {update_manga_database_dag.py:441} ERROR - Update failed: Boolean value of this clause is not defined
+[2025-05-16T04:43:30.892+0000] {log.py:232} WARNING - 2025-05-16 04:43:30,891 - WARNING: Starting transaction rollback
+[2025-05-16T04:43:30.891+0000] {update_manga_database_dag.py:188} WARNING - Starting transaction rollback
+[2025-05-16T04:43:30.894+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/opt/airflow/dags/update_manga_database_dag.py", line 419, in update_all_databases
+    transaction.register_chapter_update(updated_or_added_chapters, replaced_chapters)
+  File "/opt/airflow/dags/update_manga_database_dag.py", line 139, in register_chapter_update
+    if not self.chapter_table:
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 591, in __bool__
+    raise TypeError("Boolean value of this clause is not defined")
+TypeError: Boolean value of this clause is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/decorators/base.py", line 266, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/update_manga_database_dag.py", line 442, in update_all_databases
+    transaction.rollback()
+  File "/opt/airflow/dags/update_manga_database_dag.py", line 194, in rollback
+    if not self.mongo_collection and self.mongo_uri and self.mongo_db and self.mongo_collection_name:
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 311, in __bool__
+    raise NotImplementedError(
+NotImplementedError: Collection objects do not implement truth value testing or bool(). Please compare with None instead: collection is not None
+[2025-05-16T04:43:30.908+0000] {logging_mixin.py:190} INFO - Task instance in failure state
+[2025-05-16T04:43:30.909+0000] {logging_mixin.py:190} INFO - Task start:2025-05-16 04:43:24.663339+00:00 end:2025-05-16 04:43:30.907788+00:00 duration:6.244449
+[2025-05-16T04:43:30.910+0000] {logging_mixin.py:190} INFO - Task:<Task(_PythonDecoratedOperator): update_all_databases> dag:<DAG: update_manga_database> dagrun:<DagRun update_manga_database @ 2025-05-15 00:00:00+00:00: scheduled__2025-05-15T00:00:00+00:00, state:running, queued_at: 2025-05-16 04:42:42.042308+00:00. externally triggered: False>
+[2025-05-16T04:43:30.910+0000] {logging_mixin.py:190} INFO - Failure caused by Collection objects do not implement truth value testing or bool(). Please compare with None instead: collection is not None
+[2025-05-16T04:43:30.910+0000] {taskinstance.py:1226} INFO - Marking task as FAILED. dag_id=update_manga_database, task_id=update_all_databases, run_id=scheduled__2025-05-15T00:00:00+00:00, execution_date=20250515T000000, start_date=20250516T044324, end_date=20250516T044330
+[2025-05-16T04:43:30.935+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-05-16T04:43:30.936+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 46 for task update_all_databases (Collection objects do not implement truth value testing or bool(). Please compare with None instead: collection is not None; 129)
+Traceback (most recent call last):
+  File "/opt/airflow/dags/update_manga_database_dag.py", line 419, in update_all_databases
+    transaction.register_chapter_update(updated_or_added_chapters, replaced_chapters)
+  File "/opt/airflow/dags/update_manga_database_dag.py", line 139, in register_chapter_update
+    if not self.chapter_table:
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 591, in __bool__
+    raise TypeError("Boolean value of this clause is not defined")
+TypeError: Boolean value of this clause is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/decorators/base.py", line 266, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/update_manga_database_dag.py", line 442, in update_all_databases
+    transaction.rollback()
+  File "/opt/airflow/dags/update_manga_database_dag.py", line 194, in rollback
+    if not self.mongo_collection and self.mongo_uri and self.mongo_db and self.mongo_collection_name:
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 311, in __bool__
+    raise NotImplementedError(
+NotImplementedError: Collection objects do not implement truth value testing or bool(). Please compare with None instead: collection is not None
+[2025-05-16T04:43:30.988+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-05-16T04:43:31.002+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-16T04:43:31.006+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

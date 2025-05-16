@@ -1,0 +1,190 @@
+[2025-05-15T20:17:42.556+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-05-15T20:17:42.584+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: update_manga_database.fetch_and_process_chapter_data manual__2025-05-15T20:15:02.741590+00:00 [queued]>
+[2025-05-15T20:17:42.597+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: update_manga_database.fetch_and_process_chapter_data manual__2025-05-15T20:15:02.741590+00:00 [queued]>
+[2025-05-15T20:17:42.598+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-05-15T20:17:42.626+0000] {taskinstance.py:2890} INFO - Executing <Task(_PythonDecoratedOperator): fetch_and_process_chapter_data> on 2025-05-15 20:15:02.741590+00:00
+[2025-05-15T20:17:42.642+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1958) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-05-15T20:17:42.646+0000] {standard_task_runner.py:72} INFO - Started process 1963 to run task
+[2025-05-15T20:17:42.659+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'update_manga_database', 'fetch_and_process_chapter_data', 'manual__2025-05-15T20:15:02.741590+00:00', '--job-id', '24', '--raw', '--subdir', 'DAGS_FOLDER/update_manga_database_dag.py', '--cfg-path', '/tmp/tmp7k1i9drp']
+[2025-05-15T20:17:42.707+0000] {standard_task_runner.py:105} INFO - Job 24: Subtask fetch_and_process_chapter_data
+[2025-05-15T20:17:42.781+0000] {task_command.py:467} INFO - Running <TaskInstance: update_manga_database.fetch_and_process_chapter_data manual__2025-05-15T20:15:02.741590+00:00 [running]> on host 3729034b4972
+[2025-05-15T20:17:42.915+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='update_manga_database' AIRFLOW_CTX_TASK_ID='fetch_and_process_chapter_data' AIRFLOW_CTX_EXECUTION_DATE='2025-05-15T20:15:02.741590+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-15T20:15:02.741590+00:00'
+[2025-05-15T20:17:42.917+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-05-15T20:17:42.918+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-05-15T20:17:42.919+0000] {logging_mixin.py:190} INFO - Current task name:fetch_and_process_chapter_data state:running start_date:2025-05-15 20:17:42.584882+00:00
+[2025-05-15T20:17:42.919+0000] {logging_mixin.py:190} INFO - Dag name:update_manga_database and current dag run status:running
+[2025-05-15T20:17:42.919+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-05-15T20:17:42.921+0000] {log.py:232} WARNING - 2025-05-15 20:17:42,920 - INFO: Fetching chapter data
+[2025-05-15T20:17:42.920+0000] {update_manga_database_dag.py:362} INFO - Fetching chapter data
+[2025-05-15T20:17:42.932+0000] {logging_mixin.py:190} WARNING - 📚 Fetching chapters 2 weeks ago:   0%|          | 0/5 [00:00<?, ?it/s]
+[2025-05-15T20:17:43.197+0000] {log.py:232} WARNING - 2025-05-15 20:17:43,197 - WARNING: ⚠️ Error 400 fetching chapters for manga {'manga_id': 'd38389ac-caeb-4a4f-8483-589ddbaf50e1', 'title': 'Falling in the blue', 'alt_title': None, 'description': 'Entrega especial para o planeta Marte! O serviço de entrega intergaláctica Warp Inc. está se expandindo para o alcance externo e alguém precisa conduzir as viagens de longa distância. Mas será que duas crianças e um pássaro Kiwi em uma espaçonave quebrada serão realmente capazes de cumprir seus prazos de entrega? E, mais importante, eles serão capazes de descobrir o enredo sinistro escondido dentro de suas clássicas caixas de papelão antes que seja tarde demais para eles... e para o universo?', 'status': 'completed', 'year': 2021, 'created_at': '2025-05-15T18:39:18+00:00', 'updated_at': '2025-05-15T18:39:44+00:00'}
+[2025-05-15T20:17:43.197+0000] {crawler_instance.py:210} WARNING - ⚠️ Error 400 fetching chapters for manga {'manga_id': 'd38389ac-caeb-4a4f-8483-589ddbaf50e1', 'title': 'Falling in the blue', 'alt_title': None, 'description': 'Entrega especial para o planeta Marte! O serviço de entrega intergaláctica Warp Inc. está se expandindo para o alcance externo e alguém precisa conduzir as viagens de longa distância. Mas será que duas crianças e um pássaro Kiwi em uma espaçonave quebrada serão realmente capazes de cumprir seus prazos de entrega? E, mais importante, eles serão capazes de descobrir o enredo sinistro escondido dentro de suas clássicas caixas de papelão antes que seja tarde demais para eles... e para o universo?', 'status': 'completed', 'year': 2021, 'created_at': '2025-05-15T18:39:18+00:00', 'updated_at': '2025-05-15T18:39:44+00:00'}
+[2025-05-15T20:17:43.200+0000] {log.py:232} WARNING - 2025-05-15 20:17:43,199 - INFO: Manga {'manga_id': 'd38389ac-caeb-4a4f-8483-589ddbaf50e1', 'title': 'Falling in the blue', 'alt_title': None, 'description': 'Entrega especial para o planeta Marte! O serviço de entrega intergaláctica Warp Inc. está se expandindo para o alcance externo e alguém precisa conduzir as viagens de longa distância. Mas será que duas crianças e um pássaro Kiwi em uma espaçonave quebrada serão realmente capazes de cumprir seus prazos de entrega? E, mais importante, eles serão capazes de descobrir o enredo sinistro escondido dentro de suas clássicas caixas de papelão antes que seja tarde demais para eles... e para o universo?', 'status': 'completed', 'year': 2021, 'created_at': '2025-05-15T18:39:18+00:00', 'updated_at': '2025-05-15T18:39:44+00:00'} fetched 0 unique chapters.
+[2025-05-15T20:17:43.199+0000] {crawler_instance.py:245} INFO - Manga {'manga_id': 'd38389ac-caeb-4a4f-8483-589ddbaf50e1', 'title': 'Falling in the blue', 'alt_title': None, 'description': 'Entrega especial para o planeta Marte! O serviço de entrega intergaláctica Warp Inc. está se expandindo para o alcance externo e alguém precisa conduzir as viagens de longa distância. Mas será que duas crianças e um pássaro Kiwi em uma espaçonave quebrada serão realmente capazes de cumprir seus prazos de entrega? E, mais importante, eles serão capazes de descobrir o enredo sinistro escondido dentro de suas clássicas caixas de papelão antes que seja tarde demais para eles... e para o universo?', 'status': 'completed', 'year': 2021, 'created_at': '2025-05-15T18:39:18+00:00', 'updated_at': '2025-05-15T18:39:44+00:00'} fetched 0 unique chapters.
+[2025-05-15T20:17:43.203+0000] {logging_mixin.py:190} WARNING - 📚 Fetching chapters 2 weeks ago:  20%|##        | 1/5 [00:00<00:01,  3.73it/s]
+[2025-05-15T20:17:43.219+0000] {log.py:232} WARNING - 2025-05-15 20:17:43,219 - WARNING: ⚠️ Error 404 fetching chapters for manga {'manga_id': '192ec1c9-eb9a-4771-bb79-2b9bb4adbe0e', 'title': 'The Maid', 'alt_title': '하녀', 'description': "Kang Hana, a former girl group trainee, gives up everything and decides to have her baby after an unexpected pregnancy. She\n\ntemporarily leaves the baby in a baby box until she can save up for a housing deposit. But she then finds out that a famous actor-\n\ndirector couple has adopted her child. Determined to get her baby back, she becomes the babysitter in their home. But then she\n\ndiscovers that the wife, Angela, is transfusing the baby's blood—almost like a vampire. Kang Hana decides she must kill her", 'status': 'ongoing', 'year': 2025, 'created_at': '2025-05-15T17:07:10+00:00', 'updated_at': '2025-05-15T17:07:55+00:00'}
+[2025-05-15T20:17:43.219+0000] {crawler_instance.py:210} WARNING - ⚠️ Error 404 fetching chapters for manga {'manga_id': '192ec1c9-eb9a-4771-bb79-2b9bb4adbe0e', 'title': 'The Maid', 'alt_title': '하녀', 'description': "Kang Hana, a former girl group trainee, gives up everything and decides to have her baby after an unexpected pregnancy. She\n\ntemporarily leaves the baby in a baby box until she can save up for a housing deposit. But she then finds out that a famous actor-\n\ndirector couple has adopted her child. Determined to get her baby back, she becomes the babysitter in their home. But then she\n\ndiscovers that the wife, Angela, is transfusing the baby's blood—almost like a vampire. Kang Hana decides she must kill her", 'status': 'ongoing', 'year': 2025, 'created_at': '2025-05-15T17:07:10+00:00', 'updated_at': '2025-05-15T17:07:55+00:00'}
+[2025-05-15T20:17:43.221+0000] {log.py:232} WARNING - 2025-05-15 20:17:43,221 - INFO: Manga {'manga_id': '192ec1c9-eb9a-4771-bb79-2b9bb4adbe0e', 'title': 'The Maid', 'alt_title': '하녀', 'description': "Kang Hana, a former girl group trainee, gives up everything and decides to have her baby after an unexpected pregnancy. She\n\ntemporarily leaves the baby in a baby box until she can save up for a housing deposit. But she then finds out that a famous actor-\n\ndirector couple has adopted her child. Determined to get her baby back, she becomes the babysitter in their home. But then she\n\ndiscovers that the wife, Angela, is transfusing the baby's blood—almost like a vampire. Kang Hana decides she must kill her", 'status': 'ongoing', 'year': 2025, 'created_at': '2025-05-15T17:07:10+00:00', 'updated_at': '2025-05-15T17:07:55+00:00'} fetched 0 unique chapters.
+[2025-05-15T20:17:43.221+0000] {crawler_instance.py:245} INFO - Manga {'manga_id': '192ec1c9-eb9a-4771-bb79-2b9bb4adbe0e', 'title': 'The Maid', 'alt_title': '하녀', 'description': "Kang Hana, a former girl group trainee, gives up everything and decides to have her baby after an unexpected pregnancy. She\n\ntemporarily leaves the baby in a baby box until she can save up for a housing deposit. But she then finds out that a famous actor-\n\ndirector couple has adopted her child. Determined to get her baby back, she becomes the babysitter in their home. But then she\n\ndiscovers that the wife, Angela, is transfusing the baby's blood—almost like a vampire. Kang Hana decides she must kill her", 'status': 'ongoing', 'year': 2025, 'created_at': '2025-05-15T17:07:10+00:00', 'updated_at': '2025-05-15T17:07:55+00:00'} fetched 0 unique chapters.
+[2025-05-15T20:17:43.246+0000] {log.py:232} WARNING - 2025-05-15 20:17:43,245 - WARNING: ⚠️ Error 404 fetching chapters for manga {'manga_id': 'e82fb7dd-edff-4593-9fff-760f018f6703', 'title': 'There May Be Something There That Wasn’t There Before - Haikyuu dj', 'alt_title': 'Puede que haya algo que no habia antes - Haikyuu dj', 'description': None, 'status': 'completed', 'year': 2013, 'created_at': '2025-05-15T18:45:22+00:00', 'updated_at': '2025-05-15T18:45:38+00:00'}
+[2025-05-15T20:17:43.245+0000] {crawler_instance.py:210} WARNING - ⚠️ Error 404 fetching chapters for manga {'manga_id': 'e82fb7dd-edff-4593-9fff-760f018f6703', 'title': 'There May Be Something There That Wasn’t There Before - Haikyuu dj', 'alt_title': 'Puede que haya algo que no habia antes - Haikyuu dj', 'description': None, 'status': 'completed', 'year': 2013, 'created_at': '2025-05-15T18:45:22+00:00', 'updated_at': '2025-05-15T18:45:38+00:00'}
+[2025-05-15T20:17:43.247+0000] {log.py:232} WARNING - 2025-05-15 20:17:43,247 - INFO: Manga {'manga_id': 'e82fb7dd-edff-4593-9fff-760f018f6703', 'title': 'There May Be Something There That Wasn’t There Before - Haikyuu dj', 'alt_title': 'Puede que haya algo que no habia antes - Haikyuu dj', 'description': None, 'status': 'completed', 'year': 2013, 'created_at': '2025-05-15T18:45:22+00:00', 'updated_at': '2025-05-15T18:45:38+00:00'} fetched 0 unique chapters.
+[2025-05-15T20:17:43.247+0000] {crawler_instance.py:245} INFO - Manga {'manga_id': 'e82fb7dd-edff-4593-9fff-760f018f6703', 'title': 'There May Be Something There That Wasn’t There Before - Haikyuu dj', 'alt_title': 'Puede que haya algo que no habia antes - Haikyuu dj', 'description': None, 'status': 'completed', 'year': 2013, 'created_at': '2025-05-15T18:45:22+00:00', 'updated_at': '2025-05-15T18:45:38+00:00'} fetched 0 unique chapters.
+[2025-05-15T20:17:43.249+0000] {log.py:232} WARNING - 2025-05-15 20:17:43,249 - WARNING: ⚠️ Error 400 fetching chapters for manga {'manga_id': '8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db', 'title': 'I Reincarnated as a Parenting Story Extra', 'alt_title': '육아물 엑스트라로 빙의했다', 'description': 'I possessed a mere maid in a Northern Duke’s household—just a background character in a romance-fantasy novel.\n\nA lifetime job with stability, as long as I keep my head down and stay out of trouble? Sounds perfect!\n\nI planned to save up quietly and one day escape for a peaceful life...\n\nBut then—\n\n“You went to… a Korean cyber university?”\n\n“How… how could Annie know that…?”\n\nThe heroine—reincarnated from modern Korea—found out I’m a transmigrator too!\n\nNow I’m stuck to her like glue, constantly in her spotlight… and worse, her overprotective brother starts to take notice.\n\n“You want to quit your job? Who said you could?”\n\nThe male lead of this childcare story—the one I thought would ignore me—has become obsessed!\n\nHelp! I’m just an extra!\n\nAnnie’s chaotic survival tale as an ordinary extra in a not-so-ordinary childcare drama begins!', 'status': 'ongoing', 'year': 2025, 'created_at': '2025-05-15T16:44:13+00:00', 'updated_at': '2025-05-15T16:44:32+00:00'}
+[2025-05-15T20:17:43.249+0000] {crawler_instance.py:210} WARNING - ⚠️ Error 400 fetching chapters for manga {'manga_id': '8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db', 'title': 'I Reincarnated as a Parenting Story Extra', 'alt_title': '육아물 엑스트라로 빙의했다', 'description': 'I possessed a mere maid in a Northern Duke’s household—just a background character in a romance-fantasy novel.\n\nA lifetime job with stability, as long as I keep my head down and stay out of trouble? Sounds perfect!\n\nI planned to save up quietly and one day escape for a peaceful life...\n\nBut then—\n\n“You went to… a Korean cyber university?”\n\n“How… how could Annie know that…?”\n\nThe heroine—reincarnated from modern Korea—found out I’m a transmigrator too!\n\nNow I’m stuck to her like glue, constantly in her spotlight… and worse, her overprotective brother starts to take notice.\n\n“You want to quit your job? Who said you could?”\n\nThe male lead of this childcare story—the one I thought would ignore me—has become obsessed!\n\nHelp! I’m just an extra!\n\nAnnie’s chaotic survival tale as an ordinary extra in a not-so-ordinary childcare drama begins!', 'status': 'ongoing', 'year': 2025, 'created_at': '2025-05-15T16:44:13+00:00', 'updated_at': '2025-05-15T16:44:32+00:00'}
+[2025-05-15T20:17:43.250+0000] {log.py:232} WARNING - 2025-05-15 20:17:43,250 - INFO: Manga {'manga_id': '8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db', 'title': 'I Reincarnated as a Parenting Story Extra', 'alt_title': '육아물 엑스트라로 빙의했다', 'description': 'I possessed a mere maid in a Northern Duke’s household—just a background character in a romance-fantasy novel.\n\nA lifetime job with stability, as long as I keep my head down and stay out of trouble? Sounds perfect!\n\nI planned to save up quietly and one day escape for a peaceful life...\n\nBut then—\n\n“You went to… a Korean cyber university?”\n\n“How… how could Annie know that…?”\n\nThe heroine—reincarnated from modern Korea—found out I’m a transmigrator too!\n\nNow I’m stuck to her like glue, constantly in her spotlight… and worse, her overprotective brother starts to take notice.\n\n“You want to quit your job? Who said you could?”\n\nThe male lead of this childcare story—the one I thought would ignore me—has become obsessed!\n\nHelp! I’m just an extra!\n\nAnnie’s chaotic survival tale as an ordinary extra in a not-so-ordinary childcare drama begins!', 'status': 'ongoing', 'year': 2025, 'created_at': '2025-05-15T16:44:13+00:00', 'updated_at': '2025-05-15T16:44:32+00:00'} fetched 0 unique chapters.
+[2025-05-15T20:17:43.250+0000] {crawler_instance.py:245} INFO - Manga {'manga_id': '8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db', 'title': 'I Reincarnated as a Parenting Story Extra', 'alt_title': '육아물 엑스트라로 빙의했다', 'description': 'I possessed a mere maid in a Northern Duke’s household—just a background character in a romance-fantasy novel.\n\nA lifetime job with stability, as long as I keep my head down and stay out of trouble? Sounds perfect!\n\nI planned to save up quietly and one day escape for a peaceful life...\n\nBut then—\n\n“You went to… a Korean cyber university?”\n\n“How… how could Annie know that…?”\n\nThe heroine—reincarnated from modern Korea—found out I’m a transmigrator too!\n\nNow I’m stuck to her like glue, constantly in her spotlight… and worse, her overprotective brother starts to take notice.\n\n“You want to quit your job? Who said you could?”\n\nThe male lead of this childcare story—the one I thought would ignore me—has become obsessed!\n\nHelp! I’m just an extra!\n\nAnnie’s chaotic survival tale as an ordinary extra in a not-so-ordinary childcare drama begins!', 'status': 'ongoing', 'year': 2025, 'created_at': '2025-05-15T16:44:13+00:00', 'updated_at': '2025-05-15T16:44:32+00:00'} fetched 0 unique chapters.
+[2025-05-15T20:17:43.266+0000] {log.py:232} WARNING - 2025-05-15 20:17:43,266 - WARNING: ⚠️ Error 404 fetching chapters for manga {'manga_id': '3de96e80-6feb-450c-a169-053d40c01063', 'title': "The Fairy's Wish", 'alt_title': '선녀의 소원', 'description': "Among all creatures born of nature, dragons are revered as the most sacred.\n\nLegend has it that a dragon's *yeouiju* — a mystical orb — holds the power to grant any wish.\n\nOne day, a celestial maiden named Seolha discovers a dragon hatchling. Hoping he might one day fulfill her deepest desire, she takes him in.\n\nBut as the young dragon, Yuseong, grows, so too does the bond between them — and Seolha finds herself irresistibly drawn to him...", 'status': 'ongoing', 'year': 2025, 'created_at': '2025-05-15T16:57:43+00:00', 'updated_at': '2025-05-15T17:00:11+00:00'}
+[2025-05-15T20:17:43.266+0000] {crawler_instance.py:210} WARNING - ⚠️ Error 404 fetching chapters for manga {'manga_id': '3de96e80-6feb-450c-a169-053d40c01063', 'title': "The Fairy's Wish", 'alt_title': '선녀의 소원', 'description': "Among all creatures born of nature, dragons are revered as the most sacred.\n\nLegend has it that a dragon's *yeouiju* — a mystical orb — holds the power to grant any wish.\n\nOne day, a celestial maiden named Seolha discovers a dragon hatchling. Hoping he might one day fulfill her deepest desire, she takes him in.\n\nBut as the young dragon, Yuseong, grows, so too does the bond between them — and Seolha finds herself irresistibly drawn to him...", 'status': 'ongoing', 'year': 2025, 'created_at': '2025-05-15T16:57:43+00:00', 'updated_at': '2025-05-15T17:00:11+00:00'}
+[2025-05-15T20:17:43.268+0000] {log.py:232} WARNING - 2025-05-15 20:17:43,268 - INFO: Manga {'manga_id': '3de96e80-6feb-450c-a169-053d40c01063', 'title': "The Fairy's Wish", 'alt_title': '선녀의 소원', 'description': "Among all creatures born of nature, dragons are revered as the most sacred.\n\nLegend has it that a dragon's *yeouiju* — a mystical orb — holds the power to grant any wish.\n\nOne day, a celestial maiden named Seolha discovers a dragon hatchling. Hoping he might one day fulfill her deepest desire, she takes him in.\n\nBut as the young dragon, Yuseong, grows, so too does the bond between them — and Seolha finds herself irresistibly drawn to him...", 'status': 'ongoing', 'year': 2025, 'created_at': '2025-05-15T16:57:43+00:00', 'updated_at': '2025-05-15T17:00:11+00:00'} fetched 0 unique chapters.
+[2025-05-15T20:17:43.268+0000] {crawler_instance.py:245} INFO - Manga {'manga_id': '3de96e80-6feb-450c-a169-053d40c01063', 'title': "The Fairy's Wish", 'alt_title': '선녀의 소원', 'description': "Among all creatures born of nature, dragons are revered as the most sacred.\n\nLegend has it that a dragon's *yeouiju* — a mystical orb — holds the power to grant any wish.\n\nOne day, a celestial maiden named Seolha discovers a dragon hatchling. Hoping he might one day fulfill her deepest desire, she takes him in.\n\nBut as the young dragon, Yuseong, grows, so too does the bond between them — and Seolha finds herself irresistibly drawn to him...", 'status': 'ongoing', 'year': 2025, 'created_at': '2025-05-15T16:57:43+00:00', 'updated_at': '2025-05-15T17:00:11+00:00'} fetched 0 unique chapters.
+[2025-05-15T20:17:43.269+0000] {logging_mixin.py:190} WARNING - 📚 Fetching chapters 2 weeks ago: 100%|##########| 5/5 [00:00<00:00, 14.87it/s]
+[2025-05-15T20:17:43.273+0000] {log.py:232} WARNING - 2025-05-15 20:17:43,272 - ERROR: Failed to fetch/process chapter data: unhashable type: 'dict'
+[2025-05-15T20:17:43.272+0000] {update_manga_database_dag.py:372} ERROR - Failed to fetch/process chapter data: unhashable type: 'dict'
+[2025-05-15T20:17:43.294+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/opt/airflow/dags/update_manga_database_dag.py", line 364, in fetch_and_process_chapter_data
+    new_chapters = asyncio.run(chapter_crawler.fetch_all_chapters(changed_manga_ids))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/opt/airflow/src/crawler/crawler_instance.py", line 267, in fetch_all_chapters
+    return {k: v for k, v in results}
+            ^^^^
+TypeError: unhashable type: 'dict'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/decorators/base.py", line 266, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/update_manga_database_dag.py", line 373, in fetch_and_process_chapter_data
+    raise AirflowException(f"Chapter data fetch/process failed: {str(e)}")
+airflow.exceptions.AirflowException: Chapter data fetch/process failed: unhashable type: 'dict'
+[2025-05-15T20:17:43.316+0000] {logging_mixin.py:190} INFO - Task instance in failure state
+[2025-05-15T20:17:43.317+0000] {logging_mixin.py:190} INFO - Task start:2025-05-15 20:17:42.584882+00:00 end:2025-05-15 20:17:43.315934+00:00 duration:0.731052
+[2025-05-15T20:17:43.318+0000] {logging_mixin.py:190} INFO - Task:<Task(_PythonDecoratedOperator): fetch_and_process_chapter_data> dag:<DAG: update_manga_database> dagrun:<DagRun update_manga_database @ 2025-05-15 20:15:02.741590+00:00: manual__2025-05-15T20:15:02.741590+00:00, state:running, queued_at: 2025-05-15 20:15:02.765420+00:00. externally triggered: True>
+[2025-05-15T20:17:43.319+0000] {logging_mixin.py:190} INFO - Failure caused by Chapter data fetch/process failed: unhashable type: 'dict'
+[2025-05-15T20:17:43.319+0000] {taskinstance.py:1226} INFO - Marking task as UP_FOR_RETRY. dag_id=update_manga_database, task_id=fetch_and_process_chapter_data, run_id=manual__2025-05-15T20:15:02.741590+00:00, execution_date=20250515T201502, start_date=20250515T201742, end_date=20250515T201743
+[2025-05-15T20:17:43.362+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-05-15T20:17:43.363+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 24 for task fetch_and_process_chapter_data (Chapter data fetch/process failed: unhashable type: 'dict'; 1963)
+Traceback (most recent call last):
+  File "/opt/airflow/dags/update_manga_database_dag.py", line 364, in fetch_and_process_chapter_data
+    new_chapters = asyncio.run(chapter_crawler.fetch_all_chapters(changed_manga_ids))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/opt/airflow/src/crawler/crawler_instance.py", line 267, in fetch_all_chapters
+    return {k: v for k, v in results}
+            ^^^^
+TypeError: unhashable type: 'dict'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/decorators/base.py", line 266, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/update_manga_database_dag.py", line 373, in fetch_and_process_chapter_data
+    raise AirflowException(f"Chapter data fetch/process failed: {str(e)}")
+airflow.exceptions.AirflowException: Chapter data fetch/process failed: unhashable type: 'dict'
+[2025-05-15T20:17:43.426+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-05-15T20:17:43.452+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-15T20:17:43.456+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

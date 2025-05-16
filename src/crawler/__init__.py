@@ -1,0 +1,1 @@
+from .crawler_instance import MangaDexMangaCrawler, MangaDexChapterCrawler, MangaDexImageCrawler

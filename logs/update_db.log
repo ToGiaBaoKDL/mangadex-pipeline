@@ -1,0 +1,150 @@
+2025-05-14 11:55:20,539 - INFO: ==================================================
+2025-05-14 11:55:20,539 - INFO: Starting database update script
+2025-05-14 11:55:20,543 - INFO: Starting database update process with transaction support
+2025-05-14 11:55:20,544 - INFO: Successfully connected to PostgresSQL database
+2025-05-14 11:55:22,139 - INFO: Successfully connected to MongoDB
+2025-05-14 11:55:22,140 - INFO: Transaction started
+2025-05-14 11:55:22,140 - INFO: Starting manga data update
+2025-05-14 11:55:22,513 - INFO: Collected 2/2 manga...
+2025-05-14 11:55:22,516 - INFO: Checking 2 manga for updates
+2025-05-14 11:55:26,917 - INFO: ADDED: The Fake Master Who Accidentally Became the Strongest (ID: cad50822-3589-40aa-9cbf-d96a2ccc6384)
+2025-05-14 11:55:27,179 - INFO: ADDED: Hara wa Chibuu (ID: 678dd650-28b0-4b18-a936-1cb8c072745a)
+2025-05-14 11:55:27,439 - INFO: Database update complete
+2025-05-14 11:55:27,439 - INFO: SUMMARY: 0 manga updated, 2 manga added
+2025-05-14 11:55:27,969 - INFO: Registered manga rollback data for 2 manga IDs
+2025-05-14 11:55:27,970 - INFO: Successfully updated manga data, 2 manga changed
+2025-05-14 11:55:27,970 - INFO: Starting chapter data update
+2025-05-14 11:55:28,269 - INFO: Manga 678dd650-28b0-4b18-a936-1cb8c072745a fetched 0 unique chapters.
+2025-05-14 11:55:28,310 - INFO: Manga cad50822-3589-40aa-9cbf-d96a2ccc6384 fetched 4 unique chapters.
+2025-05-14 11:55:28,311 - INFO: Checking 4 chapters across 2 manga
+2025-05-14 11:55:30,381 - INFO: Processing manga cad50822-3589-40aa-9cbf-d96a2ccc6384, chapter 1 (en)
+2025-05-14 11:55:30,381 - INFO: Adding new chapter 1 (en) for manga cad50822-3589-40aa-9cbf-d96a2ccc6384
+2025-05-14 11:55:30,681 - INFO: Processing manga cad50822-3589-40aa-9cbf-d96a2ccc6384, chapter 2 (en)
+2025-05-14 11:55:30,681 - INFO: Adding new chapter 2 (en) for manga cad50822-3589-40aa-9cbf-d96a2ccc6384
+2025-05-14 11:55:30,970 - INFO: Processing manga cad50822-3589-40aa-9cbf-d96a2ccc6384, chapter 3 (en)
+2025-05-14 11:55:30,970 - INFO: Adding new chapter 3 (en) for manga cad50822-3589-40aa-9cbf-d96a2ccc6384
+2025-05-14 11:55:31,264 - INFO: Processing manga cad50822-3589-40aa-9cbf-d96a2ccc6384, chapter 4 (en)
+2025-05-14 11:55:31,264 - INFO: Adding new chapter 4 (en) for manga cad50822-3589-40aa-9cbf-d96a2ccc6384
+2025-05-14 11:55:31,855 - INFO: Database update complete
+2025-05-14 11:55:31,855 - INFO: Total chapters added/updated: 4
+2025-05-14 11:55:31,855 - INFO: Total chapters replaced with English translations: 0
+2025-05-14 11:55:32,117 - INFO: Registered chapter rollback data for 4 chapter IDs
+2025-05-14 11:55:32,117 - INFO: Successfully updated chapter data, 4 chapters updated/added
+2025-05-14 11:55:32,117 - INFO: Starting image data update
+2025-05-14 11:55:32,369 - INFO: Fetched 16 images for chapter 66aeaa6b-582b-4835-b36e-7e87ca62a30c
+2025-05-14 11:55:32,448 - INFO: Fetched 14 images for chapter 937c95b5-d2af-4bb9-97e4-bda454d0c04e
+2025-05-14 11:55:32,520 - INFO: Fetched 14 images for chapter c74b2880-2526-478d-846b-16f2b90fa4cc
+2025-05-14 11:55:32,647 - INFO: Fetched 14 images for chapter 08aa3fab-4051-47a9-a9fd-bdc64b52a958
+2025-05-14 11:55:33,076 - INFO: Checking for existing chapters...
+2025-05-14 11:55:33,347 - INFO: Starting MongoDB bulk update with 4 new chapters...
+2025-05-14 11:55:33,614 - INFO: MongoDB update completed: Inserted: 4 | Duplicates skipped: 0
+2025-05-14 11:55:33,614 - INFO: Successfully updated image data, 4 chapters inserted, 0 skipped
+2025-05-14 11:55:33,614 - INFO: Registered image rollback data for 4 new chapters and 0 deleted chapters
+2025-05-14 11:55:33,875 - INFO: Transaction committed successfully
+2025-05-14 11:55:33,875 - INFO: Database update process completed successfully
+2025-05-14 11:55:33,879 - INFO: Database update script completed
+2025-05-14 11:55:33,879 - INFO: ==================================================
+2025-05-16 03:43:19,233 - INFO: ==================================================
+2025-05-16 03:43:19,233 - INFO: Starting database update script
+2025-05-16 03:43:19,234 - INFO: Starting database update process with transaction support
+2025-05-16 03:43:19,235 - INFO: Successfully connected to PostgresSQL database
+2025-05-16 03:43:20,990 - INFO: Successfully connected to MongoDB
+2025-05-16 03:43:20,993 - INFO: Transaction started
+2025-05-16 03:43:20,993 - INFO: Starting manga data update
+2025-05-16 03:43:21,260 - INFO: Collected 5/14 manga...
+2025-05-16 03:43:21,514 - INFO: Checking 5 manga for updates
+2025-05-16 03:43:26,257 - INFO: Database update complete
+2025-05-16 03:43:26,257 - INFO: SUMMARY: 0 manga updated, 0 manga added
+2025-05-16 03:43:26,257 - INFO: Successfully updated manga data, 0 manga changed
+2025-05-16 03:43:26,257 - INFO: No manga changes detected, skipping chapter and image updates
+2025-05-16 03:43:26,257 - INFO: Transaction committed successfully
+2025-05-16 03:43:26,258 - INFO: Database update process completed successfully
+2025-05-16 03:43:26,259 - INFO: Database update script completed
+2025-05-16 03:43:26,259 - INFO: ==================================================
+2025-05-16 03:44:02,239 - INFO: ==================================================
+2025-05-16 03:44:02,239 - INFO: Starting database update script
+2025-05-16 03:44:02,239 - INFO: Starting database update process with transaction support
+2025-05-16 03:44:02,240 - INFO: Successfully connected to PostgresSQL database
+2025-05-16 03:44:03,984 - INFO: Successfully connected to MongoDB
+2025-05-16 03:44:03,986 - INFO: Transaction started
+2025-05-16 03:44:03,986 - INFO: Starting manga data update
+2025-05-16 03:44:04,199 - INFO: Collected 14/14 manga...
+2025-05-16 03:44:04,201 - INFO: Checking 14 manga for updates
+2025-05-16 03:44:08,528 - INFO: ADDED: Every Day is a Good Day When There's Love (ID: e195fc69-5e5c-4410-84fe-268daef38fbc)
+2025-05-16 03:44:08,783 - INFO: ADDED: Siren: The Beginning of the Curse (ID: e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4)
+2025-05-16 03:44:09,040 - INFO: ADDED: Yoki Himo to Yoki Kainushi (ID: 051f9e5b-72d9-4d32-ac41-2441c2c03a67)
+2025-05-16 03:44:09,295 - INFO: ADDED: SEVEN TEEN COP (ID: c5206869-59c1-4988-8c6f-9fcaa71a2c16)
+2025-05-16 03:44:09,548 - INFO: ADDED: Kono Ao ni Koi wo Shita (ID: de5038a8-898a-4149-a93e-756243cc09e0)
+2025-05-16 03:44:09,802 - INFO: ADDED: Puri ☆ Hani (ID: 582248de-5dec-436c-835e-127e750445fb)
+2025-05-16 03:44:10,059 - INFO: ADDED: Rental Kareshi (ID: 3f403042-3b37-489a-8df2-8f59a1dd6300)
+2025-05-16 03:44:10,312 - INFO: ADDED: Paris no Koibitotachi (ID: 837db806-4dc6-4bbb-9263-374eaca2eb57)
+2025-05-16 03:44:10,566 - INFO: ADDED: Wana ni Kakatta Cinderella (ID: a8587671-e75c-495c-82fb-801e594e46a1)
+2025-05-16 03:44:10,820 - INFO: Database update complete
+2025-05-16 03:44:10,820 - INFO: SUMMARY: 0 manga updated, 9 manga added
+2025-05-16 03:44:11,329 - INFO: Registered manga rollback data for 9 manga IDs
+2025-05-16 03:44:11,329 - INFO: Successfully updated manga data, 9 manga changed
+2025-05-16 03:44:11,329 - INFO: Starting chapter data update
+2025-05-16 03:44:11,551 - INFO: Manga 051f9e5b-72d9-4d32-ac41-2441c2c03a67 fetched 1 unique chapters.
+2025-05-16 03:44:11,570 - INFO: Manga e195fc69-5e5c-4410-84fe-268daef38fbc fetched 1 unique chapters.
+2025-05-16 03:44:11,580 - INFO: Manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4 fetched 11 unique chapters.
+2025-05-16 03:44:11,599 - INFO: Manga c5206869-59c1-4988-8c6f-9fcaa71a2c16 fetched 0 unique chapters.
+2025-05-16 03:44:11,697 - INFO: Manga de5038a8-898a-4149-a93e-756243cc09e0 fetched 0 unique chapters.
+2025-05-16 03:44:11,709 - INFO: Manga 582248de-5dec-436c-835e-127e750445fb fetched 0 unique chapters.
+2025-05-16 03:44:11,729 - INFO: Manga 3f403042-3b37-489a-8df2-8f59a1dd6300 fetched 0 unique chapters.
+2025-05-16 03:44:11,742 - INFO: Manga 837db806-4dc6-4bbb-9263-374eaca2eb57 fetched 0 unique chapters.
+2025-05-16 03:44:11,817 - INFO: Manga a8587671-e75c-495c-82fb-801e594e46a1 fetched 0 unique chapters.
+2025-05-16 03:44:11,820 - INFO: Checking 13 chapters across 9 manga
+2025-05-16 03:44:13,762 - INFO: Processing manga e195fc69-5e5c-4410-84fe-268daef38fbc, chapter None (en)
+2025-05-16 03:44:13,762 - INFO: Adding new chapter None (en) for manga e195fc69-5e5c-4410-84fe-268daef38fbc
+2025-05-16 03:44:14,036 - INFO: Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 1 (en)
+2025-05-16 03:44:14,036 - INFO: Adding new chapter 1 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+2025-05-16 03:44:14,313 - INFO: Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 2 (en)
+2025-05-16 03:44:14,313 - INFO: Adding new chapter 2 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+2025-05-16 03:44:14,586 - INFO: Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 3 (en)
+2025-05-16 03:44:14,586 - INFO: Adding new chapter 3 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+2025-05-16 03:44:14,859 - INFO: Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 4 (en)
+2025-05-16 03:44:14,859 - INFO: Adding new chapter 4 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+2025-05-16 03:44:15,137 - INFO: Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 5 (en)
+2025-05-16 03:44:15,137 - INFO: Adding new chapter 5 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+2025-05-16 03:44:15,409 - INFO: Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 6 (en)
+2025-05-16 03:44:15,409 - INFO: Adding new chapter 6 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+2025-05-16 03:44:15,683 - INFO: Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 7 (en)
+2025-05-16 03:44:15,684 - INFO: Adding new chapter 7 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+2025-05-16 03:44:15,958 - INFO: Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 8 (en)
+2025-05-16 03:44:15,958 - INFO: Adding new chapter 8 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+2025-05-16 03:44:16,230 - INFO: Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 9 (en)
+2025-05-16 03:44:16,231 - INFO: Adding new chapter 9 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+2025-05-16 03:44:16,505 - INFO: Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 10 (en)
+2025-05-16 03:44:16,505 - INFO: Adding new chapter 10 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+2025-05-16 03:44:16,778 - INFO: Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 11 (en)
+2025-05-16 03:44:16,778 - INFO: Adding new chapter 11 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+2025-05-16 03:44:17,050 - INFO: Processing manga 051f9e5b-72d9-4d32-ac41-2441c2c03a67, chapter 0 (en)
+2025-05-16 03:44:17,051 - INFO: Adding new chapter 0 (en) for manga 051f9e5b-72d9-4d32-ac41-2441c2c03a67
+2025-05-16 03:44:17,613 - INFO: Database update complete
+2025-05-16 03:44:17,613 - INFO: Total chapters added/updated: 13
+2025-05-16 03:44:17,613 - INFO: Total chapters replaced with English translations: 0
+2025-05-16 03:44:17,869 - INFO: Registered chapter rollback data for 13 chapter IDs
+2025-05-16 03:44:17,869 - INFO: Successfully updated chapter data, 13 chapters updated/added
+2025-05-16 03:44:17,869 - INFO: Starting image data update
+2025-05-16 03:44:18,089 - INFO: Fetched 22 images for chapter 971668bb-24d4-4a02-a53f-21f7be8b9685
+2025-05-16 03:44:18,123 - INFO: Fetched 54 images for chapter ed9723d3-06f4-4396-aa32-37fa2b10231f
+2025-05-16 03:44:18,226 - INFO: Fetched 37 images for chapter ea538fa8-e518-4baf-8150-bbeef6ff5509
+2025-05-16 03:44:18,294 - INFO: Fetched 36 images for chapter 7f9cf233-33de-4641-84c4-819dddcda0cd
+2025-05-16 03:44:18,382 - INFO: Fetched 34 images for chapter 710ac6e0-39fc-48f1-ae84-3c805c61dc81
+2025-05-16 03:44:18,490 - INFO: Fetched 35 images for chapter 3fbe55c3-9785-4874-89b3-ba8e0b035a72
+2025-05-16 03:44:18,524 - INFO: Fetched 32 images for chapter 9e17a307-cb2d-4923-9f36-949600129a49
+2025-05-16 03:44:18,658 - INFO: Fetched 31 images for chapter ee79f063-8fcd-4f58-92e8-d58e48c170fd
+2025-05-16 03:44:18,676 - INFO: Fetched 32 images for chapter f3dcd0d6-83dc-48f2-8685-2b90320788b2
+2025-05-16 03:44:18,828 - INFO: Fetched 31 images for chapter 3b9f350a-e4d2-4d9f-b382-77f8d3084e1f
+2025-05-16 03:44:18,848 - INFO: Fetched 26 images for chapter b785b05e-0d84-454c-a13c-80141f061788
+2025-05-16 03:44:18,981 - INFO: Fetched 31 images for chapter a660aaf0-2b7d-4034-b998-24640ff1ad00
+2025-05-16 03:44:19,013 - INFO: Fetched 28 images for chapter d87d2e44-6984-4fcd-bf88-011a1c9e0a99
+2025-05-16 03:44:20,790 - INFO: Checking for existing chapters...
+2025-05-16 03:44:21,075 - INFO: Starting MongoDB bulk update with 13 new chapters...
+2025-05-16 03:44:21,926 - INFO: MongoDB update completed: Inserted: 13 | Duplicates skipped: 0
+2025-05-16 03:44:21,927 - INFO: Successfully updated image data, 13 chapters inserted, 0 skipped
+2025-05-16 03:44:21,927 - INFO: Registered image rollback data for 13 new chapters and 0 deleted chapters
+2025-05-16 03:44:22,180 - INFO: Transaction committed successfully
+2025-05-16 03:44:22,180 - INFO: Database update process completed successfully
+2025-05-16 03:44:22,183 - INFO: Database update script completed
+2025-05-16 03:44:22,183 - INFO: ==================================================

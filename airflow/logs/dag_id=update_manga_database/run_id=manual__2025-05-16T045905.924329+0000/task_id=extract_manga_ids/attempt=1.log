@@ -1,0 +1,28 @@
+[2025-05-16T04:59:12.224+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-05-16T04:59:12.244+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: update_manga_database.extract_manga_ids manual__2025-05-16T04:59:05.924329+00:00 [queued]>
+[2025-05-16T04:59:12.252+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: update_manga_database.extract_manga_ids manual__2025-05-16T04:59:05.924329+00:00 [queued]>
+[2025-05-16T04:59:12.253+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-05-16T04:59:12.266+0000] {taskinstance.py:2890} INFO - Executing <Task(_PythonDecoratedOperator): extract_manga_ids> on 2025-05-16 04:59:05.924329+00:00
+[2025-05-16T04:59:12.273+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=357) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-05-16T04:59:12.274+0000] {standard_task_runner.py:72} INFO - Started process 362 to run task
+[2025-05-16T04:59:12.276+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'update_manga_database', 'extract_manga_ids', 'manual__2025-05-16T04:59:05.924329+00:00', '--job-id', '49', '--raw', '--subdir', 'DAGS_FOLDER/update_manga_database_dag.py', '--cfg-path', '/tmp/tmpyask617m']
+[2025-05-16T04:59:12.277+0000] {standard_task_runner.py:105} INFO - Job 49: Subtask extract_manga_ids
+[2025-05-16T04:59:12.321+0000] {task_command.py:467} INFO - Running <TaskInstance: update_manga_database.extract_manga_ids manual__2025-05-16T04:59:05.924329+00:00 [running]> on host 3729034b4972
+[2025-05-16T04:59:12.405+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='update_manga_database' AIRFLOW_CTX_TASK_ID='extract_manga_ids' AIRFLOW_CTX_EXECUTION_DATE='2025-05-16T04:59:05.924329+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-16T04:59:05.924329+00:00'
+[2025-05-16T04:59:12.407+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-05-16T04:59:12.408+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-05-16T04:59:12.409+0000] {logging_mixin.py:190} INFO - Current task name:extract_manga_ids state:running start_date:2025-05-16 04:59:12.244883+00:00
+[2025-05-16T04:59:12.410+0000] {logging_mixin.py:190} INFO - Dag name:update_manga_database and current dag run status:running
+[2025-05-16T04:59:12.410+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-05-16T04:59:12.411+0000] {python.py:240} INFO - Done. Returned value was: ['dc8a6a1d-51d9-410d-975b-cf884cc68fd0', '4551679e-820b-42a5-85ff-d00ade797383']
+[2025-05-16T04:59:12.435+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-05-16T04:59:12.436+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=update_manga_database, task_id=extract_manga_ids, run_id=manual__2025-05-16T04:59:05.924329+00:00, execution_date=20250516T045905, start_date=20250516T045912, end_date=20250516T045912
+[2025-05-16T04:59:12.464+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-05-16T04:59:12.465+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-05-16T04:59:12.466+0000] {logging_mixin.py:190} INFO - Dag name:update_manga_database queued_at:2025-05-16 04:59:05.947319+00:00
+[2025-05-16T04:59:12.466+0000] {logging_mixin.py:190} INFO - Task hostname:3729034b4972 operator:_PythonDecoratedOperator
+[2025-05-16T04:59:12.490+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-05-16T04:59:12.517+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-05-16T04:59:12.528+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

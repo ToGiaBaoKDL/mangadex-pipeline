@@ -1,0 +1,16 @@
+2025-05-14 11:54:40,154 - INFO: ==================================================
+2025-05-14 11:54:40,156 - INFO: 📂 Reading data from D:\mangadex-pipeline\data\manga_data.csv (5 rows)...
+2025-05-14 11:54:42,582 - INFO: ✅ Inserted final 5 mangas.
+2025-05-14 11:54:42,582 - INFO: 🎉 Completed! Total 5 manga processed.
+2025-05-14 11:54:42,585 - INFO: 📂 Reading data from D:\mangadex-pipeline\data\chapter_data.csv (100 rows)...
+2025-05-14 11:54:45,011 - INFO: ✅ Inserted final 100 chapters.
+2025-05-14 11:54:45,012 - INFO: 🎉 Completed! Total 100 chapters processed.
+2025-05-14 11:54:45,012 - INFO: Initialized ImageDataInserter with collection: mangadex.chapter_images_test
+2025-05-14 11:54:45,015 - INFO: Loaded JSON data from D:\mangadex-pipeline\data\chapter_images.json
+2025-05-14 11:54:45,015 - INFO: Validated 100 chapters for insertion
+2025-05-14 11:54:45,015 - INFO: Starting insertion of 100 chapters
+2025-05-14 11:54:48,298 - INFO: Batch upserted: 100 inserted, 0 modified
+2025-05-14 11:54:48,298 - INFO: 🎉 Successfully inserted 100 chapters from D:\mangadex-pipeline\data\chapter_images.json
+2025-05-14 11:54:48,591 - INFO: MongoDB connection closed in main
+2025-05-14 11:54:48,592 - INFO: Closed MongoDB connection
+2025-05-14 11:54:48,592 - INFO: ==================================================

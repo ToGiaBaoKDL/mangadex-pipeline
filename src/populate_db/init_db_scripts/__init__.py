@@ -1,0 +1,1 @@
+from .inserter_instance import MangaDataInserter, ChapterDataInserter, ImageDataInserter

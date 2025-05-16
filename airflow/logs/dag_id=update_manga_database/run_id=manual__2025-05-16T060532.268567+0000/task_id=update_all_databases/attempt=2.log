@@ -1,0 +1,674 @@
+[2025-05-16T06:08:38.956+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-05-16T06:08:38.978+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: update_manga_database.update_all_databases manual__2025-05-16T06:05:32.268567+00:00 [queued]>
+[2025-05-16T06:08:38.989+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: update_manga_database.update_all_databases manual__2025-05-16T06:05:32.268567+00:00 [queued]>
+[2025-05-16T06:08:38.990+0000] {taskinstance.py:2867} INFO - Starting attempt 2 of 2
+[2025-05-16T06:08:39.005+0000] {taskinstance.py:2890} INFO - Executing <Task(_PythonDecoratedOperator): update_all_databases> on 2025-05-16 06:05:32.268567+00:00
+[2025-05-16T06:08:39.013+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1704) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-05-16T06:08:39.015+0000] {standard_task_runner.py:72} INFO - Started process 1709 to run task
+[2025-05-16T06:08:39.015+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'update_manga_database', 'update_all_databases', 'manual__2025-05-16T06:05:32.268567+00:00', '--job-id', '96', '--raw', '--subdir', 'DAGS_FOLDER/update_manga_database_dag.py', '--cfg-path', '/tmp/tmpng0xe_mv']
+[2025-05-16T06:08:39.016+0000] {standard_task_runner.py:105} INFO - Job 96: Subtask update_all_databases
+[2025-05-16T06:08:39.056+0000] {task_command.py:467} INFO - Running <TaskInstance: update_manga_database.update_all_databases manual__2025-05-16T06:05:32.268567+00:00 [running]> on host 3729034b4972
+[2025-05-16T06:08:39.163+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='update_manga_database' AIRFLOW_CTX_TASK_ID='update_all_databases' AIRFLOW_CTX_EXECUTION_DATE='2025-05-16T06:05:32.268567+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-16T06:05:32.268567+00:00'
+[2025-05-16T06:08:39.164+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-05-16T06:08:39.165+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-05-16T06:08:39.165+0000] {logging_mixin.py:190} INFO - Current task name:update_all_databases state:running start_date:2025-05-16 06:08:38.979462+00:00
+[2025-05-16T06:08:39.166+0000] {logging_mixin.py:190} INFO - Dag name:update_manga_database and current dag run status:running
+[2025-05-16T06:08:39.166+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-05-16T06:08:39.168+0000] {log.py:232} WARNING - 2025-05-16 06:08:39,167 - INFO: Starting all database updates
+[2025-05-16T06:08:39.167+0000] {update_manga_database_dag.py:396} INFO - Starting all database updates
+[2025-05-16T06:08:39.178+0000] {log.py:232} WARNING - 2025-05-16 06:08:39,177 - INFO: Transaction started
+[2025-05-16T06:08:39.177+0000] {update_manga_database_dag.py:72} INFO - Transaction started
+[2025-05-16T06:08:39.184+0000] {log.py:232} WARNING - 2025-05-16 06:08:39,183 - INFO: Checking 61 manga for updates
+[2025-05-16T06:08:39.183+0000] {update_sequential.py:59} INFO - Checking 61 manga for updates
+[2025-05-16T06:08:44.147+0000] {log.py:232} WARNING - 2025-05-16 06:08:44,146 - INFO: ADDED: Pieces of Us (ID: dc8a6a1d-51d9-410d-975b-cf884cc68fd0)
+[2025-05-16T06:08:44.146+0000] {update_sequential.py:115} INFO - ADDED: Pieces of Us (ID: dc8a6a1d-51d9-410d-975b-cf884cc68fd0)
+[2025-05-16T06:08:44.453+0000] {log.py:232} WARNING - 2025-05-16 06:08:44,451 - INFO: ADDED: Haru no Hikari ni Noma rete mo (ID: 4551679e-820b-42a5-85ff-d00ade797383)
+[2025-05-16T06:08:44.451+0000] {update_sequential.py:115} INFO - ADDED: Haru no Hikari ni Noma rete mo (ID: 4551679e-820b-42a5-85ff-d00ade797383)
+[2025-05-16T06:08:44.747+0000] {log.py:232} WARNING - 2025-05-16 06:08:44,746 - INFO: ADDED: CMYK (ID: 236ab0cf-a5ef-4039-8e0a-f4cfe4660424)
+[2025-05-16T06:08:44.746+0000] {update_sequential.py:115} INFO - ADDED: CMYK (ID: 236ab0cf-a5ef-4039-8e0a-f4cfe4660424)
+[2025-05-16T06:08:45.041+0000] {log.py:232} WARNING - 2025-05-16 06:08:45,040 - INFO: ADDED: There May Be Something There That Wasn’t There Before - Haikyuu dj (ID: e82fb7dd-edff-4593-9fff-760f018f6703)
+[2025-05-16T06:08:45.040+0000] {update_sequential.py:115} INFO - ADDED: There May Be Something There That Wasn’t There Before - Haikyuu dj (ID: e82fb7dd-edff-4593-9fff-760f018f6703)
+[2025-05-16T06:08:45.332+0000] {log.py:232} WARNING - 2025-05-16 06:08:45,332 - INFO: ADDED: Falling in the blue (ID: d38389ac-caeb-4a4f-8483-589ddbaf50e1)
+[2025-05-16T06:08:45.332+0000] {update_sequential.py:115} INFO - ADDED: Falling in the blue (ID: d38389ac-caeb-4a4f-8483-589ddbaf50e1)
+[2025-05-16T06:08:45.622+0000] {log.py:232} WARNING - 2025-05-16 06:08:45,621 - INFO: ADDED: The Maid (ID: 192ec1c9-eb9a-4771-bb79-2b9bb4adbe0e)
+[2025-05-16T06:08:45.621+0000] {update_sequential.py:115} INFO - ADDED: The Maid (ID: 192ec1c9-eb9a-4771-bb79-2b9bb4adbe0e)
+[2025-05-16T06:08:45.912+0000] {log.py:232} WARNING - 2025-05-16 06:08:45,912 - INFO: ADDED: The Fairy's Wish (ID: 3de96e80-6feb-450c-a169-053d40c01063)
+[2025-05-16T06:08:45.912+0000] {update_sequential.py:115} INFO - ADDED: The Fairy's Wish (ID: 3de96e80-6feb-450c-a169-053d40c01063)
+[2025-05-16T06:08:46.201+0000] {log.py:232} WARNING - 2025-05-16 06:08:46,201 - INFO: ADDED: I Reincarnated as a Parenting Story Extra (ID: 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db)
+[2025-05-16T06:08:46.201+0000] {update_sequential.py:115} INFO - ADDED: I Reincarnated as a Parenting Story Extra (ID: 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db)
+[2025-05-16T06:08:46.490+0000] {log.py:232} WARNING - 2025-05-16 06:08:46,489 - INFO: ADDED: Every Day is a Good Day When There's Love (ID: e195fc69-5e5c-4410-84fe-268daef38fbc)
+[2025-05-16T06:08:46.489+0000] {update_sequential.py:115} INFO - ADDED: Every Day is a Good Day When There's Love (ID: e195fc69-5e5c-4410-84fe-268daef38fbc)
+[2025-05-16T06:08:46.784+0000] {log.py:232} WARNING - 2025-05-16 06:08:46,783 - INFO: ADDED: Siren: The Beginning of the Curse (ID: e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4)
+[2025-05-16T06:08:46.783+0000] {update_sequential.py:115} INFO - ADDED: Siren: The Beginning of the Curse (ID: e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4)
+[2025-05-16T06:08:47.077+0000] {log.py:232} WARNING - 2025-05-16 06:08:47,076 - INFO: ADDED: Yoki Himo to Yoki Kainushi (ID: 051f9e5b-72d9-4d32-ac41-2441c2c03a67)
+[2025-05-16T06:08:47.076+0000] {update_sequential.py:115} INFO - ADDED: Yoki Himo to Yoki Kainushi (ID: 051f9e5b-72d9-4d32-ac41-2441c2c03a67)
+[2025-05-16T06:08:47.372+0000] {log.py:232} WARNING - 2025-05-16 06:08:47,371 - INFO: ADDED: SEVEN TEEN COP (ID: c5206869-59c1-4988-8c6f-9fcaa71a2c16)
+[2025-05-16T06:08:47.371+0000] {update_sequential.py:115} INFO - ADDED: SEVEN TEEN COP (ID: c5206869-59c1-4988-8c6f-9fcaa71a2c16)
+[2025-05-16T06:08:47.662+0000] {log.py:232} WARNING - 2025-05-16 06:08:47,662 - INFO: ADDED: Kono Ao ni Koi wo Shita (ID: de5038a8-898a-4149-a93e-756243cc09e0)
+[2025-05-16T06:08:47.662+0000] {update_sequential.py:115} INFO - ADDED: Kono Ao ni Koi wo Shita (ID: de5038a8-898a-4149-a93e-756243cc09e0)
+[2025-05-16T06:08:47.950+0000] {log.py:232} WARNING - 2025-05-16 06:08:47,949 - INFO: ADDED: Puri ☆ Hani (ID: 582248de-5dec-436c-835e-127e750445fb)
+[2025-05-16T06:08:47.949+0000] {update_sequential.py:115} INFO - ADDED: Puri ☆ Hani (ID: 582248de-5dec-436c-835e-127e750445fb)
+[2025-05-16T06:08:48.238+0000] {log.py:232} WARNING - 2025-05-16 06:08:48,237 - INFO: ADDED: Rental Kareshi (ID: 3f403042-3b37-489a-8df2-8f59a1dd6300)
+[2025-05-16T06:08:48.237+0000] {update_sequential.py:115} INFO - ADDED: Rental Kareshi (ID: 3f403042-3b37-489a-8df2-8f59a1dd6300)
+[2025-05-16T06:08:48.526+0000] {log.py:232} WARNING - 2025-05-16 06:08:48,526 - INFO: ADDED: Paris no Koibitotachi (ID: 837db806-4dc6-4bbb-9263-374eaca2eb57)
+[2025-05-16T06:08:48.526+0000] {update_sequential.py:115} INFO - ADDED: Paris no Koibitotachi (ID: 837db806-4dc6-4bbb-9263-374eaca2eb57)
+[2025-05-16T06:08:48.814+0000] {log.py:232} WARNING - 2025-05-16 06:08:48,814 - INFO: ADDED: Wana ni Kakatta Cinderella (ID: a8587671-e75c-495c-82fb-801e594e46a1)
+[2025-05-16T06:08:48.814+0000] {update_sequential.py:115} INFO - ADDED: Wana ni Kakatta Cinderella (ID: a8587671-e75c-495c-82fb-801e594e46a1)
+[2025-05-16T06:08:49.102+0000] {log.py:232} WARNING - 2025-05-16 06:08:49,101 - INFO: ADDED: Hakiri-san wa Kimi Dake no Shinigami ni Narita (ID: 2c8b92ea-e480-4ebb-bfa7-4ff828c13fd5)
+[2025-05-16T06:08:49.101+0000] {update_sequential.py:115} INFO - ADDED: Hakiri-san wa Kimi Dake no Shinigami ni Narita (ID: 2c8b92ea-e480-4ebb-bfa7-4ff828c13fd5)
+[2025-05-16T06:08:49.390+0000] {log.py:232} WARNING - 2025-05-16 06:08:49,389 - INFO: ADDED: Mikado-Kun, Kyo Mo Biju Ga Idesune (ID: 1d6f3596-0667-44b4-b4bd-cf17544b0558)
+[2025-05-16T06:08:49.389+0000] {update_sequential.py:115} INFO - ADDED: Mikado-Kun, Kyo Mo Biju Ga Idesune (ID: 1d6f3596-0667-44b4-b4bd-cf17544b0558)
+[2025-05-16T06:08:49.677+0000] {log.py:232} WARNING - 2025-05-16 06:08:49,676 - INFO: ADDED: Mega Monster Battle: Ultra Adventure NEO (ID: 432cc154-074d-4398-95ae-952769af164d)
+[2025-05-16T06:08:49.676+0000] {update_sequential.py:115} INFO - ADDED: Mega Monster Battle: Ultra Adventure NEO (ID: 432cc154-074d-4398-95ae-952769af164d)
+[2025-05-16T06:08:49.963+0000] {log.py:232} WARNING - 2025-05-16 06:08:49,963 - INFO: ADDED: This isn't Erotic at All! (ID: e0a786d3-1760-4f69-9d95-a0eae056a66f)
+[2025-05-16T06:08:49.963+0000] {update_sequential.py:115} INFO - ADDED: This isn't Erotic at All! (ID: e0a786d3-1760-4f69-9d95-a0eae056a66f)
+[2025-05-16T06:08:50.253+0000] {log.py:232} WARNING - 2025-05-16 06:08:50,252 - INFO: ADDED: Will You Let Me Stay Here? (ID: 2e85b6e4-f73c-4483-8860-f55f2bd67119)
+[2025-05-16T06:08:50.252+0000] {update_sequential.py:115} INFO - ADDED: Will You Let Me Stay Here? (ID: 2e85b6e4-f73c-4483-8860-f55f2bd67119)
+[2025-05-16T06:08:50.540+0000] {log.py:232} WARNING - 2025-05-16 06:08:50,539 - INFO: ADDED: Orokamono no Ai no Uta (ID: e46ede76-7aa6-4887-9eb2-b5fa537b91b6)
+[2025-05-16T06:08:50.539+0000] {update_sequential.py:115} INFO - ADDED: Orokamono no Ai no Uta (ID: e46ede76-7aa6-4887-9eb2-b5fa537b91b6)
+[2025-05-16T06:08:50.818+0000] {log.py:232} WARNING - 2025-05-16 06:08:50,818 - INFO: ADDED: Uma Musume Pretty Derby - My Feelings, in the Shape of an Umbrella (Doujinshi) (ID: 96fb960c-77d2-46e2-90f8-95e41a2712c6)
+[2025-05-16T06:08:50.818+0000] {update_sequential.py:115} INFO - ADDED: Uma Musume Pretty Derby - My Feelings, in the Shape of an Umbrella (Doujinshi) (ID: 96fb960c-77d2-46e2-90f8-95e41a2712c6)
+[2025-05-16T06:08:51.107+0000] {log.py:232} WARNING - 2025-05-16 06:08:51,107 - INFO: ADDED: Long, Long Ride (One shot) (ID: 5a763d38-ce7a-4b38-8581-a1adb2e29bb4)
+[2025-05-16T06:08:51.107+0000] {update_sequential.py:115} INFO - ADDED: Long, Long Ride (One shot) (ID: 5a763d38-ce7a-4b38-8581-a1adb2e29bb4)
+[2025-05-16T06:08:51.405+0000] {log.py:232} WARNING - 2025-05-16 06:08:51,403 - INFO: ADDED: The Regressed Empress's Abduction Marriage (ID: 3844a42e-1f4b-4ba1-b85f-18e00cfa8f02)
+[2025-05-16T06:08:51.403+0000] {update_sequential.py:115} INFO - ADDED: The Regressed Empress's Abduction Marriage (ID: 3844a42e-1f4b-4ba1-b85f-18e00cfa8f02)
+[2025-05-16T06:08:51.698+0000] {log.py:232} WARNING - 2025-05-16 06:08:51,698 - INFO: ADDED: New YAT Untroubled! Space Tours Compilation (ID: fe7a1d45-e0c2-4a80-ad62-5f42bbf6b622)
+[2025-05-16T06:08:51.698+0000] {update_sequential.py:115} INFO - ADDED: New YAT Untroubled! Space Tours Compilation (ID: fe7a1d45-e0c2-4a80-ad62-5f42bbf6b622)
+[2025-05-16T06:08:51.986+0000] {log.py:232} WARNING - 2025-05-16 06:08:51,985 - INFO: ADDED: Diamond no Ace - Sawatte Kawatte (Doujinshi) (ID: 62e80dfd-c1b0-4c65-994b-fd41697f140e)
+[2025-05-16T06:08:51.985+0000] {update_sequential.py:115} INFO - ADDED: Diamond no Ace - Sawatte Kawatte (Doujinshi) (ID: 62e80dfd-c1b0-4c65-994b-fd41697f140e)
+[2025-05-16T06:08:52.276+0000] {log.py:232} WARNING - 2025-05-16 06:08:52,275 - INFO: ADDED: Diamond no Ace - Nonstop Suponpon (Doujinshi) (ID: 1f4fdbf8-b46a-4401-aaa7-8a3d75e2a711)
+[2025-05-16T06:08:52.275+0000] {update_sequential.py:115} INFO - ADDED: Diamond no Ace - Nonstop Suponpon (Doujinshi) (ID: 1f4fdbf8-b46a-4401-aaa7-8a3d75e2a711)
+[2025-05-16T06:08:52.564+0000] {log.py:232} WARNING - 2025-05-16 06:08:52,563 - INFO: ADDED: Kouiu Kankei ga Sugoku Suki (ID: cb871a0b-8442-4f9d-8987-38a6d7f11d17)
+[2025-05-16T06:08:52.563+0000] {update_sequential.py:115} INFO - ADDED: Kouiu Kankei ga Sugoku Suki (ID: cb871a0b-8442-4f9d-8987-38a6d7f11d17)
+[2025-05-16T06:08:52.859+0000] {log.py:232} WARNING - 2025-05-16 06:08:52,858 - INFO: ADDED: Seijo ga Kuru kara "Kimi wo Aisuru koto wa Nai" to Iwareta node Okazari Ouhi ni Tesshiteitara, Seijo ga 5-sai Datta node Zenryoku de Aishimasu!! (ID: 9a40c0b9-912d-4b0e-aa77-c4a07edec275)
+[2025-05-16T06:08:52.858+0000] {update_sequential.py:115} INFO - ADDED: Seijo ga Kuru kara "Kimi wo Aisuru koto wa Nai" to Iwareta node Okazari Ouhi ni Tesshiteitara, Seijo ga 5-sai Datta node Zenryoku de Aishimasu!! (ID: 9a40c0b9-912d-4b0e-aa77-c4a07edec275)
+[2025-05-16T06:08:53.151+0000] {log.py:232} WARNING - 2025-05-16 06:08:53,151 - INFO: ADDED: Watashi no Mama wa Mano-kun desu. (ID: 16a247d7-34fd-49eb-9b81-1303896de0dd)
+[2025-05-16T06:08:53.151+0000] {update_sequential.py:115} INFO - ADDED: Watashi no Mama wa Mano-kun desu. (ID: 16a247d7-34fd-49eb-9b81-1303896de0dd)
+[2025-05-16T06:08:53.454+0000] {log.py:232} WARNING - 2025-05-16 06:08:53,452 - INFO: ADDED: Yusha No Watashidesuga, Tekkoku Mao Sama No Aisaremeido Ni Narimashita (ID: 0567beef-b5b7-4c86-a3c0-e3f4f52e1c35)
+[2025-05-16T06:08:53.452+0000] {update_sequential.py:115} INFO - ADDED: Yusha No Watashidesuga, Tekkoku Mao Sama No Aisaremeido Ni Narimashita (ID: 0567beef-b5b7-4c86-a3c0-e3f4f52e1c35)
+[2025-05-16T06:08:53.745+0000] {log.py:232} WARNING - 2025-05-16 06:08:53,744 - INFO: ADDED: Frontier World Online - Shoukanshi to shite Katsudou-chuu (ID: 0616c9ba-9362-40e2-a53b-9d1cd49ad4bd)
+[2025-05-16T06:08:53.744+0000] {update_sequential.py:115} INFO - ADDED: Frontier World Online - Shoukanshi to shite Katsudou-chuu (ID: 0616c9ba-9362-40e2-a53b-9d1cd49ad4bd)
+[2025-05-16T06:08:54.037+0000] {log.py:232} WARNING - 2025-05-16 06:08:54,036 - INFO: ADDED: Moonlight Sequence (ID: efa87e8e-dc98-4d67-9aaa-5f99742cd68b)
+[2025-05-16T06:08:54.036+0000] {update_sequential.py:115} INFO - ADDED: Moonlight Sequence (ID: efa87e8e-dc98-4d67-9aaa-5f99742cd68b)
+[2025-05-16T06:08:54.326+0000] {log.py:232} WARNING - 2025-05-16 06:08:54,326 - INFO: ADDED: Samuku naru to Kata wo Yosete (ID: 520113a2-3424-4506-90e0-695ffae6f2f0)
+[2025-05-16T06:08:54.326+0000] {update_sequential.py:115} INFO - ADDED: Samuku naru to Kata wo Yosete (ID: 520113a2-3424-4506-90e0-695ffae6f2f0)
+[2025-05-16T06:08:54.619+0000] {log.py:232} WARNING - 2025-05-16 06:08:54,618 - INFO: ADDED: The Dragon King's Favor (ID: 97da1b58-741f-4294-9f25-44cde1ecdf9a)
+[2025-05-16T06:08:54.618+0000] {update_sequential.py:115} INFO - ADDED: The Dragon King's Favor (ID: 97da1b58-741f-4294-9f25-44cde1ecdf9a)
+[2025-05-16T06:08:54.911+0000] {log.py:232} WARNING - 2025-05-16 06:08:54,910 - INFO: ADDED: Dolswe, Let Me see It Just Once (ID: 8928976d-1485-4260-b6d1-13552690a9f4)
+[2025-05-16T06:08:54.910+0000] {update_sequential.py:115} INFO - ADDED: Dolswe, Let Me see It Just Once (ID: 8928976d-1485-4260-b6d1-13552690a9f4)
+[2025-05-16T06:08:55.206+0000] {log.py:232} WARNING - 2025-05-16 06:08:55,205 - INFO: ADDED: Sweet Poison (ID: 5342d47c-8635-4c2c-bc05-da83dabee2ac)
+[2025-05-16T06:08:55.205+0000] {update_sequential.py:115} INFO - ADDED: Sweet Poison (ID: 5342d47c-8635-4c2c-bc05-da83dabee2ac)
+[2025-05-16T06:08:55.500+0000] {log.py:232} WARNING - 2025-05-16 06:08:55,499 - INFO: ADDED: Todoroki Daimaru no Kikai Taikendan (ID: 287e1422-57e8-4c73-8d04-9397760df929)
+[2025-05-16T06:08:55.499+0000] {update_sequential.py:115} INFO - ADDED: Todoroki Daimaru no Kikai Taikendan (ID: 287e1422-57e8-4c73-8d04-9397760df929)
+[2025-05-16T06:08:55.819+0000] {log.py:232} WARNING - 2025-05-16 06:08:55,807 - INFO: ADDED: The Fake Master Who Accidentally Became the Strongest (ID: cad50822-3589-40aa-9cbf-d96a2ccc6384)
+[2025-05-16T06:08:55.807+0000] {update_sequential.py:115} INFO - ADDED: The Fake Master Who Accidentally Became the Strongest (ID: cad50822-3589-40aa-9cbf-d96a2ccc6384)
+[2025-05-16T06:08:56.156+0000] {log.py:232} WARNING - 2025-05-16 06:08:56,137 - INFO: ADDED: Hara wa Chibuu (ID: 678dd650-28b0-4b18-a936-1cb8c072745a)
+[2025-05-16T06:08:56.137+0000] {update_sequential.py:115} INFO - ADDED: Hara wa Chibuu (ID: 678dd650-28b0-4b18-a936-1cb8c072745a)
+[2025-05-16T06:08:56.491+0000] {log.py:232} WARNING - 2025-05-16 06:08:56,490 - INFO: ADDED: Fashionable Menhera and Menhera (ID: 4d393a81-0015-4744-bf9a-064394e3f234)
+[2025-05-16T06:08:56.490+0000] {update_sequential.py:115} INFO - ADDED: Fashionable Menhera and Menhera (ID: 4d393a81-0015-4744-bf9a-064394e3f234)
+[2025-05-16T06:08:56.781+0000] {log.py:232} WARNING - 2025-05-16 06:08:56,780 - INFO: ADDED: Collect And Seize (ID: bdac77b1-608f-4b0d-9773-7053dac0eca6)
+[2025-05-16T06:08:56.780+0000] {update_sequential.py:115} INFO - ADDED: Collect And Seize (ID: bdac77b1-608f-4b0d-9773-7053dac0eca6)
+[2025-05-16T06:08:57.073+0000] {log.py:232} WARNING - 2025-05-16 06:08:57,073 - INFO: ADDED: Hatsukoi To Saida (ID: 4de696e3-52a8-45d0-bb77-60e83bc4fa8c)
+[2025-05-16T06:08:57.073+0000] {update_sequential.py:115} INFO - ADDED: Hatsukoi To Saida (ID: 4de696e3-52a8-45d0-bb77-60e83bc4fa8c)
+[2025-05-16T06:08:57.365+0000] {log.py:232} WARNING - 2025-05-16 06:08:57,365 - INFO: ADDED: Seishun Wa Wagamama Kurai Ga Chodoi (ID: 1c8d0842-e998-4cd9-8808-a8bac2265743)
+[2025-05-16T06:08:57.365+0000] {update_sequential.py:115} INFO - ADDED: Seishun Wa Wagamama Kurai Ga Chodoi (ID: 1c8d0842-e998-4cd9-8808-a8bac2265743)
+[2025-05-16T06:08:57.657+0000] {log.py:232} WARNING - 2025-05-16 06:08:57,656 - INFO: ADDED: call my squall (ID: f777da8d-878b-4114-a256-31b21933afc3)
+[2025-05-16T06:08:57.656+0000] {update_sequential.py:115} INFO - ADDED: call my squall (ID: f777da8d-878b-4114-a256-31b21933afc3)
+[2025-05-16T06:08:57.947+0000] {log.py:232} WARNING - 2025-05-16 06:08:57,947 - INFO: ADDED: Scholar's Bossam (ID: 255937ca-c65b-4f8e-bb39-a41ac667362b)
+[2025-05-16T06:08:57.947+0000] {update_sequential.py:115} INFO - ADDED: Scholar's Bossam (ID: 255937ca-c65b-4f8e-bb39-a41ac667362b)
+[2025-05-16T06:08:58.236+0000] {log.py:232} WARNING - 2025-05-16 06:08:58,235 - INFO: ADDED: My Hero Academia - Souiu Koto Dakara (Doujinshi) (ID: 16ac1429-593f-4fe5-a529-ce8aed994ef5)
+[2025-05-16T06:08:58.235+0000] {update_sequential.py:115} INFO - ADDED: My Hero Academia - Souiu Koto Dakara (Doujinshi) (ID: 16ac1429-593f-4fe5-a529-ce8aed994ef5)
+[2025-05-16T06:08:58.525+0000] {log.py:232} WARNING - 2025-05-16 06:08:58,523 - INFO: ADDED: Hanafusa Senpai No Amaiwana (ID: 13b1e64c-dc93-47c0-99d8-bfee66ae353b)
+[2025-05-16T06:08:58.523+0000] {update_sequential.py:115} INFO - ADDED: Hanafusa Senpai No Amaiwana (ID: 13b1e64c-dc93-47c0-99d8-bfee66ae353b)
+[2025-05-16T06:08:58.816+0000] {log.py:232} WARNING - 2025-05-16 06:08:58,816 - INFO: ADDED: Shiroi Nekono Gakko (ID: 4fe0978e-cf64-4b8d-906a-c13da2c7157e)
+[2025-05-16T06:08:58.816+0000] {update_sequential.py:115} INFO - ADDED: Shiroi Nekono Gakko (ID: 4fe0978e-cf64-4b8d-906a-c13da2c7157e)
+[2025-05-16T06:08:59.105+0000] {log.py:232} WARNING - 2025-05-16 06:08:59,104 - INFO: ADDED: Tamamushiro No Renjo (ID: 5520f2ef-d4ab-4c22-a6e3-31e74dd76888)
+[2025-05-16T06:08:59.104+0000] {update_sequential.py:115} INFO - ADDED: Tamamushiro No Renjo (ID: 5520f2ef-d4ab-4c22-a6e3-31e74dd76888)
+[2025-05-16T06:08:59.393+0000] {log.py:232} WARNING - 2025-05-16 06:08:59,392 - INFO: ADDED: Kiyasuku Fureruna Kuro Bara Ni (ID: 2cdfa7d3-e8ab-4f06-a6f8-89b7a3a22db2)
+[2025-05-16T06:08:59.392+0000] {update_sequential.py:115} INFO - ADDED: Kiyasuku Fureruna Kuro Bara Ni (ID: 2cdfa7d3-e8ab-4f06-a6f8-89b7a3a22db2)
+[2025-05-16T06:08:59.680+0000] {log.py:232} WARNING - 2025-05-16 06:08:59,680 - INFO: ADDED: Sekai De Ichiban Anishiteru (ID: 2b649c16-fb4a-45f1-afb8-9a8f4b4a5bc1)
+[2025-05-16T06:08:59.680+0000] {update_sequential.py:115} INFO - ADDED: Sekai De Ichiban Anishiteru (ID: 2b649c16-fb4a-45f1-afb8-9a8f4b4a5bc1)
+[2025-05-16T06:08:59.968+0000] {log.py:232} WARNING - 2025-05-16 06:08:59,968 - INFO: ADDED: Netabare Kinshi No Amamiya-Kun (ID: e4187ee9-4f6e-49cf-8b2e-b4a80b04d1b3)
+[2025-05-16T06:08:59.968+0000] {update_sequential.py:115} INFO - ADDED: Netabare Kinshi No Amamiya-Kun (ID: e4187ee9-4f6e-49cf-8b2e-b4a80b04d1b3)
+[2025-05-16T06:09:00.273+0000] {log.py:232} WARNING - 2025-05-16 06:09:00,273 - INFO: ADDED: Internet e Youkoso! Neuro-sama! (ID: cbb7e271-dd90-4b68-9df8-0acd008412d8)
+[2025-05-16T06:09:00.273+0000] {update_sequential.py:115} INFO - ADDED: Internet e Youkoso! Neuro-sama! (ID: cbb7e271-dd90-4b68-9df8-0acd008412d8)
+[2025-05-16T06:09:00.561+0000] {log.py:232} WARNING - 2025-05-16 06:09:00,561 - INFO: ADDED: Shachou Kamitenma Ryouko no Koi wa Omoiegaita Naname Ue (ID: 24d979fb-1282-4ad8-a7cb-b70297384369)
+[2025-05-16T06:09:00.561+0000] {update_sequential.py:115} INFO - ADDED: Shachou Kamitenma Ryouko no Koi wa Omoiegaita Naname Ue (ID: 24d979fb-1282-4ad8-a7cb-b70297384369)
+[2025-05-16T06:09:00.850+0000] {log.py:232} WARNING - 2025-05-16 06:09:00,850 - INFO: ADDED: Sensei Wa Kisu Ga Hetana Vampire (ID: 25a98773-9196-4760-a2e6-58c725791c78)
+[2025-05-16T06:09:00.850+0000] {update_sequential.py:115} INFO - ADDED: Sensei Wa Kisu Ga Hetana Vampire (ID: 25a98773-9196-4760-a2e6-58c725791c78)
+[2025-05-16T06:09:01.140+0000] {log.py:232} WARNING - 2025-05-16 06:09:01,139 - INFO: ADDED: Oto★ko Selection - Oneesan to Otokonoko Comic Anthology (ID: 1c20e3c8-ce80-4e97-b3be-ce1040a1817d)
+[2025-05-16T06:09:01.139+0000] {update_sequential.py:115} INFO - ADDED: Oto★ko Selection - Oneesan to Otokonoko Comic Anthology (ID: 1c20e3c8-ce80-4e97-b3be-ce1040a1817d)
+[2025-05-16T06:09:01.432+0000] {log.py:232} WARNING - 2025-05-16 06:09:01,430 - INFO: ADDED: Bara sensou (ID: da6c7a1e-e528-4a1e-8a09-c5443ab77225)
+[2025-05-16T06:09:01.430+0000] {update_sequential.py:115} INFO - ADDED: Bara sensou (ID: da6c7a1e-e528-4a1e-8a09-c5443ab77225)
+[2025-05-16T06:09:01.723+0000] {log.py:232} WARNING - 2025-05-16 06:09:01,722 - INFO: ADDED: Itsukara Maryoku Ga Nai to Sakkaku Shiteita?! (ID: f1b3d291-ac40-41b0-bddf-d6d3dda03515)
+[2025-05-16T06:09:01.722+0000] {update_sequential.py:115} INFO - ADDED: Itsukara Maryoku Ga Nai to Sakkaku Shiteita?! (ID: f1b3d291-ac40-41b0-bddf-d6d3dda03515)
+[2025-05-16T06:09:02.015+0000] {log.py:232} WARNING - 2025-05-16 06:09:02,014 - INFO: Database update complete
+[2025-05-16T06:09:02.014+0000] {update_sequential.py:119} INFO - Database update complete
+[2025-05-16T06:09:02.020+0000] {log.py:232} WARNING - 2025-05-16 06:09:02,019 - INFO: SUMMARY: 0 manga updated, 61 manga added
+[2025-05-16T06:09:02.019+0000] {update_sequential.py:120} INFO - SUMMARY: 0 manga updated, 61 manga added
+[2025-05-16T06:09:06.555+0000] {log.py:232} WARNING - 2025-05-16 06:09:06,555 - INFO: Registered manga rollback data for 61 manga IDs
+[2025-05-16T06:09:06.555+0000] {update_manga_database_dag.py:132} INFO - Registered manga rollback data for 61 manga IDs
+[2025-05-16T06:09:06.557+0000] {log.py:232} WARNING - 2025-05-16 06:09:06,557 - INFO: Updated 61 manga
+[2025-05-16T06:09:06.557+0000] {update_manga_database_dag.py:412} INFO - Updated 61 manga
+[2025-05-16T06:09:06.559+0000] {log.py:232} WARNING - 2025-05-16 06:09:06,558 - INFO: Checking 87 chapters across 61 manga
+[2025-05-16T06:09:06.558+0000] {update_sequential.py:175} INFO - Checking 87 chapters across 61 manga
+[2025-05-16T06:09:07.138+0000] {log.py:232} WARNING - 2025-05-16 06:09:07,136 - INFO: Processing manga 4551679e-820b-42a5-85ff-d00ade797383, chapter 1 (ko)
+[2025-05-16T06:09:07.136+0000] {update_sequential.py:209} INFO - Processing manga 4551679e-820b-42a5-85ff-d00ade797383, chapter 1 (ko)
+[2025-05-16T06:09:07.142+0000] {log.py:232} WARNING - 2025-05-16 06:09:07,141 - INFO: Adding new chapter 1 (ko) for manga 4551679e-820b-42a5-85ff-d00ade797383
+[2025-05-16T06:09:07.141+0000] {update_sequential.py:244} INFO - Adding new chapter 1 (ko) for manga 4551679e-820b-42a5-85ff-d00ade797383
+[2025-05-16T06:09:07.437+0000] {log.py:232} WARNING - 2025-05-16 06:09:07,436 - INFO: Processing manga 236ab0cf-a5ef-4039-8e0a-f4cfe4660424, chapter 1.1 (en)
+[2025-05-16T06:09:07.436+0000] {update_sequential.py:209} INFO - Processing manga 236ab0cf-a5ef-4039-8e0a-f4cfe4660424, chapter 1.1 (en)
+[2025-05-16T06:09:07.441+0000] {log.py:232} WARNING - 2025-05-16 06:09:07,440 - INFO: Adding new chapter 1.1 (en) for manga 236ab0cf-a5ef-4039-8e0a-f4cfe4660424
+[2025-05-16T06:09:07.440+0000] {update_sequential.py:244} INFO - Adding new chapter 1.1 (en) for manga 236ab0cf-a5ef-4039-8e0a-f4cfe4660424
+[2025-05-16T06:09:07.733+0000] {log.py:232} WARNING - 2025-05-16 06:09:07,732 - INFO: Processing manga e82fb7dd-edff-4593-9fff-760f018f6703, chapter None (es-la)
+[2025-05-16T06:09:07.732+0000] {update_sequential.py:209} INFO - Processing manga e82fb7dd-edff-4593-9fff-760f018f6703, chapter None (es-la)
+[2025-05-16T06:09:07.737+0000] {log.py:232} WARNING - 2025-05-16 06:09:07,736 - INFO: Adding new chapter None (es-la) for manga e82fb7dd-edff-4593-9fff-760f018f6703
+[2025-05-16T06:09:07.736+0000] {update_sequential.py:244} INFO - Adding new chapter None (es-la) for manga e82fb7dd-edff-4593-9fff-760f018f6703
+[2025-05-16T06:09:08.029+0000] {log.py:232} WARNING - 2025-05-16 06:09:08,028 - INFO: Processing manga 192ec1c9-eb9a-4771-bb79-2b9bb4adbe0e, chapter 1 (en)
+[2025-05-16T06:09:08.028+0000] {update_sequential.py:209} INFO - Processing manga 192ec1c9-eb9a-4771-bb79-2b9bb4adbe0e, chapter 1 (en)
+[2025-05-16T06:09:08.033+0000] {log.py:232} WARNING - 2025-05-16 06:09:08,032 - INFO: Adding new chapter 1 (en) for manga 192ec1c9-eb9a-4771-bb79-2b9bb4adbe0e
+[2025-05-16T06:09:08.032+0000] {update_sequential.py:244} INFO - Adding new chapter 1 (en) for manga 192ec1c9-eb9a-4771-bb79-2b9bb4adbe0e
+[2025-05-16T06:09:08.328+0000] {log.py:232} WARNING - 2025-05-16 06:09:08,327 - INFO: Processing manga 192ec1c9-eb9a-4771-bb79-2b9bb4adbe0e, chapter 2 (en)
+[2025-05-16T06:09:08.327+0000] {update_sequential.py:209} INFO - Processing manga 192ec1c9-eb9a-4771-bb79-2b9bb4adbe0e, chapter 2 (en)
+[2025-05-16T06:09:08.330+0000] {log.py:232} WARNING - 2025-05-16 06:09:08,330 - INFO: Adding new chapter 2 (en) for manga 192ec1c9-eb9a-4771-bb79-2b9bb4adbe0e
+[2025-05-16T06:09:08.330+0000] {update_sequential.py:244} INFO - Adding new chapter 2 (en) for manga 192ec1c9-eb9a-4771-bb79-2b9bb4adbe0e
+[2025-05-16T06:09:08.622+0000] {log.py:232} WARNING - 2025-05-16 06:09:08,622 - INFO: Processing manga 192ec1c9-eb9a-4771-bb79-2b9bb4adbe0e, chapter 3 (en)
+[2025-05-16T06:09:08.622+0000] {update_sequential.py:209} INFO - Processing manga 192ec1c9-eb9a-4771-bb79-2b9bb4adbe0e, chapter 3 (en)
+[2025-05-16T06:09:08.624+0000] {log.py:232} WARNING - 2025-05-16 06:09:08,623 - INFO: Adding new chapter 3 (en) for manga 192ec1c9-eb9a-4771-bb79-2b9bb4adbe0e
+[2025-05-16T06:09:08.623+0000] {update_sequential.py:244} INFO - Adding new chapter 3 (en) for manga 192ec1c9-eb9a-4771-bb79-2b9bb4adbe0e
+[2025-05-16T06:09:08.912+0000] {log.py:232} WARNING - 2025-05-16 06:09:08,911 - INFO: Processing manga 3de96e80-6feb-450c-a169-053d40c01063, chapter 1 (en)
+[2025-05-16T06:09:08.911+0000] {update_sequential.py:209} INFO - Processing manga 3de96e80-6feb-450c-a169-053d40c01063, chapter 1 (en)
+[2025-05-16T06:09:08.915+0000] {log.py:232} WARNING - 2025-05-16 06:09:08,914 - INFO: Adding new chapter 1 (en) for manga 3de96e80-6feb-450c-a169-053d40c01063
+[2025-05-16T06:09:08.914+0000] {update_sequential.py:244} INFO - Adding new chapter 1 (en) for manga 3de96e80-6feb-450c-a169-053d40c01063
+[2025-05-16T06:09:09.207+0000] {log.py:232} WARNING - 2025-05-16 06:09:09,206 - INFO: Processing manga 3de96e80-6feb-450c-a169-053d40c01063, chapter 2 (en)
+[2025-05-16T06:09:09.206+0000] {update_sequential.py:209} INFO - Processing manga 3de96e80-6feb-450c-a169-053d40c01063, chapter 2 (en)
+[2025-05-16T06:09:09.210+0000] {log.py:232} WARNING - 2025-05-16 06:09:09,210 - INFO: Adding new chapter 2 (en) for manga 3de96e80-6feb-450c-a169-053d40c01063
+[2025-05-16T06:09:09.210+0000] {update_sequential.py:244} INFO - Adding new chapter 2 (en) for manga 3de96e80-6feb-450c-a169-053d40c01063
+[2025-05-16T06:09:09.503+0000] {log.py:232} WARNING - 2025-05-16 06:09:09,502 - INFO: Processing manga 3de96e80-6feb-450c-a169-053d40c01063, chapter 3 (en)
+[2025-05-16T06:09:09.502+0000] {update_sequential.py:209} INFO - Processing manga 3de96e80-6feb-450c-a169-053d40c01063, chapter 3 (en)
+[2025-05-16T06:09:09.507+0000] {log.py:232} WARNING - 2025-05-16 06:09:09,506 - INFO: Adding new chapter 3 (en) for manga 3de96e80-6feb-450c-a169-053d40c01063
+[2025-05-16T06:09:09.506+0000] {update_sequential.py:244} INFO - Adding new chapter 3 (en) for manga 3de96e80-6feb-450c-a169-053d40c01063
+[2025-05-16T06:09:09.799+0000] {log.py:232} WARNING - 2025-05-16 06:09:09,798 - INFO: Processing manga 3de96e80-6feb-450c-a169-053d40c01063, chapter 4 (en)
+[2025-05-16T06:09:09.798+0000] {update_sequential.py:209} INFO - Processing manga 3de96e80-6feb-450c-a169-053d40c01063, chapter 4 (en)
+[2025-05-16T06:09:09.803+0000] {log.py:232} WARNING - 2025-05-16 06:09:09,802 - INFO: Adding new chapter 4 (en) for manga 3de96e80-6feb-450c-a169-053d40c01063
+[2025-05-16T06:09:09.802+0000] {update_sequential.py:244} INFO - Adding new chapter 4 (en) for manga 3de96e80-6feb-450c-a169-053d40c01063
+[2025-05-16T06:09:10.097+0000] {log.py:232} WARNING - 2025-05-16 06:09:10,096 - INFO: Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 1 (en)
+[2025-05-16T06:09:10.096+0000] {update_sequential.py:209} INFO - Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 1 (en)
+[2025-05-16T06:09:10.101+0000] {log.py:232} WARNING - 2025-05-16 06:09:10,100 - INFO: Adding new chapter 1 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:10.100+0000] {update_sequential.py:244} INFO - Adding new chapter 1 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:10.395+0000] {log.py:232} WARNING - 2025-05-16 06:09:10,394 - INFO: Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 2 (en)
+[2025-05-16T06:09:10.394+0000] {update_sequential.py:209} INFO - Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 2 (en)
+[2025-05-16T06:09:10.399+0000] {log.py:232} WARNING - 2025-05-16 06:09:10,398 - INFO: Adding new chapter 2 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:10.398+0000] {update_sequential.py:244} INFO - Adding new chapter 2 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:10.692+0000] {log.py:232} WARNING - 2025-05-16 06:09:10,691 - INFO: Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 3 (en)
+[2025-05-16T06:09:10.691+0000] {update_sequential.py:209} INFO - Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 3 (en)
+[2025-05-16T06:09:10.694+0000] {log.py:232} WARNING - 2025-05-16 06:09:10,693 - INFO: Adding new chapter 3 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:10.693+0000] {update_sequential.py:244} INFO - Adding new chapter 3 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:10.983+0000] {log.py:232} WARNING - 2025-05-16 06:09:10,982 - INFO: Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 4 (en)
+[2025-05-16T06:09:10.982+0000] {update_sequential.py:209} INFO - Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 4 (en)
+[2025-05-16T06:09:10.984+0000] {log.py:232} WARNING - 2025-05-16 06:09:10,984 - INFO: Adding new chapter 4 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:10.984+0000] {update_sequential.py:244} INFO - Adding new chapter 4 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:11.280+0000] {log.py:232} WARNING - 2025-05-16 06:09:11,279 - INFO: Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 5 (en)
+[2025-05-16T06:09:11.279+0000] {update_sequential.py:209} INFO - Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 5 (en)
+[2025-05-16T06:09:11.283+0000] {log.py:232} WARNING - 2025-05-16 06:09:11,282 - INFO: Adding new chapter 5 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:11.282+0000] {update_sequential.py:244} INFO - Adding new chapter 5 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:11.605+0000] {log.py:232} WARNING - 2025-05-16 06:09:11,600 - INFO: Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 6 (en)
+[2025-05-16T06:09:11.600+0000] {update_sequential.py:209} INFO - Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 6 (en)
+[2025-05-16T06:09:11.608+0000] {log.py:232} WARNING - 2025-05-16 06:09:11,608 - INFO: Adding new chapter 6 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:11.608+0000] {update_sequential.py:244} INFO - Adding new chapter 6 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:11.897+0000] {log.py:232} WARNING - 2025-05-16 06:09:11,897 - INFO: Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 7 (en)
+[2025-05-16T06:09:11.897+0000] {update_sequential.py:209} INFO - Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 7 (en)
+[2025-05-16T06:09:11.899+0000] {log.py:232} WARNING - 2025-05-16 06:09:11,899 - INFO: Adding new chapter 7 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:11.899+0000] {update_sequential.py:244} INFO - Adding new chapter 7 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:12.187+0000] {log.py:232} WARNING - 2025-05-16 06:09:12,187 - INFO: Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 8 (en)
+[2025-05-16T06:09:12.187+0000] {update_sequential.py:209} INFO - Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 8 (en)
+[2025-05-16T06:09:12.189+0000] {log.py:232} WARNING - 2025-05-16 06:09:12,189 - INFO: Adding new chapter 8 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:12.189+0000] {update_sequential.py:244} INFO - Adding new chapter 8 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:12.477+0000] {log.py:232} WARNING - 2025-05-16 06:09:12,477 - INFO: Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 9 (en)
+[2025-05-16T06:09:12.477+0000] {update_sequential.py:209} INFO - Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 9 (en)
+[2025-05-16T06:09:12.479+0000] {log.py:232} WARNING - 2025-05-16 06:09:12,479 - INFO: Adding new chapter 9 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:12.479+0000] {update_sequential.py:244} INFO - Adding new chapter 9 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:12.770+0000] {log.py:232} WARNING - 2025-05-16 06:09:12,768 - INFO: Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 10 (en)
+[2025-05-16T06:09:12.768+0000] {update_sequential.py:209} INFO - Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 10 (en)
+[2025-05-16T06:09:12.774+0000] {log.py:232} WARNING - 2025-05-16 06:09:12,773 - INFO: Adding new chapter 10 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:12.773+0000] {update_sequential.py:244} INFO - Adding new chapter 10 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:13.065+0000] {log.py:232} WARNING - 2025-05-16 06:09:13,064 - INFO: Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 11 (en)
+[2025-05-16T06:09:13.064+0000] {update_sequential.py:209} INFO - Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 11 (en)
+[2025-05-16T06:09:13.067+0000] {log.py:232} WARNING - 2025-05-16 06:09:13,066 - INFO: Adding new chapter 11 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:13.066+0000] {update_sequential.py:244} INFO - Adding new chapter 11 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:13.357+0000] {log.py:232} WARNING - 2025-05-16 06:09:13,356 - INFO: Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 12 (en)
+[2025-05-16T06:09:13.356+0000] {update_sequential.py:209} INFO - Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 12 (en)
+[2025-05-16T06:09:13.361+0000] {log.py:232} WARNING - 2025-05-16 06:09:13,360 - INFO: Adding new chapter 12 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:13.360+0000] {update_sequential.py:244} INFO - Adding new chapter 12 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:13.657+0000] {log.py:232} WARNING - 2025-05-16 06:09:13,656 - INFO: Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 13 (en)
+[2025-05-16T06:09:13.656+0000] {update_sequential.py:209} INFO - Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 13 (en)
+[2025-05-16T06:09:13.660+0000] {log.py:232} WARNING - 2025-05-16 06:09:13,660 - INFO: Adding new chapter 13 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:13.660+0000] {update_sequential.py:244} INFO - Adding new chapter 13 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:13.967+0000] {log.py:232} WARNING - 2025-05-16 06:09:13,965 - INFO: Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 14 (en)
+[2025-05-16T06:09:13.965+0000] {update_sequential.py:209} INFO - Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 14 (en)
+[2025-05-16T06:09:13.971+0000] {log.py:232} WARNING - 2025-05-16 06:09:13,970 - INFO: Adding new chapter 14 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:13.970+0000] {update_sequential.py:244} INFO - Adding new chapter 14 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:14.262+0000] {log.py:232} WARNING - 2025-05-16 06:09:14,262 - INFO: Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 15 (en)
+[2025-05-16T06:09:14.262+0000] {update_sequential.py:209} INFO - Processing manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db, chapter 15 (en)
+[2025-05-16T06:09:14.264+0000] {log.py:232} WARNING - 2025-05-16 06:09:14,264 - INFO: Adding new chapter 15 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:14.264+0000] {update_sequential.py:244} INFO - Adding new chapter 15 (en) for manga 8dbb4f57-4e35-4fa6-88c7-2d8f8334d8db
+[2025-05-16T06:09:14.558+0000] {log.py:232} WARNING - 2025-05-16 06:09:14,557 - INFO: Processing manga e195fc69-5e5c-4410-84fe-268daef38fbc, chapter None (en)
+[2025-05-16T06:09:14.557+0000] {update_sequential.py:209} INFO - Processing manga e195fc69-5e5c-4410-84fe-268daef38fbc, chapter None (en)
+[2025-05-16T06:09:14.563+0000] {log.py:232} WARNING - 2025-05-16 06:09:14,562 - INFO: Adding new chapter None (en) for manga e195fc69-5e5c-4410-84fe-268daef38fbc
+[2025-05-16T06:09:14.562+0000] {update_sequential.py:244} INFO - Adding new chapter None (en) for manga e195fc69-5e5c-4410-84fe-268daef38fbc
+[2025-05-16T06:09:14.855+0000] {log.py:232} WARNING - 2025-05-16 06:09:14,853 - INFO: Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 1 (en)
+[2025-05-16T06:09:14.853+0000] {update_sequential.py:209} INFO - Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 1 (en)
+[2025-05-16T06:09:14.858+0000] {log.py:232} WARNING - 2025-05-16 06:09:14,857 - INFO: Adding new chapter 1 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+[2025-05-16T06:09:14.857+0000] {update_sequential.py:244} INFO - Adding new chapter 1 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+[2025-05-16T06:09:15.150+0000] {log.py:232} WARNING - 2025-05-16 06:09:15,148 - INFO: Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 2 (en)
+[2025-05-16T06:09:15.148+0000] {update_sequential.py:209} INFO - Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 2 (en)
+[2025-05-16T06:09:15.154+0000] {log.py:232} WARNING - 2025-05-16 06:09:15,153 - INFO: Adding new chapter 2 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+[2025-05-16T06:09:15.153+0000] {update_sequential.py:244} INFO - Adding new chapter 2 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+[2025-05-16T06:09:15.445+0000] {log.py:232} WARNING - 2025-05-16 06:09:15,444 - INFO: Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 3 (en)
+[2025-05-16T06:09:15.444+0000] {update_sequential.py:209} INFO - Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 3 (en)
+[2025-05-16T06:09:15.448+0000] {log.py:232} WARNING - 2025-05-16 06:09:15,447 - INFO: Adding new chapter 3 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+[2025-05-16T06:09:15.447+0000] {update_sequential.py:244} INFO - Adding new chapter 3 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+[2025-05-16T06:09:15.737+0000] {log.py:232} WARNING - 2025-05-16 06:09:15,736 - INFO: Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 4 (en)
+[2025-05-16T06:09:15.736+0000] {update_sequential.py:209} INFO - Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 4 (en)
+[2025-05-16T06:09:15.739+0000] {log.py:232} WARNING - 2025-05-16 06:09:15,738 - INFO: Adding new chapter 4 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+[2025-05-16T06:09:15.738+0000] {update_sequential.py:244} INFO - Adding new chapter 4 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+[2025-05-16T06:09:16.030+0000] {log.py:232} WARNING - 2025-05-16 06:09:16,029 - INFO: Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 5 (en)
+[2025-05-16T06:09:16.029+0000] {update_sequential.py:209} INFO - Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 5 (en)
+[2025-05-16T06:09:16.031+0000] {log.py:232} WARNING - 2025-05-16 06:09:16,031 - INFO: Adding new chapter 5 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+[2025-05-16T06:09:16.031+0000] {update_sequential.py:244} INFO - Adding new chapter 5 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+[2025-05-16T06:09:16.319+0000] {log.py:232} WARNING - 2025-05-16 06:09:16,318 - INFO: Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 6 (en)
+[2025-05-16T06:09:16.318+0000] {update_sequential.py:209} INFO - Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 6 (en)
+[2025-05-16T06:09:16.322+0000] {log.py:232} WARNING - 2025-05-16 06:09:16,321 - INFO: Adding new chapter 6 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+[2025-05-16T06:09:16.321+0000] {update_sequential.py:244} INFO - Adding new chapter 6 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+[2025-05-16T06:09:16.615+0000] {log.py:232} WARNING - 2025-05-16 06:09:16,613 - INFO: Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 7 (en)
+[2025-05-16T06:09:16.613+0000] {update_sequential.py:209} INFO - Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 7 (en)
+[2025-05-16T06:09:16.618+0000] {log.py:232} WARNING - 2025-05-16 06:09:16,618 - INFO: Adding new chapter 7 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+[2025-05-16T06:09:16.618+0000] {update_sequential.py:244} INFO - Adding new chapter 7 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+[2025-05-16T06:09:16.914+0000] {log.py:232} WARNING - 2025-05-16 06:09:16,913 - INFO: Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 8 (en)
+[2025-05-16T06:09:16.913+0000] {update_sequential.py:209} INFO - Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 8 (en)
+[2025-05-16T06:09:16.918+0000] {log.py:232} WARNING - 2025-05-16 06:09:16,917 - INFO: Adding new chapter 8 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+[2025-05-16T06:09:16.917+0000] {update_sequential.py:244} INFO - Adding new chapter 8 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+[2025-05-16T06:09:17.208+0000] {log.py:232} WARNING - 2025-05-16 06:09:17,208 - INFO: Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 9 (en)
+[2025-05-16T06:09:17.208+0000] {update_sequential.py:209} INFO - Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 9 (en)
+[2025-05-16T06:09:17.209+0000] {log.py:232} WARNING - 2025-05-16 06:09:17,209 - INFO: Adding new chapter 9 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+[2025-05-16T06:09:17.209+0000] {update_sequential.py:244} INFO - Adding new chapter 9 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+[2025-05-16T06:09:17.496+0000] {log.py:232} WARNING - 2025-05-16 06:09:17,495 - INFO: Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 10 (en)
+[2025-05-16T06:09:17.495+0000] {update_sequential.py:209} INFO - Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 10 (en)
+[2025-05-16T06:09:17.497+0000] {log.py:232} WARNING - 2025-05-16 06:09:17,497 - INFO: Adding new chapter 10 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+[2025-05-16T06:09:17.497+0000] {update_sequential.py:244} INFO - Adding new chapter 10 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+[2025-05-16T06:09:17.785+0000] {log.py:232} WARNING - 2025-05-16 06:09:17,784 - INFO: Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 11 (en)
+[2025-05-16T06:09:17.784+0000] {update_sequential.py:209} INFO - Processing manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4, chapter 11 (en)
+[2025-05-16T06:09:17.789+0000] {log.py:232} WARNING - 2025-05-16 06:09:17,788 - INFO: Adding new chapter 11 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+[2025-05-16T06:09:17.788+0000] {update_sequential.py:244} INFO - Adding new chapter 11 (en) for manga e7fa5fe6-7988-4f69-a6b8-7f5c34ade5d4
+[2025-05-16T06:09:18.079+0000] {log.py:232} WARNING - 2025-05-16 06:09:18,078 - INFO: Processing manga 051f9e5b-72d9-4d32-ac41-2441c2c03a67, chapter 0 (en)
+[2025-05-16T06:09:18.078+0000] {update_sequential.py:209} INFO - Processing manga 051f9e5b-72d9-4d32-ac41-2441c2c03a67, chapter 0 (en)
+[2025-05-16T06:09:18.081+0000] {log.py:232} WARNING - 2025-05-16 06:09:18,080 - INFO: Adding new chapter 0 (en) for manga 051f9e5b-72d9-4d32-ac41-2441c2c03a67
+[2025-05-16T06:09:18.080+0000] {update_sequential.py:244} INFO - Adding new chapter 0 (en) for manga 051f9e5b-72d9-4d32-ac41-2441c2c03a67
+[2025-05-16T06:09:18.368+0000] {log.py:232} WARNING - 2025-05-16 06:09:18,367 - INFO: Processing manga 2e85b6e4-f73c-4483-8860-f55f2bd67119, chapter 0 (en)
+[2025-05-16T06:09:18.367+0000] {update_sequential.py:209} INFO - Processing manga 2e85b6e4-f73c-4483-8860-f55f2bd67119, chapter 0 (en)
+[2025-05-16T06:09:18.370+0000] {log.py:232} WARNING - 2025-05-16 06:09:18,369 - INFO: Adding new chapter 0 (en) for manga 2e85b6e4-f73c-4483-8860-f55f2bd67119
+[2025-05-16T06:09:18.369+0000] {update_sequential.py:244} INFO - Adding new chapter 0 (en) for manga 2e85b6e4-f73c-4483-8860-f55f2bd67119
+[2025-05-16T06:09:18.657+0000] {log.py:232} WARNING - 2025-05-16 06:09:18,656 - INFO: Processing manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6, chapter 1 (en)
+[2025-05-16T06:09:18.656+0000] {update_sequential.py:209} INFO - Processing manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6, chapter 1 (en)
+[2025-05-16T06:09:18.658+0000] {log.py:232} WARNING - 2025-05-16 06:09:18,658 - INFO: Adding new chapter 1 (en) for manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6
+[2025-05-16T06:09:18.658+0000] {update_sequential.py:244} INFO - Adding new chapter 1 (en) for manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6
+[2025-05-16T06:09:18.945+0000] {log.py:232} WARNING - 2025-05-16 06:09:18,944 - INFO: Processing manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6, chapter 2 (en)
+[2025-05-16T06:09:18.944+0000] {update_sequential.py:209} INFO - Processing manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6, chapter 2 (en)
+[2025-05-16T06:09:18.946+0000] {log.py:232} WARNING - 2025-05-16 06:09:18,946 - INFO: Adding new chapter 2 (en) for manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6
+[2025-05-16T06:09:18.946+0000] {update_sequential.py:244} INFO - Adding new chapter 2 (en) for manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6
+[2025-05-16T06:09:19.233+0000] {log.py:232} WARNING - 2025-05-16 06:09:19,232 - INFO: Processing manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6, chapter 3 (en)
+[2025-05-16T06:09:19.232+0000] {update_sequential.py:209} INFO - Processing manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6, chapter 3 (en)
+[2025-05-16T06:09:19.235+0000] {log.py:232} WARNING - 2025-05-16 06:09:19,235 - INFO: Adding new chapter 3 (en) for manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6
+[2025-05-16T06:09:19.235+0000] {update_sequential.py:244} INFO - Adding new chapter 3 (en) for manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6
+[2025-05-16T06:09:19.524+0000] {log.py:232} WARNING - 2025-05-16 06:09:19,523 - INFO: Processing manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6, chapter 4 (en)
+[2025-05-16T06:09:19.523+0000] {update_sequential.py:209} INFO - Processing manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6, chapter 4 (en)
+[2025-05-16T06:09:19.525+0000] {log.py:232} WARNING - 2025-05-16 06:09:19,525 - INFO: Adding new chapter 4 (en) for manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6
+[2025-05-16T06:09:19.525+0000] {update_sequential.py:244} INFO - Adding new chapter 4 (en) for manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6
+[2025-05-16T06:09:19.815+0000] {log.py:232} WARNING - 2025-05-16 06:09:19,814 - INFO: Processing manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6, chapter 5 (en)
+[2025-05-16T06:09:19.814+0000] {update_sequential.py:209} INFO - Processing manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6, chapter 5 (en)
+[2025-05-16T06:09:19.819+0000] {log.py:232} WARNING - 2025-05-16 06:09:19,818 - INFO: Adding new chapter 5 (en) for manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6
+[2025-05-16T06:09:19.818+0000] {update_sequential.py:244} INFO - Adding new chapter 5 (en) for manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6
+[2025-05-16T06:09:20.108+0000] {log.py:232} WARNING - 2025-05-16 06:09:20,107 - INFO: Processing manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6, chapter 6 (en)
+[2025-05-16T06:09:20.107+0000] {update_sequential.py:209} INFO - Processing manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6, chapter 6 (en)
+[2025-05-16T06:09:20.109+0000] {log.py:232} WARNING - 2025-05-16 06:09:20,109 - INFO: Adding new chapter 6 (en) for manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6
+[2025-05-16T06:09:20.109+0000] {update_sequential.py:244} INFO - Adding new chapter 6 (en) for manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6
+[2025-05-16T06:09:20.397+0000] {log.py:232} WARNING - 2025-05-16 06:09:20,396 - INFO: Processing manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6, chapter 7 (en)
+[2025-05-16T06:09:20.396+0000] {update_sequential.py:209} INFO - Processing manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6, chapter 7 (en)
+[2025-05-16T06:09:20.398+0000] {log.py:232} WARNING - 2025-05-16 06:09:20,398 - INFO: Adding new chapter 7 (en) for manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6
+[2025-05-16T06:09:20.398+0000] {update_sequential.py:244} INFO - Adding new chapter 7 (en) for manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6
+[2025-05-16T06:09:20.684+0000] {log.py:232} WARNING - 2025-05-16 06:09:20,684 - INFO: Processing manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6, chapter 8 (en)
+[2025-05-16T06:09:20.684+0000] {update_sequential.py:209} INFO - Processing manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6, chapter 8 (en)
+[2025-05-16T06:09:20.686+0000] {log.py:232} WARNING - 2025-05-16 06:09:20,686 - INFO: Adding new chapter 8 (en) for manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6
+[2025-05-16T06:09:20.686+0000] {update_sequential.py:244} INFO - Adding new chapter 8 (en) for manga e46ede76-7aa6-4887-9eb2-b5fa537b91b6
+[2025-05-16T06:09:20.974+0000] {log.py:232} WARNING - 2025-05-16 06:09:20,974 - INFO: Processing manga 96fb960c-77d2-46e2-90f8-95e41a2712c6, chapter None (en)
+[2025-05-16T06:09:20.974+0000] {update_sequential.py:209} INFO - Processing manga 96fb960c-77d2-46e2-90f8-95e41a2712c6, chapter None (en)
+[2025-05-16T06:09:20.976+0000] {log.py:232} WARNING - 2025-05-16 06:09:20,976 - INFO: Adding new chapter None (en) for manga 96fb960c-77d2-46e2-90f8-95e41a2712c6
+[2025-05-16T06:09:20.976+0000] {update_sequential.py:244} INFO - Adding new chapter None (en) for manga 96fb960c-77d2-46e2-90f8-95e41a2712c6
+[2025-05-16T06:09:21.264+0000] {log.py:232} WARNING - 2025-05-16 06:09:21,264 - INFO: Processing manga 62e80dfd-c1b0-4c65-994b-fd41697f140e, chapter None (en)
+[2025-05-16T06:09:21.264+0000] {update_sequential.py:209} INFO - Processing manga 62e80dfd-c1b0-4c65-994b-fd41697f140e, chapter None (en)
+[2025-05-16T06:09:21.266+0000] {log.py:232} WARNING - 2025-05-16 06:09:21,265 - INFO: Adding new chapter None (en) for manga 62e80dfd-c1b0-4c65-994b-fd41697f140e
+[2025-05-16T06:09:21.265+0000] {update_sequential.py:244} INFO - Adding new chapter None (en) for manga 62e80dfd-c1b0-4c65-994b-fd41697f140e
+[2025-05-16T06:09:21.557+0000] {log.py:232} WARNING - 2025-05-16 06:09:21,557 - INFO: Processing manga 1f4fdbf8-b46a-4401-aaa7-8a3d75e2a711, chapter None (en)
+[2025-05-16T06:09:21.557+0000] {update_sequential.py:209} INFO - Processing manga 1f4fdbf8-b46a-4401-aaa7-8a3d75e2a711, chapter None (en)
+[2025-05-16T06:09:21.559+0000] {log.py:232} WARNING - 2025-05-16 06:09:21,558 - INFO: Adding new chapter None (en) for manga 1f4fdbf8-b46a-4401-aaa7-8a3d75e2a711
+[2025-05-16T06:09:21.558+0000] {update_sequential.py:244} INFO - Adding new chapter None (en) for manga 1f4fdbf8-b46a-4401-aaa7-8a3d75e2a711
+[2025-05-16T06:09:21.849+0000] {log.py:232} WARNING - 2025-05-16 06:09:21,849 - INFO: Processing manga cb871a0b-8442-4f9d-8987-38a6d7f11d17, chapter 1 (en)
+[2025-05-16T06:09:21.849+0000] {update_sequential.py:209} INFO - Processing manga cb871a0b-8442-4f9d-8987-38a6d7f11d17, chapter 1 (en)
+[2025-05-16T06:09:21.851+0000] {log.py:232} WARNING - 2025-05-16 06:09:21,850 - INFO: Adding new chapter 1 (en) for manga cb871a0b-8442-4f9d-8987-38a6d7f11d17
+[2025-05-16T06:09:21.850+0000] {update_sequential.py:244} INFO - Adding new chapter 1 (en) for manga cb871a0b-8442-4f9d-8987-38a6d7f11d17
+[2025-05-16T06:09:22.139+0000] {log.py:232} WARNING - 2025-05-16 06:09:22,139 - INFO: Processing manga cb871a0b-8442-4f9d-8987-38a6d7f11d17, chapter 2 (en)
+[2025-05-16T06:09:22.139+0000] {update_sequential.py:209} INFO - Processing manga cb871a0b-8442-4f9d-8987-38a6d7f11d17, chapter 2 (en)
+[2025-05-16T06:09:22.141+0000] {log.py:232} WARNING - 2025-05-16 06:09:22,141 - INFO: Adding new chapter 2 (en) for manga cb871a0b-8442-4f9d-8987-38a6d7f11d17
+[2025-05-16T06:09:22.141+0000] {update_sequential.py:244} INFO - Adding new chapter 2 (en) for manga cb871a0b-8442-4f9d-8987-38a6d7f11d17
+[2025-05-16T06:09:22.429+0000] {log.py:232} WARNING - 2025-05-16 06:09:22,429 - INFO: Processing manga cb871a0b-8442-4f9d-8987-38a6d7f11d17, chapter 3 (en)
+[2025-05-16T06:09:22.429+0000] {update_sequential.py:209} INFO - Processing manga cb871a0b-8442-4f9d-8987-38a6d7f11d17, chapter 3 (en)
+[2025-05-16T06:09:22.431+0000] {log.py:232} WARNING - 2025-05-16 06:09:22,431 - INFO: Adding new chapter 3 (en) for manga cb871a0b-8442-4f9d-8987-38a6d7f11d17
+[2025-05-16T06:09:22.431+0000] {update_sequential.py:244} INFO - Adding new chapter 3 (en) for manga cb871a0b-8442-4f9d-8987-38a6d7f11d17
+[2025-05-16T06:09:22.723+0000] {log.py:232} WARNING - 2025-05-16 06:09:22,722 - INFO: Processing manga efa87e8e-dc98-4d67-9aaa-5f99742cd68b, chapter 1 (en)
+[2025-05-16T06:09:22.722+0000] {update_sequential.py:209} INFO - Processing manga efa87e8e-dc98-4d67-9aaa-5f99742cd68b, chapter 1 (en)
+[2025-05-16T06:09:22.724+0000] {log.py:232} WARNING - 2025-05-16 06:09:22,724 - INFO: Adding new chapter 1 (en) for manga efa87e8e-dc98-4d67-9aaa-5f99742cd68b
+[2025-05-16T06:09:22.724+0000] {update_sequential.py:244} INFO - Adding new chapter 1 (en) for manga efa87e8e-dc98-4d67-9aaa-5f99742cd68b
+[2025-05-16T06:09:23.012+0000] {log.py:232} WARNING - 2025-05-16 06:09:23,012 - INFO: Processing manga efa87e8e-dc98-4d67-9aaa-5f99742cd68b, chapter 2 (en)
+[2025-05-16T06:09:23.012+0000] {update_sequential.py:209} INFO - Processing manga efa87e8e-dc98-4d67-9aaa-5f99742cd68b, chapter 2 (en)
+[2025-05-16T06:09:23.014+0000] {log.py:232} WARNING - 2025-05-16 06:09:23,014 - INFO: Adding new chapter 2 (en) for manga efa87e8e-dc98-4d67-9aaa-5f99742cd68b
+[2025-05-16T06:09:23.014+0000] {update_sequential.py:244} INFO - Adding new chapter 2 (en) for manga efa87e8e-dc98-4d67-9aaa-5f99742cd68b
+[2025-05-16T06:09:23.302+0000] {log.py:232} WARNING - 2025-05-16 06:09:23,301 - INFO: Processing manga efa87e8e-dc98-4d67-9aaa-5f99742cd68b, chapter 3 (en)
+[2025-05-16T06:09:23.301+0000] {update_sequential.py:209} INFO - Processing manga efa87e8e-dc98-4d67-9aaa-5f99742cd68b, chapter 3 (en)
+[2025-05-16T06:09:23.304+0000] {log.py:232} WARNING - 2025-05-16 06:09:23,304 - INFO: Adding new chapter 3 (en) for manga efa87e8e-dc98-4d67-9aaa-5f99742cd68b
+[2025-05-16T06:09:23.304+0000] {update_sequential.py:244} INFO - Adding new chapter 3 (en) for manga efa87e8e-dc98-4d67-9aaa-5f99742cd68b
+[2025-05-16T06:09:23.593+0000] {log.py:232} WARNING - 2025-05-16 06:09:23,592 - INFO: Processing manga efa87e8e-dc98-4d67-9aaa-5f99742cd68b, chapter 4 (en)
+[2025-05-16T06:09:23.592+0000] {update_sequential.py:209} INFO - Processing manga efa87e8e-dc98-4d67-9aaa-5f99742cd68b, chapter 4 (en)
+[2025-05-16T06:09:23.594+0000] {log.py:232} WARNING - 2025-05-16 06:09:23,594 - INFO: Adding new chapter 4 (en) for manga efa87e8e-dc98-4d67-9aaa-5f99742cd68b
+[2025-05-16T06:09:23.594+0000] {update_sequential.py:244} INFO - Adding new chapter 4 (en) for manga efa87e8e-dc98-4d67-9aaa-5f99742cd68b
+[2025-05-16T06:09:23.885+0000] {log.py:232} WARNING - 2025-05-16 06:09:23,884 - INFO: Processing manga efa87e8e-dc98-4d67-9aaa-5f99742cd68b, chapter 5 (en)
+[2025-05-16T06:09:23.884+0000] {update_sequential.py:209} INFO - Processing manga efa87e8e-dc98-4d67-9aaa-5f99742cd68b, chapter 5 (en)
+[2025-05-16T06:09:23.886+0000] {log.py:232} WARNING - 2025-05-16 06:09:23,886 - INFO: Adding new chapter 5 (en) for manga efa87e8e-dc98-4d67-9aaa-5f99742cd68b
+[2025-05-16T06:09:23.886+0000] {update_sequential.py:244} INFO - Adding new chapter 5 (en) for manga efa87e8e-dc98-4d67-9aaa-5f99742cd68b
+[2025-05-16T06:09:24.183+0000] {log.py:232} WARNING - 2025-05-16 06:09:24,182 - INFO: Processing manga efa87e8e-dc98-4d67-9aaa-5f99742cd68b, chapter 6 (en)
+[2025-05-16T06:09:24.182+0000] {update_sequential.py:209} INFO - Processing manga efa87e8e-dc98-4d67-9aaa-5f99742cd68b, chapter 6 (en)
+[2025-05-16T06:09:24.187+0000] {log.py:232} WARNING - 2025-05-16 06:09:24,186 - INFO: Adding new chapter 6 (en) for manga efa87e8e-dc98-4d67-9aaa-5f99742cd68b
+[2025-05-16T06:09:24.186+0000] {update_sequential.py:244} INFO - Adding new chapter 6 (en) for manga efa87e8e-dc98-4d67-9aaa-5f99742cd68b
+[2025-05-16T06:09:24.479+0000] {log.py:232} WARNING - 2025-05-16 06:09:24,479 - INFO: Processing manga 97da1b58-741f-4294-9f25-44cde1ecdf9a, chapter 1 (en)
+[2025-05-16T06:09:24.479+0000] {update_sequential.py:209} INFO - Processing manga 97da1b58-741f-4294-9f25-44cde1ecdf9a, chapter 1 (en)
+[2025-05-16T06:09:24.481+0000] {log.py:232} WARNING - 2025-05-16 06:09:24,481 - INFO: Adding new chapter 1 (en) for manga 97da1b58-741f-4294-9f25-44cde1ecdf9a
+[2025-05-16T06:09:24.481+0000] {update_sequential.py:244} INFO - Adding new chapter 1 (en) for manga 97da1b58-741f-4294-9f25-44cde1ecdf9a
+[2025-05-16T06:09:24.771+0000] {log.py:232} WARNING - 2025-05-16 06:09:24,770 - INFO: Processing manga 97da1b58-741f-4294-9f25-44cde1ecdf9a, chapter 2 (en)
+[2025-05-16T06:09:24.770+0000] {update_sequential.py:209} INFO - Processing manga 97da1b58-741f-4294-9f25-44cde1ecdf9a, chapter 2 (en)
+[2025-05-16T06:09:24.772+0000] {log.py:232} WARNING - 2025-05-16 06:09:24,772 - INFO: Adding new chapter 2 (en) for manga 97da1b58-741f-4294-9f25-44cde1ecdf9a
+[2025-05-16T06:09:24.772+0000] {update_sequential.py:244} INFO - Adding new chapter 2 (en) for manga 97da1b58-741f-4294-9f25-44cde1ecdf9a
+[2025-05-16T06:09:25.076+0000] {log.py:232} WARNING - 2025-05-16 06:09:25,075 - INFO: Processing manga 97da1b58-741f-4294-9f25-44cde1ecdf9a, chapter 3 (en)
+[2025-05-16T06:09:25.075+0000] {update_sequential.py:209} INFO - Processing manga 97da1b58-741f-4294-9f25-44cde1ecdf9a, chapter 3 (en)
+[2025-05-16T06:09:25.080+0000] {log.py:232} WARNING - 2025-05-16 06:09:25,080 - INFO: Adding new chapter 3 (en) for manga 97da1b58-741f-4294-9f25-44cde1ecdf9a
+[2025-05-16T06:09:25.080+0000] {update_sequential.py:244} INFO - Adding new chapter 3 (en) for manga 97da1b58-741f-4294-9f25-44cde1ecdf9a
+[2025-05-16T06:09:25.373+0000] {log.py:232} WARNING - 2025-05-16 06:09:25,372 - INFO: Processing manga 97da1b58-741f-4294-9f25-44cde1ecdf9a, chapter 4 (en)
+[2025-05-16T06:09:25.372+0000] {update_sequential.py:209} INFO - Processing manga 97da1b58-741f-4294-9f25-44cde1ecdf9a, chapter 4 (en)
+[2025-05-16T06:09:25.377+0000] {log.py:232} WARNING - 2025-05-16 06:09:25,376 - INFO: Adding new chapter 4 (en) for manga 97da1b58-741f-4294-9f25-44cde1ecdf9a
+[2025-05-16T06:09:25.376+0000] {update_sequential.py:244} INFO - Adding new chapter 4 (en) for manga 97da1b58-741f-4294-9f25-44cde1ecdf9a
+[2025-05-16T06:09:25.669+0000] {log.py:232} WARNING - 2025-05-16 06:09:25,668 - INFO: Processing manga 8928976d-1485-4260-b6d1-13552690a9f4, chapter 1 (en)
+[2025-05-16T06:09:25.668+0000] {update_sequential.py:209} INFO - Processing manga 8928976d-1485-4260-b6d1-13552690a9f4, chapter 1 (en)
+[2025-05-16T06:09:25.672+0000] {log.py:232} WARNING - 2025-05-16 06:09:25,672 - INFO: Adding new chapter 1 (en) for manga 8928976d-1485-4260-b6d1-13552690a9f4
+[2025-05-16T06:09:25.672+0000] {update_sequential.py:244} INFO - Adding new chapter 1 (en) for manga 8928976d-1485-4260-b6d1-13552690a9f4
+[2025-05-16T06:09:25.970+0000] {log.py:232} WARNING - 2025-05-16 06:09:25,966 - INFO: Processing manga 8928976d-1485-4260-b6d1-13552690a9f4, chapter 2 (en)
+[2025-05-16T06:09:25.966+0000] {update_sequential.py:209} INFO - Processing manga 8928976d-1485-4260-b6d1-13552690a9f4, chapter 2 (en)
+[2025-05-16T06:09:26.051+0000] {log.py:232} WARNING - 2025-05-16 06:09:26,036 - INFO: Adding new chapter 2 (en) for manga 8928976d-1485-4260-b6d1-13552690a9f4
+[2025-05-16T06:09:26.036+0000] {update_sequential.py:244} INFO - Adding new chapter 2 (en) for manga 8928976d-1485-4260-b6d1-13552690a9f4
+[2025-05-16T06:09:26.403+0000] {log.py:232} WARNING - 2025-05-16 06:09:26,402 - INFO: Processing manga 8928976d-1485-4260-b6d1-13552690a9f4, chapter 3 (en)
+[2025-05-16T06:09:26.402+0000] {update_sequential.py:209} INFO - Processing manga 8928976d-1485-4260-b6d1-13552690a9f4, chapter 3 (en)
+[2025-05-16T06:09:26.405+0000] {log.py:232} WARNING - 2025-05-16 06:09:26,404 - INFO: Adding new chapter 3 (en) for manga 8928976d-1485-4260-b6d1-13552690a9f4
+[2025-05-16T06:09:26.404+0000] {update_sequential.py:244} INFO - Adding new chapter 3 (en) for manga 8928976d-1485-4260-b6d1-13552690a9f4
+[2025-05-16T06:09:26.700+0000] {log.py:232} WARNING - 2025-05-16 06:09:26,697 - INFO: Processing manga 8928976d-1485-4260-b6d1-13552690a9f4, chapter 4 (en)
+[2025-05-16T06:09:26.697+0000] {update_sequential.py:209} INFO - Processing manga 8928976d-1485-4260-b6d1-13552690a9f4, chapter 4 (en)
+[2025-05-16T06:09:26.702+0000] {log.py:232} WARNING - 2025-05-16 06:09:26,702 - INFO: Adding new chapter 4 (en) for manga 8928976d-1485-4260-b6d1-13552690a9f4
+[2025-05-16T06:09:26.702+0000] {update_sequential.py:244} INFO - Adding new chapter 4 (en) for manga 8928976d-1485-4260-b6d1-13552690a9f4
+[2025-05-16T06:09:26.993+0000] {log.py:232} WARNING - 2025-05-16 06:09:26,992 - INFO: Processing manga 287e1422-57e8-4c73-8d04-9397760df929, chapter 1 (en)
+[2025-05-16T06:09:26.992+0000] {update_sequential.py:209} INFO - Processing manga 287e1422-57e8-4c73-8d04-9397760df929, chapter 1 (en)
+[2025-05-16T06:09:26.997+0000] {log.py:232} WARNING - 2025-05-16 06:09:26,996 - INFO: Adding new chapter 1 (en) for manga 287e1422-57e8-4c73-8d04-9397760df929
+[2025-05-16T06:09:26.996+0000] {update_sequential.py:244} INFO - Adding new chapter 1 (en) for manga 287e1422-57e8-4c73-8d04-9397760df929
+[2025-05-16T06:09:27.292+0000] {log.py:232} WARNING - 2025-05-16 06:09:27,291 - INFO: Processing manga cad50822-3589-40aa-9cbf-d96a2ccc6384, chapter 1 (en)
+[2025-05-16T06:09:27.291+0000] {update_sequential.py:209} INFO - Processing manga cad50822-3589-40aa-9cbf-d96a2ccc6384, chapter 1 (en)
+[2025-05-16T06:09:27.294+0000] {log.py:232} WARNING - 2025-05-16 06:09:27,293 - INFO: Adding new chapter 1 (en) for manga cad50822-3589-40aa-9cbf-d96a2ccc6384
+[2025-05-16T06:09:27.293+0000] {update_sequential.py:244} INFO - Adding new chapter 1 (en) for manga cad50822-3589-40aa-9cbf-d96a2ccc6384
+[2025-05-16T06:09:27.587+0000] {log.py:232} WARNING - 2025-05-16 06:09:27,585 - INFO: Processing manga cad50822-3589-40aa-9cbf-d96a2ccc6384, chapter 2 (en)
+[2025-05-16T06:09:27.585+0000] {update_sequential.py:209} INFO - Processing manga cad50822-3589-40aa-9cbf-d96a2ccc6384, chapter 2 (en)
+[2025-05-16T06:09:27.590+0000] {log.py:232} WARNING - 2025-05-16 06:09:27,589 - INFO: Adding new chapter 2 (en) for manga cad50822-3589-40aa-9cbf-d96a2ccc6384
+[2025-05-16T06:09:27.589+0000] {update_sequential.py:244} INFO - Adding new chapter 2 (en) for manga cad50822-3589-40aa-9cbf-d96a2ccc6384
+[2025-05-16T06:09:27.880+0000] {log.py:232} WARNING - 2025-05-16 06:09:27,879 - INFO: Processing manga cad50822-3589-40aa-9cbf-d96a2ccc6384, chapter 3 (en)
+[2025-05-16T06:09:27.879+0000] {update_sequential.py:209} INFO - Processing manga cad50822-3589-40aa-9cbf-d96a2ccc6384, chapter 3 (en)
+[2025-05-16T06:09:27.882+0000] {log.py:232} WARNING - 2025-05-16 06:09:27,881 - INFO: Adding new chapter 3 (en) for manga cad50822-3589-40aa-9cbf-d96a2ccc6384
+[2025-05-16T06:09:27.881+0000] {update_sequential.py:244} INFO - Adding new chapter 3 (en) for manga cad50822-3589-40aa-9cbf-d96a2ccc6384
+[2025-05-16T06:09:28.172+0000] {log.py:232} WARNING - 2025-05-16 06:09:28,171 - INFO: Processing manga cad50822-3589-40aa-9cbf-d96a2ccc6384, chapter 4 (en)
+[2025-05-16T06:09:28.171+0000] {update_sequential.py:209} INFO - Processing manga cad50822-3589-40aa-9cbf-d96a2ccc6384, chapter 4 (en)
+[2025-05-16T06:09:28.176+0000] {log.py:232} WARNING - 2025-05-16 06:09:28,175 - INFO: Adding new chapter 4 (en) for manga cad50822-3589-40aa-9cbf-d96a2ccc6384
+[2025-05-16T06:09:28.175+0000] {update_sequential.py:244} INFO - Adding new chapter 4 (en) for manga cad50822-3589-40aa-9cbf-d96a2ccc6384
+[2025-05-16T06:09:28.469+0000] {log.py:232} WARNING - 2025-05-16 06:09:28,467 - INFO: Processing manga cad50822-3589-40aa-9cbf-d96a2ccc6384, chapter 4.5 (en)
+[2025-05-16T06:09:28.467+0000] {update_sequential.py:209} INFO - Processing manga cad50822-3589-40aa-9cbf-d96a2ccc6384, chapter 4.5 (en)
+[2025-05-16T06:09:28.473+0000] {log.py:232} WARNING - 2025-05-16 06:09:28,472 - INFO: Adding new chapter 4.5 (en) for manga cad50822-3589-40aa-9cbf-d96a2ccc6384
+[2025-05-16T06:09:28.472+0000] {update_sequential.py:244} INFO - Adding new chapter 4.5 (en) for manga cad50822-3589-40aa-9cbf-d96a2ccc6384
+[2025-05-16T06:09:28.766+0000] {log.py:232} WARNING - 2025-05-16 06:09:28,765 - INFO: Processing manga 4d393a81-0015-4744-bf9a-064394e3f234, chapter 1 (en)
+[2025-05-16T06:09:28.765+0000] {update_sequential.py:209} INFO - Processing manga 4d393a81-0015-4744-bf9a-064394e3f234, chapter 1 (en)
+[2025-05-16T06:09:28.767+0000] {log.py:232} WARNING - 2025-05-16 06:09:28,767 - INFO: Adding new chapter 1 (en) for manga 4d393a81-0015-4744-bf9a-064394e3f234
+[2025-05-16T06:09:28.767+0000] {update_sequential.py:244} INFO - Adding new chapter 1 (en) for manga 4d393a81-0015-4744-bf9a-064394e3f234
+[2025-05-16T06:09:29.058+0000] {log.py:232} WARNING - 2025-05-16 06:09:29,057 - INFO: Processing manga bdac77b1-608f-4b0d-9773-7053dac0eca6, chapter 1 (en)
+[2025-05-16T06:09:29.057+0000] {update_sequential.py:209} INFO - Processing manga bdac77b1-608f-4b0d-9773-7053dac0eca6, chapter 1 (en)
+[2025-05-16T06:09:29.059+0000] {log.py:232} WARNING - 2025-05-16 06:09:29,059 - INFO: Adding new chapter 1 (en) for manga bdac77b1-608f-4b0d-9773-7053dac0eca6
+[2025-05-16T06:09:29.059+0000] {update_sequential.py:244} INFO - Adding new chapter 1 (en) for manga bdac77b1-608f-4b0d-9773-7053dac0eca6
+[2025-05-16T06:09:29.346+0000] {log.py:232} WARNING - 2025-05-16 06:09:29,346 - INFO: Processing manga bdac77b1-608f-4b0d-9773-7053dac0eca6, chapter 2 (en)
+[2025-05-16T06:09:29.346+0000] {update_sequential.py:209} INFO - Processing manga bdac77b1-608f-4b0d-9773-7053dac0eca6, chapter 2 (en)
+[2025-05-16T06:09:29.348+0000] {log.py:232} WARNING - 2025-05-16 06:09:29,348 - INFO: Adding new chapter 2 (en) for manga bdac77b1-608f-4b0d-9773-7053dac0eca6
+[2025-05-16T06:09:29.348+0000] {update_sequential.py:244} INFO - Adding new chapter 2 (en) for manga bdac77b1-608f-4b0d-9773-7053dac0eca6
+[2025-05-16T06:09:29.636+0000] {log.py:232} WARNING - 2025-05-16 06:09:29,636 - INFO: Processing manga bdac77b1-608f-4b0d-9773-7053dac0eca6, chapter 3 (en)
+[2025-05-16T06:09:29.636+0000] {update_sequential.py:209} INFO - Processing manga bdac77b1-608f-4b0d-9773-7053dac0eca6, chapter 3 (en)
+[2025-05-16T06:09:29.638+0000] {log.py:232} WARNING - 2025-05-16 06:09:29,637 - INFO: Adding new chapter 3 (en) for manga bdac77b1-608f-4b0d-9773-7053dac0eca6
+[2025-05-16T06:09:29.637+0000] {update_sequential.py:244} INFO - Adding new chapter 3 (en) for manga bdac77b1-608f-4b0d-9773-7053dac0eca6
+[2025-05-16T06:09:29.927+0000] {log.py:232} WARNING - 2025-05-16 06:09:29,926 - INFO: Processing manga bdac77b1-608f-4b0d-9773-7053dac0eca6, chapter 4 (en)
+[2025-05-16T06:09:29.926+0000] {update_sequential.py:209} INFO - Processing manga bdac77b1-608f-4b0d-9773-7053dac0eca6, chapter 4 (en)
+[2025-05-16T06:09:29.928+0000] {log.py:232} WARNING - 2025-05-16 06:09:29,928 - INFO: Adding new chapter 4 (en) for manga bdac77b1-608f-4b0d-9773-7053dac0eca6
+[2025-05-16T06:09:29.928+0000] {update_sequential.py:244} INFO - Adding new chapter 4 (en) for manga bdac77b1-608f-4b0d-9773-7053dac0eca6
+[2025-05-16T06:09:30.216+0000] {log.py:232} WARNING - 2025-05-16 06:09:30,216 - INFO: Processing manga bdac77b1-608f-4b0d-9773-7053dac0eca6, chapter 5 (en)
+[2025-05-16T06:09:30.216+0000] {update_sequential.py:209} INFO - Processing manga bdac77b1-608f-4b0d-9773-7053dac0eca6, chapter 5 (en)
+[2025-05-16T06:09:30.218+0000] {log.py:232} WARNING - 2025-05-16 06:09:30,218 - INFO: Adding new chapter 5 (en) for manga bdac77b1-608f-4b0d-9773-7053dac0eca6
+[2025-05-16T06:09:30.218+0000] {update_sequential.py:244} INFO - Adding new chapter 5 (en) for manga bdac77b1-608f-4b0d-9773-7053dac0eca6
+[2025-05-16T06:09:30.509+0000] {log.py:232} WARNING - 2025-05-16 06:09:30,508 - INFO: Processing manga f777da8d-878b-4114-a256-31b21933afc3, chapter 1 (en)
+[2025-05-16T06:09:30.508+0000] {update_sequential.py:209} INFO - Processing manga f777da8d-878b-4114-a256-31b21933afc3, chapter 1 (en)
+[2025-05-16T06:09:30.511+0000] {log.py:232} WARNING - 2025-05-16 06:09:30,510 - INFO: Adding new chapter 1 (en) for manga f777da8d-878b-4114-a256-31b21933afc3
+[2025-05-16T06:09:30.510+0000] {update_sequential.py:244} INFO - Adding new chapter 1 (en) for manga f777da8d-878b-4114-a256-31b21933afc3
+[2025-05-16T06:09:30.798+0000] {log.py:232} WARNING - 2025-05-16 06:09:30,797 - INFO: Processing manga 255937ca-c65b-4f8e-bb39-a41ac667362b, chapter 1 (en)
+[2025-05-16T06:09:30.797+0000] {update_sequential.py:209} INFO - Processing manga 255937ca-c65b-4f8e-bb39-a41ac667362b, chapter 1 (en)
+[2025-05-16T06:09:30.799+0000] {log.py:232} WARNING - 2025-05-16 06:09:30,799 - INFO: Adding new chapter 1 (en) for manga 255937ca-c65b-4f8e-bb39-a41ac667362b
+[2025-05-16T06:09:30.799+0000] {update_sequential.py:244} INFO - Adding new chapter 1 (en) for manga 255937ca-c65b-4f8e-bb39-a41ac667362b
+[2025-05-16T06:09:31.088+0000] {log.py:232} WARNING - 2025-05-16 06:09:31,088 - INFO: Processing manga 255937ca-c65b-4f8e-bb39-a41ac667362b, chapter 2 (en)
+[2025-05-16T06:09:31.088+0000] {update_sequential.py:209} INFO - Processing manga 255937ca-c65b-4f8e-bb39-a41ac667362b, chapter 2 (en)
+[2025-05-16T06:09:31.090+0000] {log.py:232} WARNING - 2025-05-16 06:09:31,089 - INFO: Adding new chapter 2 (en) for manga 255937ca-c65b-4f8e-bb39-a41ac667362b
+[2025-05-16T06:09:31.089+0000] {update_sequential.py:244} INFO - Adding new chapter 2 (en) for manga 255937ca-c65b-4f8e-bb39-a41ac667362b
+[2025-05-16T06:09:31.378+0000] {log.py:232} WARNING - 2025-05-16 06:09:31,378 - INFO: Processing manga 255937ca-c65b-4f8e-bb39-a41ac667362b, chapter 3 (en)
+[2025-05-16T06:09:31.378+0000] {update_sequential.py:209} INFO - Processing manga 255937ca-c65b-4f8e-bb39-a41ac667362b, chapter 3 (en)
+[2025-05-16T06:09:31.380+0000] {log.py:232} WARNING - 2025-05-16 06:09:31,380 - INFO: Adding new chapter 3 (en) for manga 255937ca-c65b-4f8e-bb39-a41ac667362b
+[2025-05-16T06:09:31.380+0000] {update_sequential.py:244} INFO - Adding new chapter 3 (en) for manga 255937ca-c65b-4f8e-bb39-a41ac667362b
+[2025-05-16T06:09:31.705+0000] {log.py:232} WARNING - 2025-05-16 06:09:31,705 - INFO: Processing manga 255937ca-c65b-4f8e-bb39-a41ac667362b, chapter 4 (en)
+[2025-05-16T06:09:31.705+0000] {update_sequential.py:209} INFO - Processing manga 255937ca-c65b-4f8e-bb39-a41ac667362b, chapter 4 (en)
+[2025-05-16T06:09:31.707+0000] {log.py:232} WARNING - 2025-05-16 06:09:31,706 - INFO: Adding new chapter 4 (en) for manga 255937ca-c65b-4f8e-bb39-a41ac667362b
+[2025-05-16T06:09:31.706+0000] {update_sequential.py:244} INFO - Adding new chapter 4 (en) for manga 255937ca-c65b-4f8e-bb39-a41ac667362b
+[2025-05-16T06:09:31.997+0000] {log.py:232} WARNING - 2025-05-16 06:09:31,996 - INFO: Processing manga 16ac1429-593f-4fe5-a529-ce8aed994ef5, chapter None (en)
+[2025-05-16T06:09:31.996+0000] {update_sequential.py:209} INFO - Processing manga 16ac1429-593f-4fe5-a529-ce8aed994ef5, chapter None (en)
+[2025-05-16T06:09:32.001+0000] {log.py:232} WARNING - 2025-05-16 06:09:32,000 - INFO: Adding new chapter None (en) for manga 16ac1429-593f-4fe5-a529-ce8aed994ef5
+[2025-05-16T06:09:32.000+0000] {update_sequential.py:244} INFO - Adding new chapter None (en) for manga 16ac1429-593f-4fe5-a529-ce8aed994ef5
+[2025-05-16T06:09:32.293+0000] {log.py:232} WARNING - 2025-05-16 06:09:32,292 - INFO: Processing manga da6c7a1e-e528-4a1e-8a09-c5443ab77225, chapter None (en)
+[2025-05-16T06:09:32.292+0000] {update_sequential.py:209} INFO - Processing manga da6c7a1e-e528-4a1e-8a09-c5443ab77225, chapter None (en)
+[2025-05-16T06:09:32.297+0000] {log.py:232} WARNING - 2025-05-16 06:09:32,296 - INFO: Adding new chapter None (en) for manga da6c7a1e-e528-4a1e-8a09-c5443ab77225
+[2025-05-16T06:09:32.296+0000] {update_sequential.py:244} INFO - Adding new chapter None (en) for manga da6c7a1e-e528-4a1e-8a09-c5443ab77225
+[2025-05-16T06:09:32.590+0000] {log.py:232} WARNING - 2025-05-16 06:09:32,589 - INFO: Processing manga f1b3d291-ac40-41b0-bddf-d6d3dda03515, chapter 1 (en)
+[2025-05-16T06:09:32.589+0000] {update_sequential.py:209} INFO - Processing manga f1b3d291-ac40-41b0-bddf-d6d3dda03515, chapter 1 (en)
+[2025-05-16T06:09:32.593+0000] {log.py:232} WARNING - 2025-05-16 06:09:32,592 - INFO: Adding new chapter 1 (en) for manga f1b3d291-ac40-41b0-bddf-d6d3dda03515
+[2025-05-16T06:09:32.592+0000] {update_sequential.py:244} INFO - Adding new chapter 1 (en) for manga f1b3d291-ac40-41b0-bddf-d6d3dda03515
+[2025-05-16T06:09:33.173+0000] {log.py:232} WARNING - 2025-05-16 06:09:33,172 - INFO: Database update complete
+[2025-05-16T06:09:33.172+0000] {update_sequential.py:265} INFO - Database update complete
+[2025-05-16T06:09:33.174+0000] {log.py:232} WARNING - 2025-05-16 06:09:33,174 - INFO: Total chapters added/updated: 87
+[2025-05-16T06:09:33.174+0000] {update_sequential.py:269} INFO - Total chapters added/updated: 87
+[2025-05-16T06:09:33.176+0000] {log.py:232} WARNING - 2025-05-16 06:09:33,176 - INFO: Total chapters replaced with English translations: 0
+[2025-05-16T06:09:33.176+0000] {update_sequential.py:270} INFO - Total chapters replaced with English translations: 0
+[2025-05-16T06:09:33.467+0000] {log.py:232} WARNING - 2025-05-16 06:09:33,466 - INFO: Registered chapter rollback data for 87 chapter IDs
+[2025-05-16T06:09:33.466+0000] {update_manga_database_dag.py:157} INFO - Registered chapter rollback data for 87 chapter IDs
+[2025-05-16T06:09:33.470+0000] {log.py:232} WARNING - 2025-05-16 06:09:33,469 - INFO: Updated/added 87 chapters, replaced 0
+[2025-05-16T06:09:33.469+0000] {update_manga_database_dag.py:420} INFO - Updated/added 87 chapters, replaced 0
+[2025-05-16T06:09:33.473+0000] {log.py:232} WARNING - 2025-05-16 06:09:33,472 - INFO: Starting image data update
+[2025-05-16T06:09:33.472+0000] {update_manga_database_dag.py:424} INFO - Starting image data update
+[2025-05-16T06:09:33.475+0000] {log.py:232} WARNING - 2025-05-16 06:09:33,474 - ERROR: Unexpected error in update_image_data_mongodb: name 'chapter_images' is not defined
+[2025-05-16T06:09:33.474+0000] {update_sequential.py:389} ERROR - Unexpected error in update_image_data_mongodb: name 'chapter_images' is not defined
+[2025-05-16T06:09:33.486+0000] {log.py:232} WARNING - 2025-05-16 06:09:33,486 - ERROR: Traceback (most recent call last):
+  File "/opt/***/src/populate_db/update_db/update_sequential.py", line 306, in update_image_data_mongodb
+    if not chapter_images:
+           ^^^^^^^^^^^^^^
+NameError: name 'chapter_images' is not defined
+[2025-05-16T06:09:33.486+0000] {update_sequential.py:390} ERROR - Traceback (most recent call last):
+  File "/opt/***/src/populate_db/update_db/update_sequential.py", line 306, in update_image_data_mongodb
+    if not chapter_images:
+           ^^^^^^^^^^^^^^
+NameError: name 'chapter_images' is not defined
+
+[2025-05-16T06:09:33.487+0000] {log.py:232} WARNING - 2025-05-16 06:09:33,487 - ERROR: Update failed: name 'chapter_images' is not defined
+[2025-05-16T06:09:33.487+0000] {update_manga_database_dag.py:441} ERROR - Update failed: name 'chapter_images' is not defined
+[2025-05-16T06:09:33.489+0000] {log.py:232} WARNING - 2025-05-16 06:09:33,488 - WARNING: Starting transaction rollback
+[2025-05-16T06:09:33.488+0000] {update_manga_database_dag.py:188} WARNING - Starting transaction rollback
+[2025-05-16T06:09:33.490+0000] {log.py:232} WARNING - 2025-05-16 06:09:33,490 - INFO: Rolling back chapter updates
+[2025-05-16T06:09:33.490+0000] {update_manga_database_dag.py:214} INFO - Rolling back chapter updates
+[2025-05-16T06:09:33.789+0000] {log.py:232} WARNING - 2025-05-16 06:09:33,788 - INFO: Removed 87 newly added chapters
+[2025-05-16T06:09:33.788+0000] {update_manga_database_dag.py:221} INFO - Removed 87 newly added chapters
+[2025-05-16T06:09:58.330+0000] {log.py:232} WARNING - 2025-05-16 06:09:58,328 - INFO: Restored 87 original chapter records
+[2025-05-16T06:09:58.328+0000] {update_manga_database_dag.py:231} INFO - Restored 87 original chapter records
+[2025-05-16T06:09:58.334+0000] {log.py:232} WARNING - 2025-05-16 06:09:58,333 - INFO: Rolling back manga updates
+[2025-05-16T06:09:58.333+0000] {update_manga_database_dag.py:233} INFO - Rolling back manga updates
+[2025-05-16T06:09:58.623+0000] {log.py:232} WARNING - 2025-05-16 06:09:58,622 - INFO: Removed 61 newly added manga
+[2025-05-16T06:09:58.622+0000] {update_manga_database_dag.py:240} INFO - Removed 61 newly added manga
+[2025-05-16T06:10:15.842+0000] {log.py:232} WARNING - 2025-05-16 06:10:15,841 - INFO: Restored 61 original manga records
+[2025-05-16T06:10:15.841+0000] {update_manga_database_dag.py:249} INFO - Restored 61 original manga records
+[2025-05-16T06:10:16.123+0000] {log.py:232} WARNING - 2025-05-16 06:10:16,122 - INFO: Rollback committed successfully
+[2025-05-16T06:10:16.122+0000] {update_manga_database_dag.py:256} INFO - Rollback committed successfully
+[2025-05-16T06:10:16.135+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/opt/airflow/dags/update_manga_database_dag.py", line 425, in update_all_databases
+    inserted_count, skipped_count = update_image_data_mongodb(new_images, collection)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/src/populate_db/update_db/update_sequential.py", line 306, in update_image_data_mongodb
+    if not chapter_images:
+           ^^^^^^^^^^^^^^
+NameError: name 'chapter_images' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/decorators/base.py", line 266, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/update_manga_database_dag.py", line 443, in update_all_databases
+    raise AirflowException(f"Database update failed: {str(e)}")
+airflow.exceptions.AirflowException: Database update failed: name 'chapter_images' is not defined
+[2025-05-16T06:10:16.145+0000] {logging_mixin.py:190} INFO - Task instance in failure state
+[2025-05-16T06:10:16.146+0000] {logging_mixin.py:190} INFO - Task start:2025-05-16 06:08:38.979462+00:00 end:2025-05-16 06:10:16.145424+00:00 duration:97.165962
+[2025-05-16T06:10:16.147+0000] {logging_mixin.py:190} INFO - Task:<Task(_PythonDecoratedOperator): update_all_databases> dag:<DAG: update_manga_database> dagrun:<DagRun update_manga_database @ 2025-05-16 06:05:32.268567+00:00: manual__2025-05-16T06:05:32.268567+00:00, state:running, queued_at: 2025-05-16 06:05:32.282113+00:00. externally triggered: True>
+[2025-05-16T06:10:16.147+0000] {logging_mixin.py:190} INFO - Failure caused by Database update failed: name 'chapter_images' is not defined
+[2025-05-16T06:10:16.148+0000] {taskinstance.py:1226} INFO - Marking task as FAILED. dag_id=update_manga_database, task_id=update_all_databases, run_id=manual__2025-05-16T06:05:32.268567+00:00, execution_date=20250516T060532, start_date=20250516T060838, end_date=20250516T061016
+[2025-05-16T06:10:16.174+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-05-16T06:10:16.175+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 96 for task update_all_databases (Database update failed: name 'chapter_images' is not defined; 1709)
+Traceback (most recent call last):
+  File "/opt/airflow/dags/update_manga_database_dag.py", line 425, in update_all_databases
+    inserted_count, skipped_count = update_image_data_mongodb(new_images, collection)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/src/populate_db/update_db/update_sequential.py", line 306, in update_image_data_mongodb
+    if not chapter_images:
+           ^^^^^^^^^^^^^^
+NameError: name 'chapter_images' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/decorators/base.py", line 266, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/update_manga_database_dag.py", line 443, in update_all_databases
+    raise AirflowException(f"Database update failed: {str(e)}")
+airflow.exceptions.AirflowException: Database update failed: name 'chapter_images' is not defined
+[2025-05-16T06:10:16.196+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-05-16T06:10:16.211+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-16T06:10:16.215+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

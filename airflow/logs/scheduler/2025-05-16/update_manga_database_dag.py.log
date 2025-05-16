@@ -5100,3 +5100,94 @@ SyntaxError: unterminated triple-quoted f-string literal (detected at line 523)
 [2025-05-16T11:33:23.344+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:33:23.344+0000] {dag.py:3239} INFO - Sync 1 DAGs
 [2025-05-16T11:33:23.422+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:33:23.422+0000] {dag.py:4180} INFO - Setting next_dagrun for update_manga_database to 2025-05-16 00:00:00+00:00, run_after=2025-05-17 00:00:00+00:00
 [2025-05-16T11:33:23.481+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/update_manga_database_dag.py took 0.437 seconds
+[2025-05-16T11:33:54.316+0000] {processor.py:186} INFO - Started process (PID=46707) to work on /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:33:54.317+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/update_manga_database_dag.py for tasks to queue
+[2025-05-16T11:33:54.319+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:33:54.319+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:33:54.509+0000] {processor.py:925} INFO - DAG(s) 'update_manga_database' retrieved from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:33:54.531+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:33:54.531+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-05-16T11:33:54.560+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:33:54.560+0000] {dag.py:4180} INFO - Setting next_dagrun for update_manga_database to 2025-05-16 00:00:00+00:00, run_after=2025-05-17 00:00:00+00:00
+[2025-05-16T11:33:54.584+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/update_manga_database_dag.py took 0.274 seconds
+[2025-05-16T11:34:24.741+0000] {processor.py:186} INFO - Started process (PID=46773) to work on /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:34:24.743+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/update_manga_database_dag.py for tasks to queue
+[2025-05-16T11:34:24.745+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:34:24.744+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:34:24.948+0000] {processor.py:925} INFO - DAG(s) 'update_manga_database' retrieved from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:34:24.969+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:34:24.969+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-05-16T11:34:25.000+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:34:25.000+0000] {dag.py:4180} INFO - Setting next_dagrun for update_manga_database to 2025-05-16 00:00:00+00:00, run_after=2025-05-17 00:00:00+00:00
+[2025-05-16T11:34:25.021+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/update_manga_database_dag.py took 0.288 seconds
+[2025-05-16T11:34:55.134+0000] {processor.py:186} INFO - Started process (PID=46840) to work on /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:34:55.135+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/update_manga_database_dag.py for tasks to queue
+[2025-05-16T11:34:55.137+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:34:55.137+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:34:55.313+0000] {processor.py:925} INFO - DAG(s) 'update_manga_database' retrieved from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:34:55.334+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:34:55.334+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-05-16T11:34:55.359+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:34:55.359+0000] {dag.py:4180} INFO - Setting next_dagrun for update_manga_database to 2025-05-16 00:00:00+00:00, run_after=2025-05-17 00:00:00+00:00
+[2025-05-16T11:34:55.382+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/update_manga_database_dag.py took 0.255 seconds
+[2025-05-16T11:35:25.490+0000] {processor.py:186} INFO - Started process (PID=46905) to work on /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:35:25.492+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/update_manga_database_dag.py for tasks to queue
+[2025-05-16T11:35:25.493+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:35:25.493+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:35:25.740+0000] {processor.py:925} INFO - DAG(s) 'update_manga_database' retrieved from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:35:25.761+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:35:25.761+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-05-16T11:35:25.783+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:35:25.782+0000] {dag.py:4180} INFO - Setting next_dagrun for update_manga_database to 2025-05-16 00:00:00+00:00, run_after=2025-05-17 00:00:00+00:00
+[2025-05-16T11:35:25.803+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/update_manga_database_dag.py took 0.318 seconds
+[2025-05-16T11:35:56.743+0000] {processor.py:186} INFO - Started process (PID=46971) to work on /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:35:56.744+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/update_manga_database_dag.py for tasks to queue
+[2025-05-16T11:35:56.745+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:35:56.745+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:35:56.941+0000] {processor.py:925} INFO - DAG(s) 'update_manga_database' retrieved from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:35:56.961+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:35:56.961+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-05-16T11:35:56.987+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:35:56.987+0000] {dag.py:4180} INFO - Setting next_dagrun for update_manga_database to 2025-05-16 00:00:00+00:00, run_after=2025-05-17 00:00:00+00:00
+[2025-05-16T11:35:57.010+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/update_manga_database_dag.py took 0.272 seconds
+[2025-05-16T11:36:27.073+0000] {processor.py:186} INFO - Started process (PID=47039) to work on /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:36:27.075+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/update_manga_database_dag.py for tasks to queue
+[2025-05-16T11:36:27.077+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:36:27.076+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:36:27.329+0000] {processor.py:925} INFO - DAG(s) 'update_manga_database' retrieved from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:36:27.349+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:36:27.348+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-05-16T11:36:27.375+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:36:27.374+0000] {dag.py:4180} INFO - Setting next_dagrun for update_manga_database to 2025-05-16 00:00:00+00:00, run_after=2025-05-17 00:00:00+00:00
+[2025-05-16T11:36:27.401+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/update_manga_database_dag.py took 0.332 seconds
+[2025-05-16T11:36:57.836+0000] {processor.py:186} INFO - Started process (PID=47103) to work on /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:36:57.837+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/update_manga_database_dag.py for tasks to queue
+[2025-05-16T11:36:57.839+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:36:57.839+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:36:58.063+0000] {processor.py:925} INFO - DAG(s) 'update_manga_database' retrieved from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:36:58.087+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:36:58.087+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-05-16T11:36:58.111+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:36:58.111+0000] {dag.py:4180} INFO - Setting next_dagrun for update_manga_database to 2025-05-16 00:00:00+00:00, run_after=2025-05-17 00:00:00+00:00
+[2025-05-16T11:36:58.134+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/update_manga_database_dag.py took 0.305 seconds
+[2025-05-16T11:37:28.257+0000] {processor.py:186} INFO - Started process (PID=47169) to work on /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:37:28.258+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/update_manga_database_dag.py for tasks to queue
+[2025-05-16T11:37:28.259+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:37:28.259+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:37:28.461+0000] {processor.py:925} INFO - DAG(s) 'update_manga_database' retrieved from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:37:28.484+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:37:28.483+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-05-16T11:37:28.665+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:37:28.665+0000] {dag.py:4180} INFO - Setting next_dagrun for update_manga_database to 2025-05-16 00:00:00+00:00, run_after=2025-05-17 00:00:00+00:00
+[2025-05-16T11:37:28.688+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/update_manga_database_dag.py took 0.438 seconds
+[2025-05-16T11:37:58.855+0000] {processor.py:186} INFO - Started process (PID=47235) to work on /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:37:58.856+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/update_manga_database_dag.py for tasks to queue
+[2025-05-16T11:37:58.858+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:37:58.857+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:37:59.076+0000] {processor.py:925} INFO - DAG(s) 'update_manga_database' retrieved from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:37:59.100+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:37:59.099+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-05-16T11:37:59.297+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:37:59.297+0000] {dag.py:4180} INFO - Setting next_dagrun for update_manga_database to 2025-05-16 00:00:00+00:00, run_after=2025-05-17 00:00:00+00:00
+[2025-05-16T11:37:59.319+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/update_manga_database_dag.py took 0.471 seconds
+[2025-05-16T11:38:29.515+0000] {processor.py:186} INFO - Started process (PID=47305) to work on /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:38:29.516+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/update_manga_database_dag.py for tasks to queue
+[2025-05-16T11:38:29.517+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:38:29.517+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:38:29.704+0000] {processor.py:925} INFO - DAG(s) 'update_manga_database' retrieved from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:38:29.729+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:38:29.729+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-05-16T11:38:29.964+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:38:29.964+0000] {dag.py:4180} INFO - Setting next_dagrun for update_manga_database to 2025-05-16 00:00:00+00:00, run_after=2025-05-17 00:00:00+00:00
+[2025-05-16T11:38:29.983+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/update_manga_database_dag.py took 0.474 seconds
+[2025-05-16T11:39:00.174+0000] {processor.py:186} INFO - Started process (PID=47374) to work on /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:39:00.175+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/update_manga_database_dag.py for tasks to queue
+[2025-05-16T11:39:00.176+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:39:00.176+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:39:00.338+0000] {processor.py:925} INFO - DAG(s) 'update_manga_database' retrieved from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:39:00.361+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:39:00.360+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-05-16T11:39:00.579+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:39:00.579+0000] {dag.py:4180} INFO - Setting next_dagrun for update_manga_database to 2025-05-16 00:00:00+00:00, run_after=2025-05-17 00:00:00+00:00
+[2025-05-16T11:39:00.607+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/update_manga_database_dag.py took 0.438 seconds
+[2025-05-16T11:39:31.458+0000] {processor.py:186} INFO - Started process (PID=47442) to work on /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:39:31.460+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/update_manga_database_dag.py for tasks to queue
+[2025-05-16T11:39:31.462+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:39:31.462+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:39:31.656+0000] {processor.py:925} INFO - DAG(s) 'update_manga_database' retrieved from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:39:31.676+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:39:31.675+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-05-16T11:39:31.852+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:39:31.852+0000] {dag.py:4180} INFO - Setting next_dagrun for update_manga_database to 2025-05-16 00:00:00+00:00, run_after=2025-05-17 00:00:00+00:00
+[2025-05-16T11:39:31.871+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/update_manga_database_dag.py took 0.421 seconds
+[2025-05-16T11:40:02.395+0000] {processor.py:186} INFO - Started process (PID=47508) to work on /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:40:02.396+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/update_manga_database_dag.py for tasks to queue
+[2025-05-16T11:40:02.398+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:40:02.398+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:40:02.710+0000] {processor.py:925} INFO - DAG(s) 'update_manga_database' retrieved from /opt/airflow/dags/update_manga_database_dag.py
+[2025-05-16T11:40:02.726+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:40:02.726+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-05-16T11:40:02.745+0000] {logging_mixin.py:190} INFO - [2025-05-16T11:40:02.745+0000] {dag.py:4180} INFO - Setting next_dagrun for update_manga_database to 2025-05-16 00:00:00+00:00, run_after=2025-05-17 00:00:00+00:00
+[2025-05-16T11:40:02.768+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/update_manga_database_dag.py took 0.381 seconds

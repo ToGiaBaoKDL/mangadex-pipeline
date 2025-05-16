@@ -20,6 +20,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/baodata2226/mangadex-pipeline.git",
+    "accountId": "eb127615-7c03-4c0d-8b19-a5a896844805"
+  }
+}]]></component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -45,7 +51,7 @@
     "Python.update_sequential.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -104,7 +110,7 @@
       <workItem from="1747330858615" duration="66000" />
       <workItem from="1747341653195" duration="1805000" />
       <workItem from="1747370380461" duration="13674000" />
-      <workItem from="1747389893492" duration="2952000" />
+      <workItem from="1747389893492" duration="3295000" />
     </task>
     <servers />
   </component>

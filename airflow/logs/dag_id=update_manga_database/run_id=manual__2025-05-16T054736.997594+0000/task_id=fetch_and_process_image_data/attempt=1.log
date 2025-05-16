@@ -1,49 +1,0 @@
-[2025-05-16T05:47:40.016+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
-[2025-05-16T05:47:40.036+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: update_manga_database.fetch_and_process_image_data manual__2025-05-16T05:47:36.997594+00:00 [queued]>
-[2025-05-16T05:47:40.050+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: update_manga_database.fetch_and_process_image_data manual__2025-05-16T05:47:36.997594+00:00 [queued]>
-[2025-05-16T05:47:40.051+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
-[2025-05-16T05:47:40.072+0000] {taskinstance.py:2890} INFO - Executing <Task(_PythonDecoratedOperator): fetch_and_process_image_data> on 2025-05-16 05:47:36.997594+00:00
-[2025-05-16T05:47:40.081+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1300) is multi-threaded, use of fork() may lead to deadlocks in the child.
-  pid = os.fork()
-
-[2025-05-16T05:47:40.083+0000] {standard_task_runner.py:72} INFO - Started process 1313 to run task
-[2025-05-16T05:47:40.085+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'update_manga_database', 'fetch_and_process_image_data', 'manual__2025-05-16T05:47:36.997594+00:00', '--job-id', '82', '--raw', '--subdir', 'DAGS_FOLDER/update_manga_database_dag.py', '--cfg-path', '/tmp/tmp7bfneq_t']
-[2025-05-16T05:47:40.086+0000] {standard_task_runner.py:105} INFO - Job 82: Subtask fetch_and_process_image_data
-[2025-05-16T05:47:40.152+0000] {task_command.py:467} INFO - Running <TaskInstance: update_manga_database.fetch_and_process_image_data manual__2025-05-16T05:47:36.997594+00:00 [running]> on host 3729034b4972
-[2025-05-16T05:47:40.277+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='update_manga_database' AIRFLOW_CTX_TASK_ID='fetch_and_process_image_data' AIRFLOW_CTX_EXECUTION_DATE='2025-05-16T05:47:36.997594+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-16T05:47:36.997594+00:00'
-[2025-05-16T05:47:40.282+0000] {logging_mixin.py:190} INFO - Task instance is in running state
-[2025-05-16T05:47:40.282+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
-[2025-05-16T05:47:40.283+0000] {logging_mixin.py:190} INFO - Current task name:fetch_and_process_image_data state:running start_date:2025-05-16 05:47:40.039166+00:00
-[2025-05-16T05:47:40.283+0000] {logging_mixin.py:190} INFO - Dag name:update_manga_database and current dag run status:running
-[2025-05-16T05:47:40.283+0000] {taskinstance.py:732} INFO - ::endgroup::
-[2025-05-16T05:47:40.285+0000] {log.py:232} WARNING - 2025-05-16 05:47:40,284 - INFO: Fetching image data
-[2025-05-16T05:47:40.284+0000] {update_manga_database_dag.py:383} INFO - Fetching image data
-[2025-05-16T05:47:40.306+0000] {logging_mixin.py:190} WARNING - Fetching chapters:   0%|                                        | 0/5 [00:00<?, ?it/s]
-[2025-05-16T05:47:40.550+0000] {log.py:232} WARNING - 2025-05-16 05:47:40,549 - ERROR: ❌ Failed to fetch chapter q: 404 Client Error: Not Found for url: https://api.mangadex.org/at-home/server/q
-[2025-05-16T05:47:40.549+0000] {crawler_instance.py:375} ERROR - ❌ Failed to fetch chapter q: 404 Client Error: Not Found for url: https://api.mangadex.org/at-home/server/q
-[2025-05-16T05:47:40.552+0000] {logging_mixin.py:190} WARNING - Fetching chapters:  20%|########                                | 1/5 [00:00<00:00,  4.08it/s]
-[2025-05-16T05:47:40.562+0000] {log.py:232} WARNING - 2025-05-16 05:47:40,561 - ERROR: ❌ Failed to fetch chapter u: 404 Client Error: Not Found for url: https://api.mangadex.org/at-home/server/u
-[2025-05-16T05:47:40.561+0000] {crawler_instance.py:375} ERROR - ❌ Failed to fetch chapter u: 404 Client Error: Not Found for url: https://api.mangadex.org/at-home/server/u
-[2025-05-16T05:47:40.630+0000] {log.py:232} WARNING - 2025-05-16 05:47:40,630 - ERROR: ❌ Failed to fetch chapter y: 404 Client Error: Not Found for url: https://api.mangadex.org/at-home/server/y
-[2025-05-16T05:47:40.630+0000] {crawler_instance.py:375} ERROR - ❌ Failed to fetch chapter y: 404 Client Error: Not Found for url: https://api.mangadex.org/at-home/server/y
-[2025-05-16T05:47:40.661+0000] {log.py:232} WARNING - 2025-05-16 05:47:40,660 - ERROR: ❌ Failed to fetch chapter n: 404 Client Error: Not Found for url: https://api.mangadex.org/at-home/server/n
-[2025-05-16T05:47:40.660+0000] {crawler_instance.py:375} ERROR - ❌ Failed to fetch chapter n: 404 Client Error: Not Found for url: https://api.mangadex.org/at-home/server/n
-[2025-05-16T05:47:40.716+0000] {log.py:232} WARNING - 2025-05-16 05:47:40,716 - ERROR: ❌ Failed to fetch chapter h: 404 Client Error: Not Found for url: https://api.mangadex.org/at-home/server/h
-[2025-05-16T05:47:40.716+0000] {crawler_instance.py:375} ERROR - ❌ Failed to fetch chapter h: 404 Client Error: Not Found for url: https://api.mangadex.org/at-home/server/h
-[2025-05-16T05:47:40.849+0000] {logging_mixin.py:190} WARNING - Fetching chapters:  40%|################                        | 2/5 [00:00<00:00,  3.63it/s]
-[2025-05-16T05:47:40.976+0000] {logging_mixin.py:190} WARNING - Fetching chapters:  60%|########################                | 3/5 [00:00<00:00,  4.82it/s]
-[2025-05-16T05:47:41.100+0000] {logging_mixin.py:190} WARNING - Fetching chapters:  80%|################################        | 4/5 [00:00<00:00,  5.72it/s]
-[2025-05-16T05:47:41.253+0000] {logging_mixin.py:190} WARNING - Fetching chapters: 100%|########################################| 5/5 [00:00<00:00,  6.00it/s]
-[2025-05-16T05:47:41.498+0000] {logging_mixin.py:190} WARNING - Fetching chapters: 100%|########################################| 5/5 [00:01<00:00,  4.20it/s]
-[2025-05-16T05:47:41.500+0000] {log.py:232} WARNING - 2025-05-16 05:47:41,499 - INFO: Processed images for 5 chapters
-[2025-05-16T05:47:41.499+0000] {update_manga_database_dag.py:386} INFO - Processed images for 5 chapters
-[2025-05-16T05:47:41.501+0000] {python.py:240} INFO - Done. Returned value was: {'q': [], 'u': [], 'y': [], 'n': [], 'h': []}
-[2025-05-16T05:47:41.533+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
-[2025-05-16T05:47:41.534+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=update_manga_database, task_id=fetch_and_process_image_data, run_id=manual__2025-05-16T05:47:36.997594+00:00, execution_date=20250516T054736, start_date=20250516T054740, end_date=20250516T054741
-[2025-05-16T05:47:41.558+0000] {logging_mixin.py:190} INFO - Task instance in success state
-[2025-05-16T05:47:41.559+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
-[2025-05-16T05:47:41.559+0000] {logging_mixin.py:190} INFO - Dag name:update_manga_database queued_at:2025-05-16 05:47:37.015184+00:00
-[2025-05-16T05:47:41.560+0000] {logging_mixin.py:190} INFO - Task hostname:3729034b4972 operator:_PythonDecoratedOperator
-[2025-05-16T05:47:41.585+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
-[2025-05-16T05:47:41.609+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
-[2025-05-16T05:47:41.617+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

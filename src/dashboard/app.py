@@ -1,5 +1,10 @@
 # app.py
 import streamlit as st
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+
 from src.dashboard.core.components.sidebar import render_sidebar
 from src.dashboard.core.components.dashboard import render_dashboard
 from src.dashboard.core.utils.data_cleaning import initialize_session_state

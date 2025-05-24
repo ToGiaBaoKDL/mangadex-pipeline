@@ -20,9 +20,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "baodata2226"
+  }
+}]]></component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
-    "url": "https://github.com/baodata2226/mangadex-pipeline.git",
+    "url": "https://github.com/ToGiaBaoKDL/mangadex-pipeline.git",
     "accountId": "eb127615-7c03-4c0d-8b19-a5a896844805"
   }
 }]]></component>
@@ -110,8 +116,89 @@
       <workItem from="1747330858615" duration="66000" />
       <workItem from="1747341653195" duration="1805000" />
       <workItem from="1747370380461" duration="13674000" />
-      <workItem from="1747389893492" duration="3295000" />
+      <workItem from="1747389893492" duration="8732000" />
     </task>
+    <task id="LOCAL-00001" summary="Delete files in airflow/logs">
+      <option name="closed" value="true" />
+      <created>1747413019680</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1747413019680</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Delete files in airflow/logs">
+      <option name="closed" value="true" />
+      <created>1747413026825</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1747413026825</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Ignore unnecessary files">
+      <option name="closed" value="true" />
+      <created>1747413563645</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1747413563645</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Ignore unnecessary files">
+      <option name="closed" value="true" />
+      <created>1747413776125</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1747413776125</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Delete files in airflow/logs">
+      <option name="closed" value="true" />
+      <created>1747413906640</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1747413906640</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Delete files in airflow/logs and ignore unnecessary files">
+      <option name="closed" value="true" />
+      <created>1747414079209</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1747414079209</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Delete files in airflow/logs and ignore unnecessary files">
+      <option name="closed" value="true" />
+      <created>1747414152914</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1747414152914</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Delete files in airflow/logs and ignore unnecessary files">
+      <option name="closed" value="true" />
+      <created>1747414190485</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1747414190485</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Delete files in airflow/logs and ignore unnecessary files. Add README.md">
+      <option name="closed" value="true" />
+      <created>1747415286850</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1747415286850</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Delete files in airflow/logs and ignore unnecessary files. Add README.md">
+      <option name="closed" value="true" />
+      <created>1747415332866</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1747415332866</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,11 +209,30 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Ignore unnecessary files" />
+    <MESSAGE value="Delete files in airflow/logs" />
+    <MESSAGE value="Delete files in airflow/logs and ignore unnecessary files" />
+    <MESSAGE value="Delete files in airflow/logs and ignore unnecessary files. Add README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete files in airflow/logs and ignore unnecessary files. Add README.md" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/mangadex_pipeline$crawler.coverage" NAME="crawler Coverage Results" MODIFIED="1747166091767" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/crawler" />

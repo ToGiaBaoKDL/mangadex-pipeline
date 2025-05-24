@@ -1,8 +1,16 @@
-asyncio
 aiohttp
+asyncpg
+nest_asyncio
 dotenv
+fuzzywuzzy
 pandas
+plotly
 pymongo
+streamlit
+streamlit-aggrid
+streamlit-searchbox
 sqlalchemy
 requests
 tqdm
+xlsxwriter
+apache-airflow-providers-mongo

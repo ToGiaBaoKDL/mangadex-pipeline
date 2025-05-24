@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Table, Column, String, Integer, TIMESTAMP, MetaData, ForeignKey
+from sqlalchemy import create_engine, Table, Column, String, Integer, TIMESTAMP, MetaData, ForeignKey, ARRAY
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import SQLAlchemyError
@@ -14,6 +14,8 @@ from src.populate_db import pg_config, mongo_config
 import os
 import asyncio
 import traceback
+from pymongo.collection import Collection
+
 
 # Setup logging file
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
@@ -28,10 +30,10 @@ def update_manga_data_postgres(
         new_mangas: List[Dict[str, Any]]
 ) -> List[str]:
     """
-    Update manga information in PostgresSQL database using SQLAlchemy.
+    Update manga information in PostgreSQL database using SQLAlchemy.
 
     Args:
-        engine (sqlalchemy.engine.Engine): PostgresSQL connection.
+        engine (sqlalchemy.engine.Engine): PostgreSQL connection.
         new_mangas (List[Dict[str, Any]]): List of processed manga to update/add.
 
     Returns:
@@ -43,7 +45,7 @@ def update_manga_data_postgres(
     try:
         metadata = MetaData()
         manga_table = Table(
-            "manga_test", metadata,
+            "manga", metadata,
             Column("manga_id", String, primary_key=True),
             Column("title", String(350)),
             Column("alt_title", String(255)),
@@ -51,6 +53,9 @@ def update_manga_data_postgres(
             Column("published_year", Integer),
             Column("created_at", TIMESTAMP),
             Column("updated_at", TIMESTAMP),
+            Column("genres", ARRAY(String)),
+            Column("original_language", String(50)),
+            Column("cover_url", String(255))
         )
 
         Session = sessionmaker(bind=engine)
@@ -62,9 +67,18 @@ def update_manga_data_postgres(
             try:
                 # Get existing manga data as a dictionary for quick lookups
                 existing_manga = {
-                    str(row.manga_id): {"status": row.status, "updated_at": row.updated_at}
+                    str(row.manga_id): {
+                        "status": row.status,
+                        "updated_at": row.updated_at,
+                        "genres": row.genres
+                    }
                     for row in
-                    session.query(manga_table.c.manga_id, manga_table.c.status, manga_table.c.updated_at).all()
+                    session.query(
+                        manga_table.c.manga_id,
+                        manga_table.c.status,
+                        manga_table.c.updated_at,
+                        manga_table.c.genres
+                    ).all()
                 }
 
                 updated_count, added_count = 0, 0
@@ -79,19 +93,24 @@ def update_manga_data_postgres(
                         # Manga exists - check if we need to update
                         db_manga = existing_manga[manga_id]
 
-                        if db_manga["status"] != new_manga["status"] or db_manga["updated_at"] < updated_at:
-                            # Log changes for debugging
-                            changes = []
-                            if db_manga["status"] != new_manga["status"]:
-                                changes.append(f"status: '{db_manga['status']}' → '{new_manga['status']}'")
-                            if db_manga["updated_at"] < updated_at:
-                                changes.append(f"updated_at: '{db_manga['updated_at']}' → '{updated_at}'")
+                        changes = []
+                        if db_manga["status"] != new_manga["status"]:
+                            changes.append(f"status: '{db_manga['status']}' → '{new_manga['status']}'")
+                        if db_manga["updated_at"] < updated_at:
+                            changes.append(f"updated_at: '{db_manga['updated_at']}' → '{updated_at}'")
+                        if db_manga["genres"] != new_manga["genres"]:
+                            changes.append(f"genres: '{db_manga['genres']}' → '{new_manga['genres']}'")
 
+                        if changes:
                             # Update manga
                             stmt = (
                                 manga_table.update()
                                 .where(manga_table.c.manga_id == manga_id)
-                                .values(status=new_manga["status"], updated_at=updated_at)
+                                .values(
+                                    status=new_manga["status"],
+                                    updated_at=updated_at,
+                                    genres=new_manga["genres"],
+                                )
                             )
                             session.execute(stmt)
                             changed_manga_ids.append(manga_id)
@@ -102,11 +121,14 @@ def update_manga_data_postgres(
                         stmt = insert(manga_table).values(
                             manga_id=manga_id,
                             title=new_manga["title"],
-                            alt_title=new_manga["alt_title"],
+                            alt_title=new_manga["alt_title"][:255] if new_manga["alt_title"] is not None else None,
                             status=new_manga["status"],
                             published_year=new_manga["year"],
                             created_at=new_manga["created_at"],
-                            updated_at=updated_at
+                            updated_at=updated_at,
+                            genres=new_manga["genres"],
+                            original_language=new_manga["original_language"],
+                            cover_url=new_manga["cover_url"]
                         ).on_conflict_do_nothing(index_elements=["manga_id"])
 
                         session.execute(stmt)
@@ -159,7 +181,7 @@ def update_chapter_data_postgres(
     try:
         metadata = MetaData()
         chapter_table = Table(
-            "chapter_test", metadata,
+            "chapter", metadata,
             Column("chapter_id", String, primary_key=True),
             Column("manga_id", String, ForeignKey("manga.manga_id"), nullable=False),
             Column("chapter_number", String(50)),
@@ -285,7 +307,7 @@ def update_chapter_data_postgres(
 
 def update_image_data_mongodb(
         chapter_images: Dict[str, List[str]],
-        collection: pymongo.collection.Collection,
+        collection: Collection,
         BATCH_SIZE: int = 10_000
 ) -> Tuple[int, int]:
     """
@@ -393,7 +415,7 @@ def update_image_data_mongodb(
 
 def remove_replaced_chapters(
         chapter_ids: List[str],
-        collection: pymongo.collection.Collection
+        collection: Collection
 ) -> int:
     """
     Remove chapters that have been replaced from MongoDB.
@@ -729,6 +751,7 @@ async def main():
             logger.info("Starting manga data update")
             manga_crawler = MangaDexMangaCrawler(is_original=False)
             new_mangas = await manga_crawler.fetch_all_manga()
+            new_mangas = await manga_crawler.enrich_with_covers(new_mangas)
             new_mangas_processed = manga_crawler.process_manga_data(new_mangas)
 
             # Perform manga updates using direct session access
@@ -744,65 +767,65 @@ async def main():
                 transaction.rollback()
                 return
 
-            # Update chapter database
-            updated_or_added_chapters = []
-            replaced_chapters = []
-            if changed_manga_ids:
-                logger.info("Starting chapter data update")
-                try:
-                    chapter_crawler = MangaDexChapterCrawler(is_original=False)
-                    new_chapters = await chapter_crawler.fetch_all_chapters(changed_manga_ids)
-                    new_chapters_processed = {
-                        manga_id: [chapter_crawler.extract_chapter_info(manga_id, chapter)
-                                   for chapter in chapter_list]
-                        for manga_id, chapter_list in new_chapters.items()
-                    }
-                    updated_or_added_chapters, replaced_chapters = update_chapter_data_postgres(engine,
-                                                                                                new_chapters_processed)
-                    # Register for potential rollback
-                    transaction.register_chapter_update(updated_or_added_chapters, replaced_chapters)
-                    logger.info(
-                        f"Successfully updated chapter data, {len(updated_or_added_chapters)} chapters updated/added")
-                except Exception as e:
-                    logger.error(f"Failed to update chapter data: {str(e)}")
-                    logger.error(traceback.format_exc())
-                    transaction.rollback()
-                    return
-
-                # Update image database
-                inserted_count = 0
-                deleted_count = 0
-
-                try:
-                    if updated_or_added_chapters:
-                        logger.info("Starting image data update")
-                        image_crawler = MangaDexImageCrawler(is_original=False)
-                        new_images = image_crawler.fetch_all_chapter_images(updated_or_added_chapters)
-                        inserted_count, skipped_count = update_image_data_mongodb(new_images, collection)
-                        logger.info(
-                            f"Successfully updated image data, {inserted_count} chapters inserted, {skipped_count} skipped")
-
-                    if replaced_chapters:
-                        logger.info("Removing replaced chapters from image database")
-                        deleted_count = remove_replaced_chapters(replaced_chapters, collection)
-                        logger.info(f"Successfully removed {deleted_count} replaced chapters")
-
-                    # Register MongoDB operations for potential rollback
-                    transaction.register_image_update(
-                        new_image_chapters=list(new_images.keys()) if 'new_images' in locals() else [],
-                        deleted_chapters=replaced_chapters
-                    )
-                except Exception as e:
-                    logger.error(f"Failed to update image data: {str(e)}")
-                    logger.error(traceback.format_exc())
-                    transaction.rollback()
-                    return
-            else:
-                logger.info("No manga changes detected, skipping chapter and image updates")
-
-            # Commit the transaction
-            transaction.commit()
-            logger.info("Database update process completed successfully")
+            # # Update chapter database
+            # updated_or_added_chapters = []
+            # replaced_chapters = []
+            # if changed_manga_ids:
+            #     logger.info("Starting chapter data update")
+            #     try:
+            #         chapter_crawler = MangaDexChapterCrawler(is_original=False)
+            #         new_chapters = await chapter_crawler.fetch_all_chapters(changed_manga_ids)
+            #         new_chapters_processed = {
+            #             manga_id: [chapter_crawler.extract_chapter_info(manga_id, chapter)
+            #                        for chapter in chapter_list]
+            #             for manga_id, chapter_list in new_chapters.items()
+            #         }
+            #         updated_or_added_chapters, replaced_chapters = update_chapter_data_postgres(engine,
+            #                                                                                     new_chapters_processed)
+            #         # Register for potential rollback
+            #         transaction.register_chapter_update(updated_or_added_chapters, replaced_chapters)
+            #         logger.info(
+            #             f"Successfully updated chapter data, {len(updated_or_added_chapters)} chapters updated/added")
+            #     except Exception as e:
+            #         logger.error(f"Failed to update chapter data: {str(e)}")
+            #         logger.error(traceback.format_exc())
+            #         transaction.rollback()
+            #         return
+            #
+            #     # Update image database
+            #     inserted_count = 0
+            #     deleted_count = 0
+            #
+            #     try:
+            #         if updated_or_added_chapters:
+            #             logger.info("Starting image data update")
+            #             image_crawler = MangaDexImageCrawler(is_original=False)
+            #             new_images = image_crawler.fetch_all_chapter_images(updated_or_added_chapters)
+            #             inserted_count, skipped_count = update_image_data_mongodb(new_images, collection)
+            #             logger.info(
+            #                 f"Successfully updated image data, {inserted_count} chapters inserted, {skipped_count} skipped")
+            #
+            #         if replaced_chapters:
+            #             logger.info("Removing replaced chapters from image database")
+            #             deleted_count = remove_replaced_chapters(replaced_chapters, collection)
+            #             logger.info(f"Successfully removed {deleted_count} replaced chapters")
+            #
+            #         # Register MongoDB operations for potential rollback
+            #         transaction.register_image_update(
+            #             new_image_chapters=list(new_images.keys()) if 'new_images' in locals() else [],
+            #             deleted_chapters=replaced_chapters
+            #         )
+            #     except Exception as e:
+            #         logger.error(f"Failed to update image data: {str(e)}")
+            #         logger.error(traceback.format_exc())
+            #         transaction.rollback()
+            #         return
+            # else:
+            #     logger.info("No manga changes detected, skipping chapter and image updates")
+            #
+            # # Commit the transaction
+            # transaction.commit()
+            # logger.info("Database update process completed successfully")
 
         except Exception as e:
             logger.error(f"Error during database update process: {str(e)}")

@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f6f8fa;
+    color: #1f2937;
+}
+
+.main {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+.stButton>button {
+    background-color: #2563eb;
+    color: white;
+    border-radius: 8px;
+    padding: 0.6rem 1.2rem;
+    font-weight: 500;
+    border: none;
+    transition: all 0.2s;
+}
+
+.stButton>button:hover {
+    background-color: #1e40af;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.metric-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.metric-card:hover {
+    transform: translateY(-4px);
+}
+
+/*.insight-box {*/
+/*    background-color: #1e293b; !* dark slate background *!*/
+/*    color: #f1f5f9; !* light text for contrast *!*/
+/*    border-radius: 12px;*/
+/*    padding: 1.5rem;*/
+/*    margin-bottom: 1rem;*/
+/*    border-left: 4px solid #3b82f6; !* vibrant blue accent *!*/
+/*    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+/*    font-size: 1rem;*/
+/*    line-height: 1.6;*/
+/*}*/
+
+
+.sidebar .sidebar-content {
+    background-color: #ffffff;
+    border-right: 1px solid #e5e7eb;
+    padding: 1.5rem;
+}
+
+.stTabs [data-baseweb="tab"] {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    color: #4b5563;
+}
+
+.stTabs [data-baseweb="tab"][aria-selected="true"] {
+    color: #2563eb;
+    border-bottom: 3px solid #2563eb;
+}
+
+.table-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.stDataFrame th {
+    background-color: #f6f8fa;
+    color: #1f2937;
+    font-weight: 600;
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 2px solid #e5e7eb;
+    cursor: pointer;
+}
+
+.stDataFrame td {
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    color: #4b5563;
+}
+
+.stDataFrame tr:nth-child(even) {
+    background-color: #f6f8fa;
+}
+
+.stDataFrame tr:hover {
+    background-color: #e5e7eb;
+}
+
+@media (max-width: 768px) {
+    .main { padding: 1rem; }
+    .stTabs [data-baseweb="tab"] { font-size: 0.9rem; padding: 0.5rem; }
+    .metric-card { padding: 1rem; }
+}
+
+@media (max-width: 576px) {
+    .stTabs [data-baseweb="tab"] { font-size: 0.8rem; padding: 0.4rem 0.8rem; }
+    .metric-card { padding: 0.8rem; margin-bottom: 0.5rem; }
+}
+
+.insight-box {
+    background-color: #1e293b;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    color: #f1f5f9;
+    border-left: 4px solid #3b82f6;
+}
+
+/* New carousel and card styling for Key Insights */
+.insights-carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px 0;
+    max-width: 900px;
+    margin: 0 auto;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f4f7fa;
+}
+
+.insights-carousel::-webkit-scrollbar {
+    height: 8px;
+}
+
+.insights-carousel::-webkit-scrollbar-track {
+    background: #f4f7fa;
+}
+
+.insights-carousel::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.insight-card {
+    flex: 0 0 280px;
+    background: linear-gradient(135deg, #ffffff, #f8fafc);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.insight-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.insight-card .icon {
+    font-size: 24px;
+    color: #2563eb;
+}
+
+.insight-card .text {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.insight-card .text strong {
+    color: #1e40af;
+}
+
+/* Tooltip styling */
+.insight-card .tooltip {
+    position: relative;
+}
+
+.insight-card .tooltip .tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 10;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.2s;
+    font-size: 12px;
+}
+
+.insight-card .tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/*!* Responsive design *!*/
+/*@media (max-width: 600px) {*/
+/*    .insights-carousel {*/
+/*        flex-direction: column;*/
+/*        align-items: center;*/
+/*    }*/
+/*    .insight-card {*/
+/*        flex: 0 0 100%;*/
+/*        max-width: 90%;*/
+/*    }*/
+/*}*/
+
+.insight-card {
+    background: linear-gradient(135deg, #ffffff, #f8fafc);
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    min-height: 80px;
+}

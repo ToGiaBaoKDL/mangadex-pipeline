@@ -2,7 +2,7 @@ import asyncio
 import aiohttp
 import pandas as pd
 from src.utils import setup_logger
-from typing import List, Dict, Tuple, Union, Any
+from typing import List, Dict, Tuple, Union, Any, Optional
 from datetime import datetime, timedelta
 import random
 import os
@@ -21,6 +21,7 @@ class MangaDexMangaCrawler:
         Initialize MangaDex Crawler
         """
         self.is_original = is_original
+        self.semaphore = asyncio.Semaphore(4)
 
         project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
         self.output_data_dir = os.path.join(project_root, "data")
@@ -46,7 +47,7 @@ class MangaDexMangaCrawler:
         last_created_at = None
         seen_ids = set()
         total = 0
-        three_days_ago = datetime.utcnow() - timedelta(days=3)
+        three_days_ago = datetime.utcnow() - timedelta(days=2)
         created_at_since = three_days_ago.strftime("%Y-%m-%dT%H:%M:%S")
         offset = 0
 
@@ -100,10 +101,47 @@ class MangaDexMangaCrawler:
                             offset += limit
 
                         await asyncio.sleep(0.25)  # Rate limiting
-                    break
                 except Exception as e:
                     self.logger.error(f"Network error: {e}")
                     await asyncio.sleep(2)
+
+        return manga_list
+
+    async def fetch_cover_url(self, session: aiohttp.ClientSession, manga_id: str) -> Optional[str]:
+        """
+        Fetch the first cover URL for a given manga ID using a shared session and limited concurrency.
+        """
+        url = f"https://api.mangadex.org/cover?manga[]={manga_id}&limit=1"
+        async with self.semaphore:
+            try:
+                async with session.get(url) as response:
+                    if response.status == 200:
+                        data = await response.json()
+                        if data["data"]:
+                            file_name = data["data"][0]["attributes"]["fileName"]
+                            return f"https://uploads.mangadex.org/covers/{manga_id}/{file_name}"
+            except Exception as e:
+                self.logger.error(f"Error fetching cover for {manga_id}: {e}")
+            return None
+
+    async def enrich_with_covers(self, manga_list: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """
+        Enrich each manga dictionary with its first cover URL.
+        Logs progress every 100 manga.
+        """
+        async with aiohttp.ClientSession() as session:
+            cover_urls = []
+            for i in range(0, len(manga_list), 100):
+                batch = manga_list[i:i + 100]
+                tasks = [self.fetch_cover_url(session, manga["id"]) for manga in batch]
+                batch_urls = await asyncio.gather(*tasks)
+                cover_urls.extend(batch_urls)
+
+                self.logger.info(f"Processed {min(i + 100, len(manga_list))}/{len(manga_list)} manga for cover URLs.")
+
+            # Combine results
+            for manga, cover_url in zip(manga_list, cover_urls):
+                manga["cover_url"] = cover_url
 
         return manga_list
 
@@ -127,15 +165,21 @@ class MangaDexMangaCrawler:
             """Helper to extract first non-empty value from multilingual list"""
             return next(iter(lst[0].values()), None) if lst else None
 
+        def extract_genres(tags: List[Dict]) -> List[str]:
+            """Helper to extract all genres from the tags list"""
+            return [tag['attributes']['name']['en'] for tag in tags if tag['attributes']['group'] == 'genre']
+
         manga_info = [{
             "manga_id": manga.get("id"),
             "title": extract_first_from_dict(manga["attributes"].get("title", {})),
             "alt_title": extract_first_from_list_of_dicts(manga["attributes"].get("altTitles", [])),
-            "description": extract_first_from_dict(manga["attributes"].get("description", {})),
             "status": manga["attributes"].get("status"),
             "year": int(manga["attributes"].get("year")) if manga["attributes"].get("year") else None,
             "created_at": manga["attributes"].get("createdAt"),
-            "updated_at": manga["attributes"].get("updatedAt")
+            "updated_at": manga["attributes"].get("updatedAt"),
+            "genres": extract_genres(manga["attributes"].get("tags", [])),
+            "original_language": manga["attributes"].get("originalLanguage"),
+            "cover_url": manga.get("cover_url")
         } for manga in manga_list]
 
         return manga_info
@@ -193,7 +237,7 @@ class MangaDexChapterCrawler:
         chapter_dict: Dict[str, Dict] = {}
         limit = 500
         offset = 0
-        one_week_ago = (datetime.utcnow() - timedelta(days=7)).strftime("%Y-%m-%dT%H:%M:%S")
+        one_week_ago = (datetime.utcnow() - timedelta(days=2)).strftime("%Y-%m-%dT%H:%M:%S")
         total: Union[int, None] = None
 
         while True:

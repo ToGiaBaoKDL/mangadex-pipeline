@@ -25,22 +25,22 @@ def main():
         manga_inserter.insert_manga_from_csv(f"{data_dir}\\manga_data.csv")
     except Exception as e:
         logger.error(f"❌ Error in inserting manga process: {e}")
-
-    try:
-        chapter_inserter.insert_chapters_from_csv(f"{data_dir}\\chapter_data.csv")
-    except Exception as e:
-        logger.error(f"❌ Error in inserting chapter process: {e}")
-
-    # Insert images' url from JSON
-    image_inserter = ImageDataInserter(mongo_config)
-
-    try:
-        image_inserter.insert_image_data_from_json(f"{data_dir}\\chapter_images.json")
-    except Exception as e:
-        logger.exception("Error in inserting image process: %s", e)
-    finally:
-        mongo_config.close_connection()
-        logger.info("MongoDB connection closed in main")
+    #
+    # try:
+    #     chapter_inserter.insert_chapters_from_csv(f"{data_dir}\\chapter_data.csv")
+    # except Exception as e:
+    #     logger.error(f"❌ Error in inserting chapter process: {e}")
+    #
+    # # Insert images' url from JSON
+    # image_inserter = ImageDataInserter(mongo_config)
+    #
+    # try:
+    #     image_inserter.insert_image_data_from_json(f"{data_dir}\\chapter_images.json")
+    # except Exception as e:
+    #     logger.exception("Error in inserting image process: %s", e)
+    # finally:
+    #     mongo_config.close_connection()
+    #     logger.info("MongoDB connection closed in main")
 
 
 if __name__ == "__main__":

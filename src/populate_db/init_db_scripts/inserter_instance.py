@@ -59,7 +59,8 @@ class MangaDataInserter:
 
         # Prepare SQL query
         query = """
-        INSERT INTO manga_test (manga_id, title, alt_title, status, published_year, created_at, updated_at)
+        INSERT INTO manga (manga_id, title, alt_title, status, published_year, 
+        created_at, updated_at, genres, original_language, cover_url)
         VALUES %s
         ON CONFLICT (manga_id)
         DO UPDATE SET
@@ -68,7 +69,10 @@ class MangaDataInserter:
             status = EXCLUDED.status,
             published_year = EXCLUDED.published_year,
             created_at = EXCLUDED.created_at,
-            updated_at = EXCLUDED.updated_at;
+            updated_at = EXCLUDED.updated_at,
+            genres = EXCLUDED.genres,
+            original_language = EXCLUDED.original_language,
+            cover_url = EXCLUDED.cover_url;
         """
 
         # Database insertion process
@@ -81,14 +85,21 @@ class MangaDataInserter:
                     with tqdm(total=total_lines, desc="⏳ Inserting manga", unit=" rows") as pbar:
                         for row in reader:
                             try:
+                                # Convert genres string to PostgreSQL array format
+                                genres = row["genres"].strip().replace('[', '{').replace(']', '}') if row["genres"] else None
+                                alt_title = row["alt_title"][:255] if row["alt_title"] is not None else None
+
                                 batch.append((
                                     row["manga_id"],
                                     row["title"].strip(),
-                                    row["alt_title"].strip(),
+                                    alt_title,
                                     row["status"].strip(),
-                                    int(float(row["year"])) if row["year"] is not None and row["year"] != "" else None,
+                                    int(float(row["year"])) if row["year"] and row["year"].strip() else None,
                                     row["created_at"],
-                                    row["updated_at"]
+                                    row["updated_at"],
+                                    genres,
+                                    row["original_language"].strip() if row["original_language"] else None,
+                                    row["cover_url"].strip() if row["cover_url"] else None,
                                 ))
 
                                 # Insert batch when size is reached

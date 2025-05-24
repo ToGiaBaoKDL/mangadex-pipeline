@@ -18,6 +18,9 @@ async def crawl_manga():
     manga_list_raw = await manga_crawler.fetch_all_manga()
     logger.info(f"Fetched {len(manga_list_raw)} manga.")
 
+    manga_list_raw = await manga_crawler.enrich_with_covers(manga_list_raw)
+    logger.info(f"Added cover for {len(manga_list_raw)} manga.")
+
     manga_list_processed = manga_crawler.process_manga_data(manga_list_raw)
     logger.info(f"Processed {len(manga_list_processed)} manga.")
 
@@ -65,19 +68,19 @@ async def main():
         manga_df = await crawl_manga()
 
         logger.info("=" * 20)
-        logger.info("Start crawling chapter list...")
-
-        # Crawl chapter
-        chapter_df = await crawl_chapter(manga_df)
-
-        logger.info("=" * 20)
-        logger.info("Start crawling image URLs...")
-
-        # Crawl image
-        crawl_image(chapter_df)
-
-        logger.info("=" * 50)
-        logger.info("Crawling completed successfully.")
+        # logger.info("Start crawling chapter list...")
+        #
+        # # Crawl chapter
+        # chapter_df = await crawl_chapter(manga_df)
+        #
+        # logger.info("=" * 20)
+        # logger.info("Start crawling image URLs...")
+        #
+        # # Crawl image
+        # crawl_image(chapter_df)
+        #
+        # logger.info("=" * 50)
+        # logger.info("Crawling completed successfully.")
 
     except Exception as e:
         logger.error("=" * 50)

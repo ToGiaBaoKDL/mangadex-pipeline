@@ -1,7 +1,11 @@
 aiohttp
 dotenv
 pandas
+plotly
 pymongo
+streamlit
+streamlit-aggrid
 sqlalchemy
 requests
 tqdm
+apache-airflow-providers-mongo

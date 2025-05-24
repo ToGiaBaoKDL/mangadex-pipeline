@@ -148,3 +148,409 @@
 2025-05-16 03:44:22,180 - INFO: Database update process completed successfully
 2025-05-16 03:44:22,183 - INFO: Database update script completed
 2025-05-16 03:44:22,183 - INFO: ==================================================
+2025-05-22 03:45:18,043 - INFO: ==================================================
+2025-05-22 03:45:18,044 - INFO: Starting database update script
+2025-05-22 03:45:18,056 - INFO: Starting database update process with transaction support
+2025-05-22 03:45:18,056 - INFO: Successfully connected to PostgresSQL database
+2025-05-22 03:45:19,722 - INFO: Successfully connected to MongoDB
+2025-05-22 03:45:19,725 - INFO: Transaction started
+2025-05-22 03:45:19,725 - INFO: Starting manga data update
+2025-05-22 03:45:20,113 - INFO: Collected 100/124 manga...
+2025-05-22 03:45:20,378 - INFO: Checking 100 manga for updates
+2025-05-22 03:45:24,937 - INFO: ADDED: [Spicy Night] Short Story Collection (ID: ed3d9225-8013-49ec-8c5e-3715341ae4d3)
+2025-05-22 03:45:25,187 - INFO: ADDED: Milky Junior (ID: d8737f2d-a91e-496b-87a8-26e3ea40763f)
+2025-05-22 03:45:25,437 - INFO: ADDED: The God of Time (ID: 89dfc7c9-f891-4834-a8d0-7b112c7fef26)
+2025-05-22 03:45:25,692 - INFO: ADDED: Husbands in the Beast World Is Addicted to Striving for My Favor (ID: ed592f8a-cae7-4a95-969e-fe5a28cffc34)
+2025-05-22 03:45:25,943 - INFO: ADDED: Anti-hero at the bottom of the job caste system (ID: 1addb806-9071-4dc8-ad08-5fd52e104c8b)
+2025-05-22 03:45:26,195 - INFO: ADDED: Isekai Kaeri no Yuusha ni Tsuihousareta Ossan Hero, Mahou Shoujo Sentai ni Tenshoku shimasu (ID: d0c4c58d-4456-4387-ad46-16c7b6c3d83c)
+2025-05-22 03:45:26,453 - INFO: ADDED: Kakukamata (ID: b93af515-a7be-4176-9c51-857a867a34e3)
+2025-05-22 03:45:26,704 - INFO: ADDED: Rokka Ayaginu Tan (ID: 511a8ef8-d49b-4850-b703-9f152b440ef6)
+2025-05-22 03:45:27,212 - ERROR: Database error during manga update: (psycopg2.errors.StringDataRightTruncation) value too long for type character varying(255)
+
+[SQL: INSERT INTO manga_tmp (manga_id, title, alt_title, status, published_year, created_at, updated_at, genres, original_language) VALUES (%(manga_id)s, %(title)s, %(alt_title)s, %(status)s, %(published_year)s, %(created_at)s, %(updated_at)s, %(genres)s::VARCHAR[], %(original_language)s) ON CONFLICT (manga_id) DO NOTHING]
+[parameters: {'manga_id': '5f9f45a6-5e98-4dbc-864f-67940717d89e', 'title': 'Falling in the Blue', 'alt_title': "Special delivery to planet Mars! Intergalactic delivery service Warp Inc. is expanding into the outerreaches, and someone has to drive the long-haul  ... (138 characters truncated) ... rtantly, will they be able to uncover the sinister plot hidden inside their classic cardboard boxes before it's too late for them...and the universe?", 'status': 'completed', 'published_year': 2020, 'created_at': '2025-05-21T02:20:54+00:00', 'updated_at': datetime.datetime(2025, 5, 21, 2, 22, 28), 'genres': ['Sci-Fi', 'Comedy', 'Adventure'], 'original_language': 'en'}]
+(Background on this error at: https://sqlalche.me/e/14/9h9h)
+2025-05-22 03:45:27,310 - ERROR: Traceback (most recent call last):
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.StringDataRightTruncation: value too long for type character varying(255)
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\mangadex-pipeline\src\populate_db\update_db\update_sequential.py", line 133, in update_manga_data_postgres
+    session.execute(stmt)
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1717, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1710, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1577, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1953, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 2134, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.DataError: (psycopg2.errors.StringDataRightTruncation) value too long for type character varying(255)
+
+[SQL: INSERT INTO manga_tmp (manga_id, title, alt_title, status, published_year, created_at, updated_at, genres, original_language) VALUES (%(manga_id)s, %(title)s, %(alt_title)s, %(status)s, %(published_year)s, %(created_at)s, %(updated_at)s, %(genres)s::VARCHAR[], %(original_language)s) ON CONFLICT (manga_id) DO NOTHING]
+[parameters: {'manga_id': '5f9f45a6-5e98-4dbc-864f-67940717d89e', 'title': 'Falling in the Blue', 'alt_title': "Special delivery to planet Mars! Intergalactic delivery service Warp Inc. is expanding into the outerreaches, and someone has to drive the long-haul  ... (138 characters truncated) ... rtantly, will they be able to uncover the sinister plot hidden inside their classic cardboard boxes before it's too late for them...and the universe?", 'status': 'completed', 'published_year': 2020, 'created_at': '2025-05-21T02:20:54+00:00', 'updated_at': datetime.datetime(2025, 5, 21, 2, 22, 28), 'genres': ['Sci-Fi', 'Comedy', 'Adventure'], 'original_language': 'en'}]
+(Background on this error at: https://sqlalche.me/e/14/9h9h)
+
+2025-05-22 03:45:27,310 - ERROR: Unexpected error in update_manga_data_postgres: (psycopg2.errors.StringDataRightTruncation) value too long for type character varying(255)
+
+[SQL: INSERT INTO manga_tmp (manga_id, title, alt_title, status, published_year, created_at, updated_at, genres, original_language) VALUES (%(manga_id)s, %(title)s, %(alt_title)s, %(status)s, %(published_year)s, %(created_at)s, %(updated_at)s, %(genres)s::VARCHAR[], %(original_language)s) ON CONFLICT (manga_id) DO NOTHING]
+[parameters: {'manga_id': '5f9f45a6-5e98-4dbc-864f-67940717d89e', 'title': 'Falling in the Blue', 'alt_title': "Special delivery to planet Mars! Intergalactic delivery service Warp Inc. is expanding into the outerreaches, and someone has to drive the long-haul  ... (138 characters truncated) ... rtantly, will they be able to uncover the sinister plot hidden inside their classic cardboard boxes before it's too late for them...and the universe?", 'status': 'completed', 'published_year': 2020, 'created_at': '2025-05-21T02:20:54+00:00', 'updated_at': datetime.datetime(2025, 5, 21, 2, 22, 28), 'genres': ['Sci-Fi', 'Comedy', 'Adventure'], 'original_language': 'en'}]
+(Background on this error at: https://sqlalche.me/e/14/9h9h)
+2025-05-22 03:45:27,314 - ERROR: Traceback (most recent call last):
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.StringDataRightTruncation: value too long for type character varying(255)
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\mangadex-pipeline\src\populate_db\update_db\update_sequential.py", line 133, in update_manga_data_postgres
+    session.execute(stmt)
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1717, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1710, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1577, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1953, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 2134, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.DataError: (psycopg2.errors.StringDataRightTruncation) value too long for type character varying(255)
+
+[SQL: INSERT INTO manga_tmp (manga_id, title, alt_title, status, published_year, created_at, updated_at, genres, original_language) VALUES (%(manga_id)s, %(title)s, %(alt_title)s, %(status)s, %(published_year)s, %(created_at)s, %(updated_at)s, %(genres)s::VARCHAR[], %(original_language)s) ON CONFLICT (manga_id) DO NOTHING]
+[parameters: {'manga_id': '5f9f45a6-5e98-4dbc-864f-67940717d89e', 'title': 'Falling in the Blue', 'alt_title': "Special delivery to planet Mars! Intergalactic delivery service Warp Inc. is expanding into the outerreaches, and someone has to drive the long-haul  ... (138 characters truncated) ... rtantly, will they be able to uncover the sinister plot hidden inside their classic cardboard boxes before it's too late for them...and the universe?", 'status': 'completed', 'published_year': 2020, 'created_at': '2025-05-21T02:20:54+00:00', 'updated_at': datetime.datetime(2025, 5, 21, 2, 22, 28), 'genres': ['Sci-Fi', 'Comedy', 'Adventure'], 'original_language': 'en'}]
+(Background on this error at: https://sqlalche.me/e/14/9h9h)
+
+2025-05-22 03:45:27,315 - ERROR: Failed to update manga data: (psycopg2.errors.StringDataRightTruncation) value too long for type character varying(255)
+
+[SQL: INSERT INTO manga_tmp (manga_id, title, alt_title, status, published_year, created_at, updated_at, genres, original_language) VALUES (%(manga_id)s, %(title)s, %(alt_title)s, %(status)s, %(published_year)s, %(created_at)s, %(updated_at)s, %(genres)s::VARCHAR[], %(original_language)s) ON CONFLICT (manga_id) DO NOTHING]
+[parameters: {'manga_id': '5f9f45a6-5e98-4dbc-864f-67940717d89e', 'title': 'Falling in the Blue', 'alt_title': "Special delivery to planet Mars! Intergalactic delivery service Warp Inc. is expanding into the outerreaches, and someone has to drive the long-haul  ... (138 characters truncated) ... rtantly, will they be able to uncover the sinister plot hidden inside their classic cardboard boxes before it's too late for them...and the universe?", 'status': 'completed', 'published_year': 2020, 'created_at': '2025-05-21T02:20:54+00:00', 'updated_at': datetime.datetime(2025, 5, 21, 2, 22, 28), 'genres': ['Sci-Fi', 'Comedy', 'Adventure'], 'original_language': 'en'}]
+(Background on this error at: https://sqlalche.me/e/14/9h9h)
+2025-05-22 03:45:27,315 - ERROR: Traceback (most recent call last):
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.StringDataRightTruncation: value too long for type character varying(255)
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\mangadex-pipeline\src\populate_db\update_db\update_sequential.py", line 758, in main
+    changed_manga_ids = update_manga_data_postgres(engine, new_mangas_processed)
+  File "D:\mangadex-pipeline\src\populate_db\update_db\update_sequential.py", line 133, in update_manga_data_postgres
+    session.execute(stmt)
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1717, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1710, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1577, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1953, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 2134, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+  File "D:\mangadex-pipeline\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.DataError: (psycopg2.errors.StringDataRightTruncation) value too long for type character varying(255)
+
+[SQL: INSERT INTO manga_tmp (manga_id, title, alt_title, status, published_year, created_at, updated_at, genres, original_language) VALUES (%(manga_id)s, %(title)s, %(alt_title)s, %(status)s, %(published_year)s, %(created_at)s, %(updated_at)s, %(genres)s::VARCHAR[], %(original_language)s) ON CONFLICT (manga_id) DO NOTHING]
+[parameters: {'manga_id': '5f9f45a6-5e98-4dbc-864f-67940717d89e', 'title': 'Falling in the Blue', 'alt_title': "Special delivery to planet Mars! Intergalactic delivery service Warp Inc. is expanding into the outerreaches, and someone has to drive the long-haul  ... (138 characters truncated) ... rtantly, will they be able to uncover the sinister plot hidden inside their classic cardboard boxes before it's too late for them...and the universe?", 'status': 'completed', 'published_year': 2020, 'created_at': '2025-05-21T02:20:54+00:00', 'updated_at': datetime.datetime(2025, 5, 21, 2, 22, 28), 'genres': ['Sci-Fi', 'Comedy', 'Adventure'], 'original_language': 'en'}]
+(Background on this error at: https://sqlalche.me/e/14/9h9h)
+
+2025-05-22 03:45:27,315 - WARNING: Starting transaction rollback
+2025-05-22 03:45:27,316 - INFO: Rollback committed successfully
+2025-05-22 03:45:27,318 - INFO: Database update script completed
+2025-05-22 03:45:27,318 - INFO: ==================================================
+2025-05-22 11:44:35,359 - INFO: ==================================================
+2025-05-22 11:44:35,359 - INFO: Starting database update script
+2025-05-22 11:44:35,361 - INFO: Starting database update process with transaction support
+2025-05-22 11:44:35,361 - INFO: Successfully connected to PostgresSQL database
+2025-05-22 11:44:37,018 - INFO: Successfully connected to MongoDB
+2025-05-22 11:44:37,020 - INFO: Transaction started
+2025-05-22 11:44:37,020 - INFO: Starting manga data update
+2025-05-22 11:44:37,432 - INFO: Collected 100/119 manga...
+2025-05-22 11:44:37,701 - INFO: Checking 100 manga for updates
+2025-05-22 11:44:42,334 - ERROR: Unexpected error in update_manga_data_postgres: 'NoneType' object is not subscriptable
+2025-05-22 11:44:42,334 - ERROR: Traceback (most recent call last):
+  File "D:\mangadex-pipeline\src\populate_db\update_db\update_sequential.py", line 124, in update_manga_data_postgres
+    alt_title=new_manga["alt_title"][:255],
+TypeError: 'NoneType' object is not subscriptable
+
+2025-05-22 11:44:42,334 - ERROR: Failed to update manga data: 'NoneType' object is not subscriptable
+2025-05-22 11:44:42,334 - ERROR: Traceback (most recent call last):
+  File "D:\mangadex-pipeline\src\populate_db\update_db\update_sequential.py", line 759, in main
+    changed_manga_ids = update_manga_data_postgres(engine, new_mangas_processed)
+  File "D:\mangadex-pipeline\src\populate_db\update_db\update_sequential.py", line 124, in update_manga_data_postgres
+    alt_title=new_manga["alt_title"][:255],
+TypeError: 'NoneType' object is not subscriptable
+
+2025-05-22 11:44:42,334 - WARNING: Starting transaction rollback
+2025-05-22 11:44:42,334 - INFO: Rollback committed successfully
+2025-05-22 11:44:42,336 - INFO: Database update script completed
+2025-05-22 11:44:42,336 - INFO: ==================================================
+2025-05-22 11:52:39,282 - INFO: ==================================================
+2025-05-22 11:52:39,282 - INFO: Starting database update script
+2025-05-22 11:52:39,282 - INFO: Starting database update process with transaction support
+2025-05-22 11:52:39,283 - INFO: Successfully connected to PostgresSQL database
+2025-05-22 11:52:40,959 - INFO: Successfully connected to MongoDB
+2025-05-22 11:52:40,963 - INFO: Transaction started
+2025-05-22 11:52:40,963 - INFO: Starting manga data update
+2025-05-22 11:52:41,445 - INFO: Collected 100/119 manga...
+2025-05-22 11:52:41,703 - INFO: Checking 100 manga for updates
+2025-05-22 11:52:46,458 - INFO: ADDED: Shoujo Kageki Revue Starlight - You Are Mine (Doujinshi) (ID: b1e02b52-7209-45e9-bbda-768c140e9982)
+2025-05-22 11:52:46,733 - INFO: ADDED: [Spicy Night] Short Story Collection (ID: ed3d9225-8013-49ec-8c5e-3715341ae4d3)
+2025-05-22 11:52:47,017 - INFO: ADDED: Milky Junior (ID: d8737f2d-a91e-496b-87a8-26e3ea40763f)
+2025-05-22 11:52:47,292 - INFO: ADDED: Koi no Kami-sama (ID: d8e81c11-d711-409b-837e-988783f91ecf)
+2025-05-22 11:52:47,575 - INFO: ADDED: The God of Time (ID: 89dfc7c9-f891-4834-a8d0-7b112c7fef26)
+2025-05-22 11:52:47,857 - INFO: ADDED: Husbands in the Beast World Is Addicted to Striving for My Favor (ID: ed592f8a-cae7-4a95-969e-fe5a28cffc34)
+2025-05-22 11:52:48,145 - INFO: ADDED: Anti-hero at the bottom of the job caste system (ID: 1addb806-9071-4dc8-ad08-5fd52e104c8b)
+2025-05-22 11:52:48,421 - INFO: ADDED: Isekai Kaeri no Yuusha ni Tsuihousareta Ossan Hero, Mahou Shoujo Sentai ni Tenshoku shimasu (ID: d0c4c58d-4456-4387-ad46-16c7b6c3d83c)
+2025-05-22 11:52:48,696 - INFO: ADDED: Kakukamata (ID: b93af515-a7be-4176-9c51-857a867a34e3)
+2025-05-22 11:52:48,972 - INFO: ADDED: Rokka Ayaginu Tan (ID: 511a8ef8-d49b-4850-b703-9f152b440ef6)
+2025-05-22 11:52:49,252 - INFO: ADDED: Falling in the Blue (ID: 5f9f45a6-5e98-4dbc-864f-67940717d89e)
+2025-05-22 11:52:49,527 - INFO: ADDED: The Universe’s Worst Rescue Guide (ID: 134a9304-3c4e-4475-851f-15b7e5fe9367)
+2025-05-22 11:52:49,802 - INFO: ADDED: Mofumofu to Tanoshimu Mujintou Nonbiri Kaitaku Life ~VRMMO de Bocchi wo Mankitsu Suru Hazu ga, Zen Player ni Chuumoku Sareteiru mitai desu~ (ID: 98a253eb-7000-46c3-9212-f1d0aa73491a)
+2025-05-22 11:52:50,081 - INFO: ADDED: A Revenge Guide for the Terminally Ill Maid (ID: b016e241-f648-4432-8015-7470e93dd635)
+2025-05-22 11:52:50,372 - INFO: ADDED: I Brought the Male Lead to His Knees Before Me (ID: 76f3cd63-f882-476c-a40e-0ab20fabb0b3)
+2025-05-22 11:52:50,653 - INFO: ADDED: Dead Evil Queen Elise (ID: 6b24eecc-d606-4294-93d4-00e36ceb308e)
+2025-05-22 11:52:50,929 - INFO: ADDED: The Thousand Faces Actor (ID: 8c1dca87-0235-4360-81d0-ce2d94c076e7)
+2025-05-22 11:52:51,205 - INFO: ADDED: Yume Kouba (ID: e5ce4ff0-09e1-46f9-aef3-eb0bf84feaa9)
+2025-05-22 11:52:51,484 - INFO: ADDED: Kannou Shousetsuka (ID: e8346681-f22a-4874-bee0-57e98e1b74b7)
+2025-05-22 11:52:51,764 - INFO: ADDED: Kon Kon KoKon (ID: 69e1202b-7c41-4102-942e-d32343517353)
+2025-05-22 11:52:52,041 - INFO: ADDED: SaiTsuyo☆Akuyaku Reijou! Saikyou Judoka ga Akuyaku Reijou ni Natta Kedo, Otome Game Yoku Wakarimasen (ID: a359f6ed-3c7b-4437-9555-17abff3924ef)
+2025-05-22 11:52:52,318 - INFO: ADDED: Colorful (ID: 392383ed-1b0d-42cb-b459-a0a16a0ef1ec)
+2025-05-22 11:52:52,598 - INFO: ADDED: i.d. (ID: 4fb4ef1a-46ce-4be5-981e-334e83e98d2f)
+2025-05-22 11:52:52,874 - INFO: ADDED: Joudan da yo, Baka da na (ID: ae1b266d-cce8-4efc-984c-abf6b4f90cf5)
+2025-05-22 11:52:53,151 - INFO: ADDED: Transmigrated as the Alpha Boss' Golden Goose (ID: 30c2229e-4479-44bf-b26b-9733b12c1367)
+2025-05-22 11:52:53,426 - INFO: ADDED: Okazari no Sumeragi-hi? Nani sore Tenshokudesu! (ID: 3bd6eec6-189e-4a27-8f39-944177e5f165)
+2025-05-22 11:52:53,711 - INFO: ADDED: Watashi ni Pool ha Semai Sugita! (ID: c1e80024-a4e5-46db-b1fc-e5b4cf4ee89e)
+2025-05-22 11:52:53,987 - INFO: ADDED: Surviving the Inverted World with Omnipotent Skills (ID: eef6b1b3-045d-406c-a8a0-604d9741b373)
+2025-05-22 11:52:54,265 - INFO: ADDED: Noimondo No Hanamuko (ID: 4e28244f-f642-437a-9caf-94373563a69a)
+2025-05-22 11:52:54,543 - INFO: ADDED: Zenryaku Hahaue Sama Watakushi Kono Tabi Isekai Tenseitashimashite, Akuyaku Reijo Ni Narimashita (ID: 51fc623a-350d-4e2c-a361-064688e4db8a)
+2025-05-22 11:52:54,819 - INFO: ADDED: Back from the Abyss: I Am the Disaster (ID: e778d186-2fa4-467c-806c-e752337fd7f4)
+2025-05-22 11:52:55,095 - INFO: ADDED: Konishi-San Wa Ikemen Ga Nigatenanoni (ID: aac6b3cf-5d0c-4fe4-b67d-72d3282aabc3)
+2025-05-22 11:52:55,380 - INFO: ADDED: Socho Sama, Dekiai Chunitsuki ～Saikyo Ikemen To Aisare Ryo Seikatsu !?～ (ID: afb4a1c9-d380-4a30-b549-b32f372322a7)
+2025-05-22 11:52:55,656 - INFO: ADDED: Seifuku Zukan (ID: 1bb780b7-b045-4fdd-b44d-5b845f465ec6)
+2025-05-22 11:52:55,936 - INFO: ADDED: How the Fallen Saint Lives With the Devil: Please Give Me One Precious Shot (ID: 0236d75a-d8a4-4dbb-b397-aeec781c8d16)
+2025-05-22 11:52:56,215 - INFO: ADDED: Yuri & Take (ID: 48ea8d93-8dc5-4993-b205-162b421cae2f)
+2025-05-22 11:52:56,493 - INFO: ADDED: Boku no Tsugai wa Thoroughbred Ω: Bangai-hen (ID: cf14de34-c74d-4edf-96b8-41e4e1a2767d)
+2025-05-22 11:52:56,769 - INFO: ADDED: Tsugai Miman no Bokura wa Kitto (ID: 187f187c-63b3-483f-aa3a-79b331486f50)
+2025-05-22 11:52:57,068 - INFO: ADDED: In the Dark Night, the Silver Moon Shines Coldly (ID: fcaadbf1-e4dc-4440-87db-f76db60a98f3)
+2025-05-22 11:52:57,342 - INFO: ADDED: Matsuge (ID: 430978eb-c988-47af-8f7f-00db4b5ef17e)
+2025-05-22 11:52:57,619 - INFO: ADDED: Surviving In A Broken World (ID: f15cd64c-a804-48f4-9f9f-26c05f5905fb)
+2025-05-22 11:52:57,896 - INFO: ADDED: The Slime Has the Potential to Be the Strongest: In My Second Life, I’ll Properly Face My Slime (ID: b38102bc-d20f-4110-8387-680be2e918bf)
+2025-05-22 11:52:58,180 - INFO: ADDED: Korette Ai Nan desu ka? (ID: d0ef6488-02cb-4731-8b1c-e9361f072794)
+2025-05-22 11:52:58,457 - INFO: ADDED: Last Encore (ID: 3af70521-3a9a-4c4c-a2e1-1a767cb6ac50)
+2025-05-22 11:52:58,742 - INFO: ADDED: Ame no Ouji to Hana no Nie (ID: 47b13899-e97d-479b-bd97-f3becb50cddc)
+2025-05-22 11:52:59,018 - INFO: ADDED: Makizoe de Isekai ni Yobidasareta no de, Sekai Kanmushi shite Wagashi Tsukurimasu (ID: cdff4759-2af9-44f1-8b71-e12b8fdbf624)
+2025-05-22 11:52:59,298 - INFO: ADDED: Second Virgin Second Life (ID: c3e2c197-9bd2-47bb-98eb-76277764d45c)
+2025-05-22 11:52:59,581 - INFO: ADDED: Chun Talk (ID: 91e66b1d-551c-4c25-a441-5c18b3dbd968)
+2025-05-22 11:52:59,857 - INFO: ADDED: Sumaho De Isekai No Kami Ni Naruhoho ～ Shitsugyo Shitara Reikoku Ryoshu Ni Aisaremashita ～ (ID: 135d9812-91af-43ba-b215-242af629da56)
+2025-05-22 11:53:00,132 - INFO: ADDED: Shigoto Ningen na Hakushaku Reijou wa Koori no Saishou-sama no Ai wo mi Ayamatte iru (ID: 76708a30-339e-4bbf-b80b-3e291d92c85f)
+2025-05-22 11:53:00,409 - INFO: ADDED: My friend became a woman (ID: c1e4343f-2ac5-4bde-a2ac-c454516d7e67)
+2025-05-22 11:53:00,689 - INFO: ADDED: Yuu Watase The Best Selection (ID: 0595c1bf-3d24-4e27-88e4-7b348eeaced6)
+2025-05-22 11:53:00,973 - INFO: ADDED: Ben 10 Bloodtrix (ID: d0c8d7fa-a809-477f-9ee7-099b947a81a5)
+2025-05-22 11:53:01,251 - INFO: ADDED: Watashi no Musuko ga Isekai Tensei Shitappoi (Redraw) (ID: 5172fa71-075a-4a3a-9b27-ffb2263d9deb)
+2025-05-22 11:53:01,529 - INFO: ADDED: Watashi no Musuko ga Isekai Tensei Shitappoi (ID: 3d109f80-bf4c-41ac-b7fd-e52b29d03a24)
+2025-05-22 11:53:01,815 - INFO: ADDED: The Dancing Universe (ID: 55389fb5-c6e5-4805-bc3e-821237720c1c)
+2025-05-22 11:53:02,090 - INFO: ADDED: Kodomo Atsukai Shinaide Kudasai! - Youjoka Shichatta Kanpeki Shukujo wa, Kishi Danchou ni Amayakasareru (ID: 5a915ce7-6d39-4f02-b9dd-00a891539113)
+2025-05-22 11:53:02,379 - INFO: ADDED: Ikai Tettai Parabellum (ID: cee64e97-f92e-410b-b5f3-00ccf21191de)
+2025-05-22 11:53:02,656 - INFO: ADDED: The Boundary of Delusion (ID: 4b049c18-1c49-4f92-949f-d2e725a7a67c)
+2025-05-22 11:53:02,940 - INFO: ADDED: Bad Secretary (ID: e8986f35-e798-41e3-b043-afc0c41112cb)
+2025-05-22 11:53:03,216 - INFO: ADDED: The Dragon Duke's Wife (ID: 82621bf4-73af-4c3c-924d-abb7fc38bcf6)
+2025-05-22 11:53:03,491 - INFO: ADDED: The Circumstances of a White Cat Bitten by the Black Panther Count (ID: 4efa6d24-90c7-4e38-bf41-c59898aaf42c)
+2025-05-22 11:53:03,780 - INFO: ADDED: Big Love From Ultra Deep Space (oneshot) (ID: 4a2ffc5b-79b2-44f2-a606-97b6170f561b)
+2025-05-22 11:53:04,056 - INFO: ADDED: The Guild’s Strongest Receptionist (ID: ea833403-4781-4d5e-a403-bfcf95bc57ff)
+2025-05-22 11:53:04,332 - INFO: ADDED: The Innocent Priest (ID: cd075e8f-bf35-4be6-9fff-07ff571f04b1)
+2025-05-22 11:53:04,616 - INFO: ADDED: The Thoughtful Lady (ID: dad48bf4-8b6e-40ff-ad3d-0694b171c324)
+2025-05-22 11:53:04,894 - INFO: ADDED: swords & waifus (ID: 661151f7-aa01-43f5-976e-79237343ea80)
+2025-05-22 11:53:05,172 - INFO: ADDED: My Contract Husband Resembles the Male Protagonist (ID: 41435ec3-00c9-42b5-82f3-2529aa14f4d1)
+2025-05-22 11:53:05,454 - INFO: ADDED: My Contract Husband Resembles the Male Protagonist (ID: e23c3c00-67bc-4a41-8345-d3c290f0c113)
+2025-05-22 11:53:05,731 - INFO: ADDED: Descent (ID: e2aec99d-e083-43fb-930a-cb53b8eb969e)
+2025-05-22 11:53:06,009 - INFO: ADDED: Sesoshitibu Hantei Kurau to Osusume Tabu ni Noranakunatte Inpuresshon Sagacchau Rashii zo Manga (ID: e9af8959-8217-4d2a-ae84-20044a5bf9e4)
+2025-05-22 11:53:06,286 - INFO: ADDED: Ryuuto Bodyguard to Ojou-sama (ID: ddaef703-555d-4e51-97cb-7fc1b76db870)
+2025-05-22 11:53:06,562 - INFO: ADDED: Gokuakujotei No Koukyu (ID: 8ded16d2-ff8e-4373-9f66-6fcaf3aaf693)
+2025-05-22 11:53:06,838 - INFO: ADDED: Tokiwa no Mori to Tsugi no Hito (ID: 148e8e3c-6a87-40ab-a651-0f7deed70cd7)
+2025-05-22 11:53:07,113 - INFO: ADDED: Kiss the Coming Apocalypse (ID: 5da637ef-b363-4d07-97f3-bed2e1a1788c)
+2025-05-22 11:53:07,395 - INFO: ADDED: Revenge of the Bottom-Tier Scavenger (ID: 065dc82a-5b43-499d-bc34-49129b39c6f3)
+2025-05-22 11:53:07,673 - INFO: ADDED: Collecting, crafting, and fighting with Goetam ~Fantasy Life i Play Diary~ (ID: 7d91d39a-ba56-4a07-82a5-d563453828d5)
+2025-05-22 11:53:07,948 - INFO: ADDED: Senpai Is A Bustective (ID: 0b538b3e-8e00-45c3-887f-de31661fea4c)
+2025-05-22 11:53:08,224 - INFO: ADDED: Mechakucha Tsuihousareru Hanashi (Webcomic) (ID: e1265907-51b8-480f-a1a9-bde01f2de4c4)
+2025-05-22 11:53:08,499 - INFO: ADDED: Extraordinary World! I, a vampire... (ID: be5e2313-96b6-4e78-a4e2-1861119e61ba)
+2025-05-22 11:53:08,778 - INFO: ADDED: Mechakucha Tsuihousareru Hanashi (ID: 4bccc4a8-0794-45ba-b8b8-a130125f4399)
+2025-05-22 11:53:09,053 - INFO: ADDED: Skill? Nee Yo Sonna mon! - Fuguusha-tachi no Sainou Kaika (ID: 8a29e316-4f5e-4d97-823e-1f71b28d59f7)
+2025-05-22 11:53:09,341 - INFO: ADDED: Touch My Heart (ID: 33f78828-6163-4067-b9c7-3ed3a60dd576)
+2025-05-22 11:53:09,616 - INFO: ADDED: Naputaaku's Exciting 5000-Yen Spending Spree Plan (ID: 2eec9363-cb81-4066-9911-de70d459155d)
+2025-05-22 11:53:09,892 - INFO: ADDED: Aliens, Baseball, and Civilization (ID: 464e2a80-73a0-40da-a2a5-c2b62f77c967)
+2025-05-22 11:53:10,169 - INFO: ADDED: Sonata wa Ittai Dare nanda (ID: 96f6167c-0df8-4a1e-8da8-77420e992303)
+2025-05-22 11:53:10,444 - INFO: ADDED: Fertile Period Couple (ID: d88eddd2-8e19-484b-8be5-2586e2a50eed)
+2025-05-22 11:53:10,722 - INFO: ADDED: Meet During Ovulation (ID: 7c0e5612-d248-44c3-aa60-f8a50ee0a19a)
+2025-05-22 11:53:10,998 - INFO: ADDED: Tabete Waratte Tokidoki Naite, Tokyo No Daidokoro (ID: 00230538-9887-46af-ba3d-75f9deea7fa9)
+2025-05-22 11:53:11,276 - INFO: ADDED: Hana To Kurage To Rifurein (ID: 5a45e886-31e1-4b4f-8ae6-04d4b631e116)
+2025-05-22 11:53:11,561 - INFO: ADDED: Tekkoku No Supai Ni Tensei Shita Hakushaku Reijo, Furareru Tame Ni Ganbarimasu! (ID: 427a40e0-3437-4bd4-a463-82d7189a7cc6)
+2025-05-22 11:53:11,841 - INFO: ADDED: Watashi, Kiraware Sumeragihi De Kamaimasen! (ID: 1ad4954a-dc36-41c0-95bc-0ce3662cb9b9)
+2025-05-22 11:53:12,121 - INFO: ADDED: Pieces of Us (ID: dc8a6a1d-51d9-410d-975b-cf884cc68fd0)
+2025-05-22 11:53:12,398 - INFO: ADDED: Haru no Hikari ni Noma rete mo (ID: 4551679e-820b-42a5-85ff-d00ade797383)
+2025-05-22 11:53:12,674 - INFO: ADDED: Touhou - Alternative Eaters (Doujinshi) (ID: 08003af5-2e2b-4daa-9236-3d423273b82d)
+2025-05-22 11:53:12,957 - INFO: ADDED: CMYK (ID: 236ab0cf-a5ef-4039-8e0a-f4cfe4660424)
+2025-05-22 11:53:13,242 - INFO: ADDED: There May Be Something There That Wasn’t There Before - Haikyuu dj (ID: e82fb7dd-edff-4593-9fff-760f018f6703)
+2025-05-22 11:53:13,516 - INFO: ADDED: Falling in the blue (ID: d38389ac-caeb-4a4f-8483-589ddbaf50e1)
+2025-05-22 11:53:13,795 - INFO: ADDED: The Maid (ID: 192ec1c9-eb9a-4771-bb79-2b9bb4adbe0e)
+2025-05-22 11:53:14,070 - INFO: ADDED: The Fairy's Wish (ID: 3de96e80-6feb-450c-a169-053d40c01063)
+2025-05-22 11:53:14,347 - INFO: Database update complete
+2025-05-22 11:53:14,347 - INFO: SUMMARY: 0 manga updated, 100 manga added
+2025-05-22 11:53:14,918 - INFO: Registered manga rollback data for 100 manga IDs
+2025-05-22 11:53:14,919 - INFO: Successfully updated manga data, 100 manga changed
+2025-05-22 11:53:14,923 - INFO: Database update script completed
+2025-05-22 11:53:14,923 - INFO: ==================================================
+2025-05-22 11:56:15,005 - INFO: ==================================================
+2025-05-22 11:56:15,006 - INFO: Starting database update script
+2025-05-22 11:56:15,007 - INFO: Starting database update process with transaction support
+2025-05-22 11:56:15,007 - INFO: Successfully connected to PostgresSQL database
+2025-05-22 11:56:16,643 - INFO: Successfully connected to MongoDB
+2025-05-22 11:56:16,646 - INFO: Transaction started
+2025-05-22 11:56:16,646 - INFO: Starting manga data update
+2025-05-22 11:56:17,194 - INFO: Collected 100/118 manga...
+2025-05-22 11:56:19,358 - INFO: Checking 100 manga for updates
+2025-05-22 11:56:23,946 - INFO: ADDED: Shoujo Kageki Revue Starlight - You Are Mine (Doujinshi) (ID: b1e02b52-7209-45e9-bbda-768c140e9982)
+2025-05-22 11:56:24,213 - INFO: ADDED: [Spicy Night] Short Story Collection (ID: ed3d9225-8013-49ec-8c5e-3715341ae4d3)
+2025-05-22 11:56:24,481 - INFO: ADDED: Milky Junior (ID: d8737f2d-a91e-496b-87a8-26e3ea40763f)
+2025-05-22 11:56:24,761 - INFO: ADDED: Koi no Kami-sama (ID: d8e81c11-d711-409b-837e-988783f91ecf)
+2025-05-22 11:56:25,031 - INFO: ADDED: The God of Time (ID: 89dfc7c9-f891-4834-a8d0-7b112c7fef26)
+2025-05-22 11:56:25,299 - INFO: ADDED: Husbands in the Beast World Is Addicted to Striving for My Favor (ID: ed592f8a-cae7-4a95-969e-fe5a28cffc34)
+2025-05-22 11:56:25,569 - INFO: ADDED: Anti-hero at the bottom of the job caste system (ID: 1addb806-9071-4dc8-ad08-5fd52e104c8b)
+2025-05-22 11:56:25,837 - INFO: ADDED: Isekai Kaeri no Yuusha ni Tsuihousareta Ossan Hero, Mahou Shoujo Sentai ni Tenshoku shimasu (ID: d0c4c58d-4456-4387-ad46-16c7b6c3d83c)
+2025-05-22 11:56:26,110 - INFO: ADDED: Kakukamata (ID: b93af515-a7be-4176-9c51-857a867a34e3)
+2025-05-22 11:56:26,376 - INFO: ADDED: Rokka Ayaginu Tan (ID: 511a8ef8-d49b-4850-b703-9f152b440ef6)
+2025-05-22 11:56:26,644 - INFO: ADDED: Falling in the Blue (ID: 5f9f45a6-5e98-4dbc-864f-67940717d89e)
+2025-05-22 11:56:26,915 - INFO: ADDED: The Universe’s Worst Rescue Guide (ID: 134a9304-3c4e-4475-851f-15b7e5fe9367)
+2025-05-22 11:56:27,182 - INFO: ADDED: Mofumofu to Tanoshimu Mujintou Nonbiri Kaitaku Life ~VRMMO de Bocchi wo Mankitsu Suru Hazu ga, Zen Player ni Chuumoku Sareteiru mitai desu~ (ID: 98a253eb-7000-46c3-9212-f1d0aa73491a)
+2025-05-22 11:56:27,448 - INFO: ADDED: A Revenge Guide for the Terminally Ill Maid (ID: b016e241-f648-4432-8015-7470e93dd635)
+2025-05-22 11:56:27,715 - INFO: ADDED: I Brought the Male Lead to His Knees Before Me (ID: 76f3cd63-f882-476c-a40e-0ab20fabb0b3)
+2025-05-22 11:56:27,984 - INFO: ADDED: Dead Evil Queen Elise (ID: 6b24eecc-d606-4294-93d4-00e36ceb308e)
+2025-05-22 11:56:28,249 - INFO: ADDED: The Thousand Faces Actor (ID: 8c1dca87-0235-4360-81d0-ce2d94c076e7)
+2025-05-22 11:56:28,515 - INFO: ADDED: Yume Kouba (ID: e5ce4ff0-09e1-46f9-aef3-eb0bf84feaa9)
+2025-05-22 11:56:28,787 - INFO: ADDED: Kannou Shousetsuka (ID: e8346681-f22a-4874-bee0-57e98e1b74b7)
+2025-05-22 11:56:29,056 - INFO: ADDED: Kon Kon KoKon (ID: 69e1202b-7c41-4102-942e-d32343517353)
+2025-05-22 11:56:29,322 - INFO: ADDED: SaiTsuyo☆Akuyaku Reijou! Saikyou Judoka ga Akuyaku Reijou ni Natta Kedo, Otome Game Yoku Wakarimasen (ID: a359f6ed-3c7b-4437-9555-17abff3924ef)
+2025-05-22 11:56:29,588 - INFO: ADDED: Colorful (ID: 392383ed-1b0d-42cb-b459-a0a16a0ef1ec)
+2025-05-22 11:56:29,854 - INFO: ADDED: i.d. (ID: 4fb4ef1a-46ce-4be5-981e-334e83e98d2f)
+2025-05-22 11:56:30,121 - INFO: ADDED: Joudan da yo, Baka da na (ID: ae1b266d-cce8-4efc-984c-abf6b4f90cf5)
+2025-05-22 11:56:30,388 - INFO: ADDED: Transmigrated as the Alpha Boss' Golden Goose (ID: 30c2229e-4479-44bf-b26b-9733b12c1367)
+2025-05-22 11:56:30,653 - INFO: ADDED: Okazari no Sumeragi-hi? Nani sore Tenshokudesu! (ID: 3bd6eec6-189e-4a27-8f39-944177e5f165)
+2025-05-22 11:56:30,924 - INFO: ADDED: Watashi ni Pool ha Semai Sugita! (ID: c1e80024-a4e5-46db-b1fc-e5b4cf4ee89e)
+2025-05-22 11:56:31,191 - INFO: ADDED: Surviving the Inverted World with Omnipotent Skills (ID: eef6b1b3-045d-406c-a8a0-604d9741b373)
+2025-05-22 11:56:31,477 - INFO: ADDED: Noimondo No Hanamuko (ID: 4e28244f-f642-437a-9caf-94373563a69a)
+2025-05-22 11:56:31,750 - INFO: ADDED: Zenryaku Hahaue Sama Watakushi Kono Tabi Isekai Tenseitashimashite, Akuyaku Reijo Ni Narimashita (ID: 51fc623a-350d-4e2c-a361-064688e4db8a)
+2025-05-22 11:56:32,025 - INFO: ADDED: Back from the Abyss: I Am the Disaster (ID: e778d186-2fa4-467c-806c-e752337fd7f4)
+2025-05-22 11:56:32,291 - INFO: ADDED: Konishi-San Wa Ikemen Ga Nigatenanoni (ID: aac6b3cf-5d0c-4fe4-b67d-72d3282aabc3)
+2025-05-22 11:56:32,568 - INFO: ADDED: Socho Sama, Dekiai Chunitsuki ～Saikyo Ikemen To Aisare Ryo Seikatsu !?～ (ID: afb4a1c9-d380-4a30-b549-b32f372322a7)
+2025-05-22 11:56:32,836 - INFO: ADDED: Seifuku Zukan (ID: 1bb780b7-b045-4fdd-b44d-5b845f465ec6)
+2025-05-22 11:56:33,136 - INFO: ADDED: How the Fallen Saint Lives With the Devil: Please Give Me One Precious Shot (ID: 0236d75a-d8a4-4dbb-b397-aeec781c8d16)
+2025-05-22 11:56:33,416 - INFO: ADDED: Yuri & Take (ID: 48ea8d93-8dc5-4993-b205-162b421cae2f)
+2025-05-22 11:56:33,694 - INFO: ADDED: Boku no Tsugai wa Thoroughbred Ω: Bangai-hen (ID: cf14de34-c74d-4edf-96b8-41e4e1a2767d)
+2025-05-22 11:56:33,960 - INFO: ADDED: Tsugai Miman no Bokura wa Kitto (ID: 187f187c-63b3-483f-aa3a-79b331486f50)
+2025-05-22 11:56:34,245 - INFO: ADDED: In the Dark Night, the Silver Moon Shines Coldly (ID: fcaadbf1-e4dc-4440-87db-f76db60a98f3)
+2025-05-22 11:56:34,512 - INFO: ADDED: Matsuge (ID: 430978eb-c988-47af-8f7f-00db4b5ef17e)
+2025-05-22 11:56:34,809 - INFO: ADDED: Surviving In A Broken World (ID: f15cd64c-a804-48f4-9f9f-26c05f5905fb)
+2025-05-22 11:56:35,077 - INFO: ADDED: The Slime Has the Potential to Be the Strongest: In My Second Life, I’ll Properly Face My Slime (ID: b38102bc-d20f-4110-8387-680be2e918bf)
+2025-05-22 11:56:35,402 - INFO: ADDED: Korette Ai Nan desu ka? (ID: d0ef6488-02cb-4731-8b1c-e9361f072794)
+2025-05-22 11:56:35,675 - INFO: ADDED: Last Encore (ID: 3af70521-3a9a-4c4c-a2e1-1a767cb6ac50)
+2025-05-22 11:56:35,964 - INFO: ADDED: Ame no Ouji to Hana no Nie (ID: 47b13899-e97d-479b-bd97-f3becb50cddc)
+2025-05-22 11:56:36,254 - INFO: ADDED: Makizoe de Isekai ni Yobidasareta no de, Sekai Kanmushi shite Wagashi Tsukurimasu (ID: cdff4759-2af9-44f1-8b71-e12b8fdbf624)
+2025-05-22 11:56:36,549 - INFO: ADDED: Second Virgin Second Life (ID: c3e2c197-9bd2-47bb-98eb-76277764d45c)
+2025-05-22 11:56:36,833 - INFO: ADDED: Chun Talk (ID: 91e66b1d-551c-4c25-a441-5c18b3dbd968)
+2025-05-22 11:56:37,143 - INFO: ADDED: Sumaho De Isekai No Kami Ni Naruhoho ～ Shitsugyo Shitara Reikoku Ryoshu Ni Aisaremashita ～ (ID: 135d9812-91af-43ba-b215-242af629da56)
+2025-05-22 11:56:37,416 - INFO: ADDED: Shigoto Ningen na Hakushaku Reijou wa Koori no Saishou-sama no Ai wo mi Ayamatte iru (ID: 76708a30-339e-4bbf-b80b-3e291d92c85f)
+2025-05-22 11:56:37,688 - INFO: ADDED: My friend became a woman (ID: c1e4343f-2ac5-4bde-a2ac-c454516d7e67)
+2025-05-22 11:56:37,960 - INFO: ADDED: Yuu Watase The Best Selection (ID: 0595c1bf-3d24-4e27-88e4-7b348eeaced6)
+2025-05-22 11:56:38,244 - INFO: ADDED: Ben 10 Bloodtrix (ID: d0c8d7fa-a809-477f-9ee7-099b947a81a5)
+2025-05-22 11:56:38,516 - INFO: ADDED: Watashi no Musuko ga Isekai Tensei Shitappoi (Redraw) (ID: 5172fa71-075a-4a3a-9b27-ffb2263d9deb)
+2025-05-22 11:56:38,787 - INFO: ADDED: Watashi no Musuko ga Isekai Tensei Shitappoi (ID: 3d109f80-bf4c-41ac-b7fd-e52b29d03a24)
+2025-05-22 11:56:39,059 - INFO: ADDED: The Dancing Universe (ID: 55389fb5-c6e5-4805-bc3e-821237720c1c)
+2025-05-22 11:56:39,326 - INFO: ADDED: Kodomo Atsukai Shinaide Kudasai! - Youjoka Shichatta Kanpeki Shukujo wa, Kishi Danchou ni Amayakasareru (ID: 5a915ce7-6d39-4f02-b9dd-00a891539113)
+2025-05-22 11:56:39,600 - INFO: ADDED: Ikai Tettai Parabellum (ID: cee64e97-f92e-410b-b5f3-00ccf21191de)
+2025-05-22 11:56:39,868 - INFO: ADDED: The Boundary of Delusion (ID: 4b049c18-1c49-4f92-949f-d2e725a7a67c)
+2025-05-22 11:56:40,142 - INFO: ADDED: Bad Secretary (ID: e8986f35-e798-41e3-b043-afc0c41112cb)
+2025-05-22 11:56:40,414 - INFO: ADDED: The Dragon Duke's Wife (ID: 82621bf4-73af-4c3c-924d-abb7fc38bcf6)
+2025-05-22 11:56:40,682 - INFO: ADDED: The Circumstances of a White Cat Bitten by the Black Panther Count (ID: 4efa6d24-90c7-4e38-bf41-c59898aaf42c)
+2025-05-22 11:56:40,950 - INFO: ADDED: Big Love From Ultra Deep Space (oneshot) (ID: 4a2ffc5b-79b2-44f2-a606-97b6170f561b)
+2025-05-22 11:56:41,217 - INFO: ADDED: The Guild’s Strongest Receptionist (ID: ea833403-4781-4d5e-a403-bfcf95bc57ff)
+2025-05-22 11:56:41,491 - INFO: ADDED: The Innocent Priest (ID: cd075e8f-bf35-4be6-9fff-07ff571f04b1)
+2025-05-22 11:56:41,759 - INFO: ADDED: The Thoughtful Lady (ID: dad48bf4-8b6e-40ff-ad3d-0694b171c324)
+2025-05-22 11:56:42,038 - INFO: ADDED: swords & waifus (ID: 661151f7-aa01-43f5-976e-79237343ea80)
+2025-05-22 11:56:42,304 - INFO: ADDED: My Contract Husband Resembles the Male Protagonist (ID: 41435ec3-00c9-42b5-82f3-2529aa14f4d1)
+2025-05-22 11:56:42,592 - INFO: ADDED: My Contract Husband Resembles the Male Protagonist (ID: e23c3c00-67bc-4a41-8345-d3c290f0c113)
+2025-05-22 11:56:42,860 - INFO: ADDED: Descent (ID: e2aec99d-e083-43fb-930a-cb53b8eb969e)
+2025-05-22 11:56:43,130 - INFO: ADDED: Sesoshitibu Hantei Kurau to Osusume Tabu ni Noranakunatte Inpuresshon Sagacchau Rashii zo Manga (ID: e9af8959-8217-4d2a-ae84-20044a5bf9e4)
+2025-05-22 11:56:43,419 - INFO: ADDED: Ryuuto Bodyguard to Ojou-sama (ID: ddaef703-555d-4e51-97cb-7fc1b76db870)
+2025-05-22 11:56:43,719 - INFO: ADDED: Gokuakujotei No Koukyu (ID: 8ded16d2-ff8e-4373-9f66-6fcaf3aaf693)
+2025-05-22 11:56:43,991 - INFO: ADDED: Tokiwa no Mori to Tsugi no Hito (ID: 148e8e3c-6a87-40ab-a651-0f7deed70cd7)
+2025-05-22 11:56:44,258 - INFO: ADDED: Kiss the Coming Apocalypse (ID: 5da637ef-b363-4d07-97f3-bed2e1a1788c)
+2025-05-22 11:56:44,525 - INFO: ADDED: Revenge of the Bottom-Tier Scavenger (ID: 065dc82a-5b43-499d-bc34-49129b39c6f3)
+2025-05-22 11:56:44,795 - INFO: ADDED: Collecting, crafting, and fighting with Goetam ~Fantasy Life i Play Diary~ (ID: 7d91d39a-ba56-4a07-82a5-d563453828d5)
+2025-05-22 11:56:45,079 - INFO: ADDED: Senpai Is A Bustective (ID: 0b538b3e-8e00-45c3-887f-de31661fea4c)
+2025-05-22 11:56:45,362 - INFO: ADDED: Mechakucha Tsuihousareru Hanashi (Webcomic) (ID: e1265907-51b8-480f-a1a9-bde01f2de4c4)
+2025-05-22 11:56:45,633 - INFO: ADDED: Extraordinary World! I, a vampire... (ID: be5e2313-96b6-4e78-a4e2-1861119e61ba)
+2025-05-22 11:56:45,898 - INFO: ADDED: Mechakucha Tsuihousareru Hanashi (ID: 4bccc4a8-0794-45ba-b8b8-a130125f4399)
+2025-05-22 11:56:46,178 - INFO: ADDED: Skill? Nee Yo Sonna mon! - Fuguusha-tachi no Sainou Kaika (ID: 8a29e316-4f5e-4d97-823e-1f71b28d59f7)
+2025-05-22 11:56:46,446 - INFO: ADDED: Touch My Heart (ID: 33f78828-6163-4067-b9c7-3ed3a60dd576)
+2025-05-22 11:56:46,711 - INFO: ADDED: Naputaaku's Exciting 5000-Yen Spending Spree Plan (ID: 2eec9363-cb81-4066-9911-de70d459155d)
+2025-05-22 11:56:46,977 - INFO: ADDED: Aliens, Baseball, and Civilization (ID: 464e2a80-73a0-40da-a2a5-c2b62f77c967)
+2025-05-22 11:56:47,252 - INFO: ADDED: Sonata wa Ittai Dare nanda (ID: 96f6167c-0df8-4a1e-8da8-77420e992303)
+2025-05-22 11:56:47,526 - INFO: ADDED: Fertile Period Couple (ID: d88eddd2-8e19-484b-8be5-2586e2a50eed)
+2025-05-22 11:56:47,796 - INFO: ADDED: Meet During Ovulation (ID: 7c0e5612-d248-44c3-aa60-f8a50ee0a19a)
+2025-05-22 11:56:48,062 - INFO: ADDED: Tabete Waratte Tokidoki Naite, Tokyo No Daidokoro (ID: 00230538-9887-46af-ba3d-75f9deea7fa9)
+2025-05-22 11:56:48,329 - INFO: ADDED: Hana To Kurage To Rifurein (ID: 5a45e886-31e1-4b4f-8ae6-04d4b631e116)
+2025-05-22 11:56:48,599 - INFO: ADDED: Tekkoku No Supai Ni Tensei Shita Hakushaku Reijo, Furareru Tame Ni Ganbarimasu! (ID: 427a40e0-3437-4bd4-a463-82d7189a7cc6)
+2025-05-22 11:56:48,864 - INFO: ADDED: Watashi, Kiraware Sumeragihi De Kamaimasen! (ID: 1ad4954a-dc36-41c0-95bc-0ce3662cb9b9)
+2025-05-22 11:56:49,132 - INFO: ADDED: Pieces of Us (ID: dc8a6a1d-51d9-410d-975b-cf884cc68fd0)
+2025-05-22 11:56:49,404 - INFO: ADDED: Haru no Hikari ni Noma rete mo (ID: 4551679e-820b-42a5-85ff-d00ade797383)
+2025-05-22 11:56:49,676 - INFO: ADDED: Touhou - Alternative Eaters (Doujinshi) (ID: 08003af5-2e2b-4daa-9236-3d423273b82d)
+2025-05-22 11:56:49,945 - INFO: ADDED: CMYK (ID: 236ab0cf-a5ef-4039-8e0a-f4cfe4660424)
+2025-05-22 11:56:50,214 - INFO: ADDED: There May Be Something There That Wasn’t There Before - Haikyuu dj (ID: e82fb7dd-edff-4593-9fff-760f018f6703)
+2025-05-22 11:56:50,487 - INFO: ADDED: Falling in the blue (ID: d38389ac-caeb-4a4f-8483-589ddbaf50e1)
+2025-05-22 11:56:50,755 - INFO: ADDED: The Maid (ID: 192ec1c9-eb9a-4771-bb79-2b9bb4adbe0e)
+2025-05-22 11:56:51,024 - INFO: ADDED: The Fairy's Wish (ID: 3de96e80-6feb-450c-a169-053d40c01063)
+2025-05-22 11:56:51,299 - INFO: Database update complete
+2025-05-22 11:56:51,299 - INFO: SUMMARY: 0 manga updated, 100 manga added
+2025-05-22 11:56:51,846 - INFO: Registered manga rollback data for 100 manga IDs
+2025-05-22 11:56:51,846 - INFO: Successfully updated manga data, 100 manga changed
+2025-05-22 11:56:51,862 - INFO: Database update script completed
+2025-05-22 11:56:51,862 - INFO: ==================================================

@@ -474,13 +474,9 @@ def update_manga_database_dag():
         stats = ti.xcom_pull(task_ids='update_all_databases')
         execution_date = kwargs['execution_date'].strftime('%Y-%m-%d %H:%M:%S')
 
-        # Prepare email content
-        manga_list = "<ul>" + "".join([f"<li>{title}</li>" for title in stats.get('manga_titles', [])]) + "</ul>" if stats.get('manga_titles') else "<p>No new manga added.</p>"
-        chapter_list = "<ul>" + "".join([f"<li>{title}</li>" for title in stats.get('chapter_titles', [])]) + "</ul>" if stats.get('chapter_titles') else "<p>No new chapters added.</p>"
-
         html_content = f"""
         <p><strong>Note:</strong> Ngoc Quynh cutie. Luv you 🐳</p>
-        
+
         <h3>Manga Database Update DAG - Success Notification</h3>
         <p><strong>Execution Date:</strong> {execution_date}</p>
         <p>The Manga Database Update DAG completed successfully. Below is a summary of the updates:</p>
@@ -493,10 +489,6 @@ def update_manga_database_dag():
             <li><strong>Images Skipped:</strong> {stats.get('image_skipped_count', 0)}</li>
             <li><strong>Images Deleted:</strong> {stats.get('image_deleted_count', 0)}</li>
         </ul>
-        <h4>First 5 Manga Titles Added/Updated:</h4>
-        {manga_list}
-        <h4>First 5 Chapter Titles Added/Updated:</h4>
-        {chapter_list}
         <h4>Additional Information:</h4>
         <p>
             - The DAG fetched manga data from MangaDex using the MangaDex[Manga, Chapter, Image]Crawler.<br>

@@ -14,3 +14,49 @@
 2025-05-14 11:54:48,591 - INFO: MongoDB connection closed in main
 2025-05-14 11:54:48,592 - INFO: Closed MongoDB connection
 2025-05-14 11:54:48,592 - INFO: ==================================================
+2025-05-22 03:38:35,387 - INFO: ==================================================
+2025-05-22 03:38:35,388 - INFO: 📂 Reading data from D:\mangadex-pipeline\data\manga_data.csv (100 rows)...
+2025-05-22 03:38:37,679 - INFO: ✅ Inserted final 100 mangas.
+2025-05-22 03:38:37,680 - INFO: 🎉 Completed! Total 100 manga processed.
+2025-05-22 03:38:37,680 - INFO: ==================================================
+2025-05-22 11:42:30,724 - INFO: ==================================================
+2025-05-22 11:42:30,726 - INFO: 📂 Reading data from D:\mangadex-pipeline\data\manga_data.csv (100 rows)...
+2025-05-22 11:42:33,202 - INFO: ✅ Inserted final 100 mangas.
+2025-05-22 11:42:33,202 - INFO: 🎉 Completed! Total 100 manga processed.
+2025-05-22 11:42:33,203 - INFO: ==================================================
+2025-05-22 11:56:05,865 - INFO: ==================================================
+2025-05-22 11:56:05,866 - INFO: 📂 Reading data from D:\mangadex-pipeline\data\manga_data.csv (100 rows)...
+2025-05-22 11:56:08,309 - INFO: ✅ Inserted final 100 mangas.
+2025-05-22 11:56:08,309 - INFO: 🎉 Completed! Total 100 manga processed.
+2025-05-22 11:56:08,309 - INFO: ==================================================
+2025-05-23 00:43:57,206 - INFO: ==================================================
+2025-05-23 00:43:57,208 - INFO: 📂 Reading data from D:\mangadex-pipeline\data\manga_data.csv (100 rows)...
+2025-05-23 00:43:59,647 - INFO: ✅ Inserted final 100 mangas.
+2025-05-23 00:43:59,647 - INFO: 🎉 Completed! Total 100 manga processed.
+2025-05-23 00:43:59,647 - INFO: ==================================================
+2025-05-23 01:49:25,367 - INFO: ==================================================
+2025-05-23 01:49:25,834 - INFO: 📂 Reading data from D:\mangadex-pipeline\data\manga_data.csv (84936 rows)...
+2025-05-23 01:49:58,891 - INFO: ✅ Inserted 10000 manga into database.
+2025-05-23 01:50:32,556 - INFO: ✅ Inserted 10000 manga into database.
+2025-05-23 01:51:02,157 - INFO: ✅ Inserted 10000 manga into database.
+2025-05-23 01:51:36,403 - INFO: ✅ Inserted 10000 manga into database.
+2025-05-23 01:52:08,134 - INFO: ✅ Inserted 10000 manga into database.
+2025-05-23 01:52:49,553 - INFO: ✅ Inserted 10000 manga into database.
+2025-05-23 01:53:20,541 - INFO: ✅ Inserted 10000 manga into database.
+2025-05-23 01:53:51,581 - INFO: ✅ Inserted 10000 manga into database.
+2025-05-23 01:54:11,472 - ERROR: ❌ Error in inserting manga process: value too long for type character varying(255)
+
+2025-05-23 01:54:11,474 - INFO: ==================================================
+2025-05-23 01:57:10,832 - INFO: ==================================================
+2025-05-23 01:57:11,352 - INFO: 📂 Reading data from D:\mangadex-pipeline\data\manga_data.csv (84936 rows)...
+2025-05-23 01:57:44,245 - INFO: ✅ Inserted 10000 manga into database.
+2025-05-23 01:58:12,939 - INFO: ✅ Inserted 10000 manga into database.
+2025-05-23 01:58:42,689 - INFO: ✅ Inserted 10000 manga into database.
+2025-05-23 01:59:12,527 - INFO: ✅ Inserted 10000 manga into database.
+2025-05-23 01:59:44,190 - INFO: ✅ Inserted 10000 manga into database.
+2025-05-23 02:00:16,535 - INFO: ✅ Inserted 10000 manga into database.
+2025-05-23 02:00:50,201 - INFO: ✅ Inserted 10000 manga into database.
+2025-05-23 02:01:21,528 - INFO: ✅ Inserted 10000 manga into database.
+2025-05-23 02:01:43,830 - INFO: ✅ Inserted final 4936 mangas.
+2025-05-23 02:01:43,830 - INFO: 🎉 Completed! Total 84936 manga processed.
+2025-05-23 02:01:43,834 - INFO: ==================================================

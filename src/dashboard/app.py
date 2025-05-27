@@ -14,9 +14,6 @@ import logging
 # Configure logging
 logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s - %(message)s')
 
-# Load configuration
-config = load_config()
-
 # Initialize session state
 initialize_session_state()
 

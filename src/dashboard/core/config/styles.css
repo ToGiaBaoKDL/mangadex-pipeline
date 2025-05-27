@@ -40,18 +40,12 @@ body {
     transform: translateY(-4px);
 }
 
-/*.insight-box {*/
-/*    background-color: #1e293b; !* dark slate background *!*/
-/*    color: #f1f5f9; !* light text for contrast *!*/
-/*    border-radius: 12px;*/
-/*    padding: 1.5rem;*/
-/*    margin-bottom: 1rem;*/
-/*    border-left: 4px solid #3b82f6; !* vibrant blue accent *!*/
-/*    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
-/*    font-size: 1rem;*/
-/*    line-height: 1.6;*/
-/*}*/
-
+.gradient-text {
+    font-size: 85%;
+    background: -webkit-linear-gradient(#ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
 .sidebar .sidebar-content {
     background-color: #ffffff;
@@ -209,18 +203,6 @@ body {
     visibility: visible;
     opacity: 1;
 }
-
-/*!* Responsive design *!*/
-/*@media (max-width: 600px) {*/
-/*    .insights-carousel {*/
-/*        flex-direction: column;*/
-/*        align-items: center;*/
-/*    }*/
-/*    .insight-card {*/
-/*        flex: 0 0 100%;*/
-/*        max-width: 90%;*/
-/*    }*/
-/*}*/
 
 .insight-card {
     background: linear-gradient(135deg, #ffffff, #f8fafc);

@@ -30,7 +30,7 @@ def load_config():
             "cache_ttl": 1800,
             "page_sizes": [10, 25, 50, 100],
             "default_page_size": 50,
-            "max_search_results": 10
+            "max_search_results": 25
         }
     }
 

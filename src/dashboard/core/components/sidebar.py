@@ -12,6 +12,25 @@ from sqlalchemy.orm import sessionmaker
 def render_sidebar():
     """Render the sidebar with controls."""
     config = load_config()
+    st.session_state.setdefault('status_filter', [])
+    st.session_state.setdefault('genres_filter', [])
+    st.session_state.setdefault('original_language_filter', [])
+    st.session_state.setdefault('selected_manga', None)
+
+    if 'initialized' not in st.session_state:
+        status_options, year_range, genre_options, language_options = load_filter_options()
+        st.session_state.published_year = {
+            'include_null': True,
+            'year_range': year_range
+        }
+        st.session_state.initialized = True
+    else:
+        # Ensure published_year exists
+        st.session_state.setdefault('published_year', {
+            'include_null': True,
+            'year_range': [1900, 2025]
+        })
+
     with st.sidebar:
         st.header("📊 Dashboard Controls")
 
@@ -63,94 +82,93 @@ def render_sidebar():
 
         # Search & Filters
         with st.expander("🔍 Search & Filters", expanded=True):
+            # Manga title searchbox
+            st.info("Other filters are disabled while a manga is selected.")
             selected_manga = st_searchbox(
                 lambda x: search_manga(x, config["app"]["max_search_results"]),
                 placeholder="Search manga title...",
                 key="manga_search",
-                help="Enter a manga title to filter the dataset."
+                help="Enter a manga title to filter the dataset.",
             )
             st.session_state.selected_manga = selected_manga
 
             with st.form("filters_form"):
-                status_options, lang_options, year_range, genre_options, language_options = load_filter_options()
+                status_options, year_range, genre_options, language_options = load_filter_options()
 
-                # Initialize year_filter if not set or if it's a tuple (legacy)
-                if 'year_filter' not in st.session_state or isinstance(st.session_state.year_filter, tuple):
-                    default_range = st.session_state.get('year_filter', year_range)
+                # Initialize published_year if not set or if it's a tuple (legacy)
+                if 'published_year' not in st.session_state or isinstance(st.session_state.published_year, tuple):
+                    default_range = st.session_state.get('published_year', year_range)
                     if isinstance(default_range, tuple):
                         default_range = list(default_range)
-                    st.session_state.year_filter = {
-                        'include_null': False,
+                    st.session_state.published_year = {
+                        'include_null': True,
                         'year_range': default_range
                     }
 
-                # Year filter: checkbox for None and slider for range
                 include_null_year = st.checkbox(
                     "Include Manga with No Published Year",
-                    value=st.session_state.year_filter.get('include_null', False),
+                    value=st.session_state.published_year.get('include_null', True),
+                    key="include_null_year",
                     help="Check to include manga with no published year."
                 )
                 selected_year_range = st.slider(
                     "Published Year",
                     year_range[0],
                     year_range[1],
-                    st.session_state.year_filter.get('year_range', year_range),
+                    st.session_state.published_year.get('year_range', year_range),
+                    key="year_range_slider",
                     help="Select a year range to filter manga."
                 )
 
                 selected_status = st.multiselect(
                     "Manga Status",
                     status_options,
-                    default=st.session_state.status_filter,
+                    default=None if st.session_state.status_filter == [] else st.session_state.status_filter,
+                    key="status_multiselect",
                     help="Select manga statuses to filter."
                 )
                 selected_genres = st.multiselect(
                     "Genres",
                     genre_options,
-                    default=st.session_state.get('genres_filter', []),
+                    default=None if st.session_state.genres_filter == [] else st.session_state.genres_filter,
+                    key="genres_multiselect",
                     help="Select genres to filter manga."
-                )
-                selected_lang = st.multiselect(
-                    "Chapter Language",
-                    lang_options,
-                    default=st.session_state.lang_filter,
-                    help="Select chapter languages to filter."
                 )
                 selected_orig_lang = st.multiselect(
                     "Original Language",
                     language_options,
-                    default=st.session_state.get('original_language_filter', []),
+                    default=None if st.session_state.original_language_filter == [] else st.session_state.original_language_filter,
+                    key="orig_lang_multiselect",
                     help="Select original languages to filter manga."
                 )
 
                 col1, col2 = st.columns(2)
                 with col1:
                     if st.form_submit_button("Apply Filters"):
-                        st.session_state.manga_page = 0
-                        st.session_state.chapter_page = 0
                         st.session_state.status_filter = selected_status
                         st.session_state.genres_filter = selected_genres
-                        st.session_state.lang_filter = selected_lang
                         st.session_state.original_language_filter = selected_orig_lang
-                        st.session_state.year_filter = {
+                        st.session_state.published_year = {
                             'include_null': include_null_year,
                             'year_range': list(selected_year_range)
                         }
+                        st.cache_data.clear()
                         st.success("Filters applied!")
+                        st.rerun()
                 with col2:
                     if st.form_submit_button("Reset Filters"):
-                        st.session_state.manga_page = 0
-                        st.session_state.chapter_page = 0
-                        st.session_state.status_filter = status_options
-                        st.session_state.genres_filter = genre_options
-                        st.session_state.lang_filter = lang_options
-                        st.session_state.original_language_filter = language_options
-                        st.session_state.year_filter = {
+                        st.session_state.status_filter = []
+                        st.session_state.genres_filter = []
+                        st.session_state.original_language_filter = []
+                        st.session_state.published_year = {
                             'include_null': True,
                             'year_range': year_range
                         }
                         st.session_state.selected_manga = None
-                        st.success("Filters reset!")
+                        st.session_state.pop("manga_search", None)
+                        st.cache_data.clear()
+                        st.success("Filters reset to original state!")
+                        st.rerun()
 
         # Feedback
         with st.expander("💬 Feedback", expanded=True):
@@ -168,3 +186,4 @@ def render_sidebar():
                                 st.error(f"Error saving feedback: {str(e)}")
                     else:
                         st.warning("Please enter feedback before submitting.")
+        # st.write(st.session_state.manga_search)

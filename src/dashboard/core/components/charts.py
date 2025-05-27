@@ -1,5 +1,6 @@
 import plotly.express as px
 import plotly.graph_objects as go
+from scipy.signal import savgol_filter
 
 
 def create_status_pie(df):
@@ -52,25 +53,39 @@ def create_genre_bar(df):
     return fig
 
 
-def create_year_vs_chapters_scatter(df):
-    """Create scatter plot of publication year vs. chapter count."""
+def create_year_vs_mangas_histogram(df):
+    """Create histogram of manga count by publication year."""
     if df.empty or 'published_year' not in df.columns:
         return None
-    fig = px.scatter(
-        df,
-        x='published_year',
-        y='chapter_count',
-        hover_data=['title'],
-        title="📅 Publication Year vs. Chapter Count",
-        color='chapter_count',
-        color_continuous_scale='Viridis',
-        size='chapter_count'
-    )
+
+    grouped = df.groupby('published_year').size().reset_index(name='manga_count')
+    grouped = grouped.sort_values('published_year')
+
+    y_smooth = savgol_filter(grouped['manga_count'], window_length=5, polyorder=2)
+    fig = go.Figure()
+
+    fig.add_trace(go.Bar(
+        x=grouped['published_year'],
+        y=grouped['manga_count'],
+        name='Manga Count',
+        marker_color='rgba(100, 149, 237, 0.7)'
+    ))
+
+    fig.add_trace(go.Scatter(
+        x=grouped['published_year'],
+        y=y_smooth,
+        mode='lines',
+        name='Trend',
+        line=dict(color='firebrick', width=2)
+    ))
+
     fig.update_layout(
+        title="📊 Manga Count by Year with Trendline",
         xaxis_title="Publication Year",
-        yaxis_title="Chapter Count",
+        yaxis_title="Manga Count",
         title_font=dict(size=18, color="#FF7F00")
     )
+
     return fig
 
 
@@ -131,40 +146,6 @@ def create_genre_cooccurrence_heatmap(df):
         xaxis=dict(tickangle=45),
         height=600,
         title_font=dict(size=18, color="#FF7F00")
-    )
-    return fig
-
-
-def create_avg_pages_bar(df):
-    if df.empty or 'title' not in df.columns or 'avg_pages' not in df.columns:
-        return None
-    fig = px.bar(
-        df,
-        x='title',
-        y='avg_pages',
-        title="📄 Average Pages per Chapter by Manga",
-        color='avg_pages',
-        color_continuous_scale='Viridis',
-        text='avg_pages'
-    )
-    fig.update_layout(
-        xaxis_title="Manga Title",
-        yaxis_title="Average Pages",
-        xaxis_tickangle=45,
-        showlegend=False,
-        margin=dict(t=60, l=25, r=25, b=80),
-        title_x=0.0,  # top-left
-        title_font=dict(size=18, color="#FF7F00"),
-        font=dict(size=12),
-        uniformtext_minsize=8,
-        uniformtext_mode='hide',
-    )
-    fig.update_traces(
-        texttemplate='%{text:.1f}',
-        textposition='outside',
-        cliponaxis=False,  # prevents text from being clipped
-        hovertemplate="Manga: %{x}<br>Avg Pages: %{y:.1f}<extra></extra>",
-        marker=dict(line=dict(color='#ffffff', width=1))
     )
     return fig
 

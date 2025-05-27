@@ -31,7 +31,7 @@ def fetch_cover_image(url):
             "AppleWebKit/537.36 (KHTML, like Gecko) "
             "Chrome/114.0.0.0 Safari/537.36"
         ),
-        "Referer": "https://mangadex.org/",
+        "Referer": "https://uploads.mangadex.org/",
         "Accept": "image/avif,image/webp,image/apng,image/*,*/*;q=0.8",
         "Accept-Language": "en-US,en;q=0.9",
         "Accept-Encoding": "gzip, deflate, br",

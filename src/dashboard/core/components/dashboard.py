@@ -41,6 +41,7 @@ def fetch_cover_image(url):
     }
     try:
         response = requests.get(url, headers=headers)
+        st.write(response.content)
         if response.status_code == 200:
             return response.content
         else:
@@ -556,19 +557,21 @@ def load_and_display_cover(selected_manga=None):
         """
 
         # Display the enhanced cover
-        # st.image(manga_data["cover_url"])
         image_bytes = fetch_cover_image(manga_data["cover_url"])
-        if image_bytes:
-            img_base64 = image_to_base64(image_bytes)
-            cover_html = f"""
-            <div class="single-cover-item">
-                <img src="data:image/jpeg;base64,{img_base64}" alt="{manga_data['title']}" loading="lazy">
-                <div class="single-cover-tooltip">{tooltip_content}</div>
-                <div class="single-cover-caption">{manga_data['title']}</div>
-            </div>
-            """
-
-            st.markdown(cover_html, unsafe_allow_html=True)
+        img_base64 = image_to_base64(image_bytes)
+        st.image("data:image/png;base64,%s"%img_base64)
+        # image_bytes = fetch_cover_image(manga_data["cover_url"])
+        # if image_bytes:
+        #     img_base64 = image_to_base64(image_bytes)
+        #     cover_html = f"""
+        #     <div class="single-cover-item">
+        #         <img src="data:image/jpeg;base64,{img_base64}" alt="{manga_data['title']}" loading="lazy">
+        #         <div class="single-cover-tooltip">{tooltip_content}</div>
+        #         <div class="single-cover-caption">{manga_data['title']}</div>
+        #     </div>
+        #     """
+        #
+        #     st.markdown(cover_html, unsafe_allow_html=True)
 
     except Exception as e:
         st.error(f"❌ Error loading cover: {str(e)}")

@@ -3,7 +3,7 @@ import pandas as pd
 from src.dashboard.core.database.postgres import (
     get_postgres_engine
 )
-from src.dashboard.core.utils.export import export_data, format_number
+from src.dashboard.core.utils.export import format_number
 from src.dashboard.core.utils.insights import generate_insights
 from src.dashboard.core.utils.search import sanitize_input
 from src.dashboard.core.components.charts import (
@@ -14,12 +14,35 @@ from src.dashboard.core.components.charts import (
     create_genre_cooccurrence_heatmap,
     create_chapter_counts_bar
 )
+import requests
 from sqlalchemy import text
 import re
 import json
+import base64
 
 
 SAMPLE_ROWS = 100
+
+
+def fetch_cover_image(url):
+    headers = {
+        "User-Agent": "Mozilla/5.0",
+        "Referer": "https://mangadex.org/"
+    }
+    try:
+        response = requests.get(url, headers=headers)
+        if response.status_code == 200:
+            return response.content
+        else:
+            st.warning(f"Cannot parse image: {response.status_code}")
+            return None
+    except Exception as e:
+        st.error(f"Error when fetching image: {e}")
+        return None
+
+
+def image_to_base64(image_bytes):
+    return base64.b64encode(image_bytes).decode("utf-8")
 
 
 @st.cache_data(ttl=3600)
@@ -523,15 +546,18 @@ def load_and_display_cover(selected_manga=None):
         """
 
         # Display the enhanced cover
-        cover_html = f"""
-        <div class="single-cover-item">
-            <img src="{manga_data['cover_url']}" alt="{manga_data['title']}" loading="lazy">
-            <div class="single-cover-tooltip">{tooltip_content}</div>
-            <div class="single-cover-caption">{manga_data['title']}</div>
-        </div>
-        """
+        image_bytes = fetch_cover_image(manga_data["cover_url"])
+        if image_bytes:
+            img_base64 = image_to_base64(image_bytes)
+            cover_html = f"""
+            <div class="single-cover-item">
+                <img src="data:image/jpeg;base64,{img_base64}" alt="{manga_data['title']}" loading="lazy">
+                <div class="single-cover-tooltip">{tooltip_content}</div>
+                <div class="single-cover-caption">{manga_data['title']}</div>
+            </div>
+            """
 
-        st.markdown(cover_html, unsafe_allow_html=True)
+            st.markdown(cover_html, unsafe_allow_html=True)
 
     except Exception as e:
         st.error(f"❌ Error loading cover: {str(e)}")
@@ -681,7 +707,7 @@ def display_random_cover_images(manga_df):
 
     .cover-tooltip {
         visibility: hidden;
-        width: 280px;
+        width: 250px;
         background: linear-gradient(135deg, #2c3e50, #34495e);
         color: #fff;
         text-align: left;
@@ -975,16 +1001,19 @@ def display_random_cover_images(manga_df):
                     """
 
                     # Display enhanced cover with tooltip
-                    st.markdown(
-                        f"""
-                        <div class="cover-item">
-                            <img src="{cover['cover_url']}" alt="{cover['title']}" loading="lazy">
-                            <div class="cover-tooltip">{tooltip_content}</div>
-                            <div class="cover-caption">{cover['title']}</div>
-                        </div>
-                        """,
-                        unsafe_allow_html=True
-                    )
+                    image_bytes = fetch_cover_image(cover["cover_url"])
+                    if image_bytes is not None:
+                        img_base64 = image_to_base64(image_bytes)
+                        st.markdown(
+                            f"""
+                            <div class="cover-item">
+                                <img src="data:image/jpeg;base64,{img_base64}" alt="{cover['title']}" loading="lazy">
+                                <div class="cover-tooltip">{tooltip_content}</div>
+                                <div class="cover-caption">{cover['title']}</div>
+                            </div>
+                            """,
+                            unsafe_allow_html=True
+                        )
 
             # Add carousel indicators
             if len(covers) > 3:

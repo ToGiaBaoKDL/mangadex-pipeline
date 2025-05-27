@@ -41,7 +41,7 @@ def fetch_cover_image(url):
     }
     try:
         response = requests.get(url, headers=headers)
-        st.write(response.status_code)
+        st.write(response)
         if response.status_code == 200:
             return response.content
         else:

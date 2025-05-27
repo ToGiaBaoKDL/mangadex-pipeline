@@ -26,8 +26,18 @@ SAMPLE_ROWS = 100
 
 def fetch_cover_image(url):
     headers = {
-        "User-Agent": "Mozilla/5.0",
-        "Referer": "https://mangadex.org/"
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/114.0.0.0 Safari/537.36"
+        ),
+        "Referer": "https://mangadex.org/",
+        "Accept": "image/avif,image/webp,image/apng,image/*,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Connection": "keep-alive",
+        "Cache-Control": "no-cache",
+        "Pragma": "no-cache",
     }
     try:
         response = requests.get(url, headers=headers)
@@ -546,7 +556,7 @@ def load_and_display_cover(selected_manga=None):
         """
 
         # Display the enhanced cover
-        st.image(manga_data["cover_url"])
+        # st.image(manga_data["cover_url"])
         image_bytes = fetch_cover_image(manga_data["cover_url"])
         if image_bytes:
             img_base64 = image_to_base64(image_bytes)

@@ -152,7 +152,7 @@
       <workItem from="1747935541040" duration="9554000" />
       <workItem from="1747974631438" duration="45633000" />
       <workItem from="1748076281088" duration="78138000" />
-      <workItem from="1748344412522" duration="25085000" />
+      <workItem from="1748344412522" duration="28367000" />
     </task>
     <task id="LOCAL-00001" summary="Delete files in airflow/logs">
       <option name="closed" value="true" />
@@ -306,7 +306,23 @@
       <option name="project" value="LOCAL" />
       <updated>1748380483976</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Fixing cannot loading image on streamlit cloud">
+      <option name="closed" value="true" />
+      <created>1748381308929</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1748381308929</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Fixing cannot loading image on streamlit cloud">
+      <option name="closed" value="true" />
+      <created>1748381624069</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1748381624069</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

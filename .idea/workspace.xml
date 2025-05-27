@@ -152,7 +152,7 @@
       <workItem from="1747935541040" duration="9554000" />
       <workItem from="1747974631438" duration="45633000" />
       <workItem from="1748076281088" duration="78138000" />
-      <workItem from="1748344412522" duration="23893000" />
+      <workItem from="1748344412522" duration="25085000" />
     </task>
     <task id="LOCAL-00001" summary="Delete files in airflow/logs">
       <option name="closed" value="true" />
@@ -298,7 +298,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748377546501</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Fixing cannot loading image on streamlit cloud">
+      <option name="closed" value="true" />
+      <created>1748380483976</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1748380483976</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,7 +344,8 @@
     <MESSAGE value="Update usage instructions in README" />
     <MESSAGE value="Adding PYTHONPATH in app.py to deploy on Streamlit Cloud" />
     <MESSAGE value="Adding display manga cover in streamlit app" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding display manga cover in streamlit app" />
+    <MESSAGE value="Fixing cannot loading image on streamlit cloud" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing cannot loading image on streamlit cloud" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/mangadex_pipeline$app.coverage" NAME="app Coverage Results" MODIFIED="1747648323119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />

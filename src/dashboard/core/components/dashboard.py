@@ -546,18 +546,19 @@ def load_and_display_cover(selected_manga=None):
         """
 
         # Display the enhanced cover
-        image_bytes = fetch_cover_image(manga_data["cover_url"])
-        if image_bytes:
-            img_base64 = image_to_base64(image_bytes)
-            cover_html = f"""
-            <div class="single-cover-item">
-                <img src="data:image/jpeg;base64,{img_base64}" alt="{manga_data['title']}" loading="lazy">
-                <div class="single-cover-tooltip">{tooltip_content}</div>
-                <div class="single-cover-caption">{manga_data['title']}</div>
-            </div>
-            """
-
-            st.markdown(cover_html, unsafe_allow_html=True)
+        st.image(manga_data["cover_url"])
+        # image_bytes = fetch_cover_image(manga_data["cover_url"])
+        # if image_bytes:
+        #     img_base64 = image_to_base64(image_bytes)
+        #     cover_html = f"""
+        #     <div class="single-cover-item">
+        #         <img src="data:image/jpeg;base64,{img_base64}" alt="{manga_data['title']}" loading="lazy">
+        #         <div class="single-cover-tooltip">{tooltip_content}</div>
+        #         <div class="single-cover-caption">{manga_data['title']}</div>
+        #     </div>
+        #     """
+        #
+        #     st.markdown(cover_html, unsafe_allow_html=True)
 
     except Exception as e:
         st.error(f"❌ Error loading cover: {str(e)}")
@@ -1001,19 +1002,20 @@ def display_random_cover_images(manga_df):
                     """
 
                     # Display enhanced cover with tooltip
-                    image_bytes = fetch_cover_image(cover["cover_url"])
-                    if image_bytes is not None:
-                        img_base64 = image_to_base64(image_bytes)
-                        st.markdown(
-                            f"""
-                            <div class="cover-item">
-                                <img src="data:image/jpeg;base64,{img_base64}" alt="{cover['title']}" loading="lazy">
-                                <div class="cover-tooltip">{tooltip_content}</div>
-                                <div class="cover-caption">{cover['title']}</div>
-                            </div>
-                            """,
-                            unsafe_allow_html=True
-                        )
+                    st.image(cover["cover_url"])
+                    # image_bytes = fetch_cover_image(cover["cover_url"])
+                    # if image_bytes is not None:
+                    #     img_base64 = image_to_base64(image_bytes)
+                    #     st.markdown(
+                    #         f"""
+                    #         <div class="cover-item">
+                    #             <img src="data:image/jpeg;base64,{img_base64}" alt="{cover['title']}" loading="lazy">
+                    #             <div class="cover-tooltip">{tooltip_content}</div>
+                    #             <div class="cover-caption">{cover['title']}</div>
+                    #         </div>
+                    #         """,
+                    #         unsafe_allow_html=True
+                    #     )
 
             # Add carousel indicators
             if len(covers) > 3:

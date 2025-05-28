@@ -278,62 +278,63 @@ def generate_insights(manga_filters=None, selected_manga=None):
         return False, ["No insights available due to data retrieval issues."]
 
     if summary['total_manga'] == 0:
-        return False, ["No manga match the current filters."]
+        if not st.session_state.selected_manga:
+            return False, ["No manga match the current filters."]
 
-    if summary['total_manga'] == 1 and selected_manga:
-        # Single manga case: Fetch external data and generate insights
-        manga_title = selected_manga
-        search_data = search_manga_info(manga_title)
+        if selected_manga:
+            # Single manga case: Fetch external data and generate insights
+            manga_title = selected_manga
+            search_data = search_manga_info(manga_title)
 
-        def build_prompt_single_manga(selected_manga, search_data) -> str:
-            # Format search data
-            search_summary = []
-            if search_data["synopsis"]:
-                search_summary.append(f"- Synopsis: {search_data['synopsis']}")
-            if search_data["author"]:
-                search_summary.append(f"- Author: {search_data['author']}")
-            if search_data["popularity"]:
-                search_summary.append(f"- Popularity: {search_data['popularity']}")
-            if search_data["additional_info"]:
-                search_summary.append(f"- Additional Info: {'; '.join(search_data['additional_info'])}")
+            def build_prompt_single_manga(selected_manga, search_data) -> str:
+                # Format search data
+                search_summary = []
+                if search_data["synopsis"]:
+                    search_summary.append(f"- Synopsis: {search_data['synopsis']}")
+                if search_data["author"]:
+                    search_summary.append(f"- Author: {search_data['author']}")
+                if search_data["popularity"]:
+                    search_summary.append(f"- Popularity: {search_data['popularity']}")
+                if search_data["additional_info"]:
+                    search_summary.append(f"- Additional Info: {'; '.join(search_data['additional_info'])}")
 
-            return f"""You are an assistant that writes short 2-3 sentences, 
-            interesting facts about a manga based on the manga title provided below.
-            
-            Your task:
-            - Generate 4–5 unique insights or trivia about this manga.
-            - Use your own knowledge if needed. Avoid hallucination.
-            - Return the output as a **valid JSON array only** (no extra text, no comments).
-            - Each item must follow this schema:
-              {{
-                "text": "...",
-                "tooltip": "...",  // One of: "Publication", "Status", "Genre", "Language", "Chapter", "Update", "General"
-                "icon": "..."      // Emoji representing the tooltip
-              }}
-            Try to don't have duplicate category in the response.
-            Wrap the entire JSON array in triple backticks with 'json' for proper formatting:
+                return f"""You are an assistant that writes short 2-3 sentences, 
+                interesting facts about a manga based on the manga title provided below.
+                
+                Your task:
+                - Generate 4–5 unique insights or trivia about this manga.
+                - Use your own knowledge if needed. Avoid hallucination.
+                - Return the output as a **valid JSON array only** (no extra text, no comments).
+                - Each item must follow this schema:
+                  {{
+                    "text": "...",
+                    "tooltip": "...",  // One of: "Publication", "Status", "Genre", "Language", "Chapter", "Update", "General"
+                    "icon": "..."      // Emoji representing the tooltip
+                  }}
+                Try to don't have duplicate category in the response.
+                Wrap the entire JSON array in triple backticks with 'json' for proper formatting:
+    
+                ```json
+                **Manga Info**:
+                {selected_manga}
+                **External Search Data**:
+                {chr(10).join(search_summary) if search_summary else '- None'}
+                """
 
-            ```json
-            **Manga Info**:
-            {selected_manga}
-            **External Search Data**:
-            {chr(10).join(search_summary) if search_summary else '- None'}
-            """
+            llm = ChatGoogleGenerativeAI(model=GEMINI_MODEL, temperature=0.1)
+            response = llm.invoke(build_prompt_single_manga(selected_manga, search_data))
+            content = getattr(response, 'content', str(response))
+            json_str = re.search(r"```json\s*(.*?)\s*```", content, re.DOTALL)
+            if json_str:
+                content = json_str.group(1)
 
-        llm = ChatGoogleGenerativeAI(model=GEMINI_MODEL, temperature=0.1)
-        response = llm.invoke(build_prompt_single_manga(selected_manga, search_data))
-        content = getattr(response, 'content', str(response))
-        json_str = re.search(r"```json\s*(.*?)\s*```", content, re.DOTALL)
-        if json_str:
-            content = json_str.group(1)
+            try:
+                parsed_insights = json.loads(content)
+            except json.JSONDecodeError as e:
+                st.error(f"Failed to parse LLM response: {e}")
+                return False, ["Error generating insights for single manga."]
 
-        try:
-            parsed_insights = json.loads(content)
-        except json.JSONDecodeError as e:
-            st.error(f"Failed to parse LLM response: {e}")
-            return False, ["Error generating insights for single manga."]
-
-        return True, parsed_insights
+            return True, parsed_insights
 
     # Multiple manga case: Use existing logic for summary-based insights
     top_genres = ', '.join([

@@ -53,7 +53,7 @@ The Streamlit dashboard provides:
 ### Installation
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/mangadex-pipeline.git
+git clone https://github.com/ToGiaBaoKDL/mangadex-pipeline.git
 cd mangadex-pipeline
 ```
 
@@ -158,7 +158,7 @@ Bảng điều khiển Streamlit cung cấp:
 ### Cài đặt
 1. Clone repository:
 ```bash
-git clone https://github.com/yourusername/mangadex-pipeline.git
+git clone https://github.com/ToGiaBaoKDL/mangadex-pipeline.git
 cd mangadex-pipeline
 ```
 

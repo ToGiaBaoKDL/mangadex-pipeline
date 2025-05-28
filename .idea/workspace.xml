@@ -155,7 +155,7 @@
       <workItem from="1747974631438" duration="45633000" />
       <workItem from="1748076281088" duration="78138000" />
       <workItem from="1748344412522" duration="33308000" />
-      <workItem from="1748391549979" duration="18059000" />
+      <workItem from="1748391549979" duration="19888000" />
     </task>
     <task id="LOCAL-00001" summary="Delete files in airflow/logs">
       <option name="closed" value="true" />
@@ -405,7 +405,23 @@
       <option name="project" value="LOCAL" />
       <updated>1748393915202</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Fixing minor error in displaying charts and images">
+      <option name="closed" value="true" />
+      <created>1748458468142</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1748458468142</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Fixing minor error in displaying charts and images">
+      <option name="closed" value="true" />
+      <created>1748458474375</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1748458474375</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -444,7 +460,8 @@
     <MESSAGE value="Adding PYTHONPATH in app.py to deploy on Streamlit Cloud" />
     <MESSAGE value="Adding display manga cover in streamlit app" />
     <MESSAGE value="Fixing cannot loading image on streamlit cloud" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing cannot loading image on streamlit cloud" />
+    <MESSAGE value="Fixing minor error in displaying charts and images" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing minor error in displaying charts and images" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/mangadex_pipeline$app.coverage" NAME="app Coverage Results" MODIFIED="1747648323119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />

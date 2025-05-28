@@ -16,6 +16,7 @@ def render_sidebar():
     st.session_state.setdefault('genres_filter', [])
     st.session_state.setdefault('original_language_filter', [])
     st.session_state.setdefault('selected_manga', None)
+    st.session_state.setdefault('manga_filters_changed', False)
 
     if 'initialized' not in st.session_state:
         status_options, year_range, genre_options, language_options = load_filter_options()
@@ -95,15 +96,15 @@ def render_sidebar():
             with st.form("filters_form"):
                 status_options, year_range, genre_options, language_options = load_filter_options()
 
-                # Initialize published_year if not set or if it's a tuple (legacy)
-                if 'published_year' not in st.session_state or isinstance(st.session_state.published_year, tuple):
-                    default_range = st.session_state.get('published_year', year_range)
-                    if isinstance(default_range, tuple):
-                        default_range = list(default_range)
-                    st.session_state.published_year = {
-                        'include_null': True,
-                        'year_range': default_range
-                    }
+                # # Initialize published_year if not set or if it's a tuple (legacy)
+                # if 'published_year' not in st.session_state or isinstance(st.session_state.published_year, tuple):
+                #     default_range = st.session_state.get('published_year', year_range)
+                #     if isinstance(default_range, tuple):
+                #         default_range = list(default_range)
+                #     st.session_state.published_year = {
+                #         'include_null': True,
+                #         'year_range': default_range
+                #     }
 
                 include_null_year = st.checkbox(
                     "Include Manga with No Published Year",
@@ -152,6 +153,7 @@ def render_sidebar():
                             'include_null': include_null_year,
                             'year_range': list(selected_year_range)
                         }
+                        st.session_state.manga_filters_changed = True
                         st.cache_data.clear()
                         st.success("Filters applied!")
                         st.rerun()
@@ -186,4 +188,3 @@ def render_sidebar():
                                 st.error(f"Error saving feedback: {str(e)}")
                     else:
                         st.warning("Please enter feedback before submitting.")
-        # st.write(st.session_state.manga_search)

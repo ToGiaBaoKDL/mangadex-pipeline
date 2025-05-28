@@ -8,7 +8,6 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".
 from src.dashboard.core.components.sidebar import render_sidebar
 from src.dashboard.core.components.dashboard import render_dashboard
 from src.dashboard.core.utils.data_cleaning import initialize_session_state
-from src.dashboard.core.config.config import load_config
 import logging
 
 # Configure logging

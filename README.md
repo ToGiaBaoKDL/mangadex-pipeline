@@ -2,6 +2,13 @@
 
 [English](#english) | [Tiếng Việt](#tiếng-việt)
 
+### 🔗 Live Demo
+
+Explore the interactive dashboard here:  
+👉 [https://tgb-mangadex-pipeline.onrender.com/](https://tgb-mangadex-pipeline.onrender.com/)
+
+> ⚠️ *Note: The demo may take a few seconds to load as it connects to the remote PostgreSQL server.*
+
 ## English
 
 ### Overview
